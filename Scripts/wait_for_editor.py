@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Block until the editor's MCP server (:8000) serves the tools this project drives it with.
+"""Block until the editor's MCP server (unreal_mcp.PORT) serves the tools this project drives it with.
 Exit 0 = ready; exit 1 = 8-minute timeout. Used after every scripted editor launch.
 
 ON TIMEOUT THIS SAYS WHY. A timeout has several causes and they need different actions, so the cause is named
@@ -16,7 +16,7 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import unreal_mcp  # noqa: E402
 
-PORT = 8000
+PORT = unreal_mcp.PORT
 TIMEOUT_S = 480
 START_FLAG = '-ModelContextProtocolStartServer'
 # What the scripts in this folder call: the editor's Python tool, and this project's own tools.

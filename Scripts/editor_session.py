@@ -43,7 +43,7 @@ def editor_exe():
     return os.path.join(str(resolve_engine()), 'Engine', 'Binaries', 'Win64', 'UnrealEditor.exe')
 
 
-PORT = 8000                 # the editor's own MCP server (unreal_mcp.DEFAULT_URL)
+PORT = unreal_mcp.PORT      # the editor's own MCP server (unreal_mcp.DEFAULT_URL)
 # The server does not start by itself, so the launch asks for it. It has no authentication: it must stay on
 # this machine (the engine's default bind), which is why nothing here passes an address.
 MCP_SERVER = ['-ModelContextProtocolStartServer', '-ModelContextProtocolPort=%d' % PORT]

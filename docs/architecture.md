@@ -92,7 +92,7 @@ identically by the tools and by the automation tests, so the gate and the intera
 ## One server, one transport
 
 ```
-host script ── Scripts/editor_ops.py ── Scripts/unreal_mcp.py ── HTTP ──► 127.0.0.1:8000  (the engine's MCP server,
+host script ── Scripts/editor_ops.py ── Scripts/unreal_mcp.py ── HTTP ──► 127.0.0.1:8090  (the engine's MCP server,
                                                                           inside the one UnrealEditor process)
 ```
 

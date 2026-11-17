@@ -1,4 +1,4 @@
-"""Host-side client for Epic's Unreal MCP server (the ModelContextProtocol plugin, default :8000/mcp).
+"""Host-side client for Epic's Unreal MCP server (the ModelContextProtocol plugin, launched on unreal_mcp.PORT, /mcp).
 
     from unreal_mcp import Client
     with Client() as mcp:
@@ -54,7 +54,12 @@ import threading
 import time
 import urllib.parse
 
-DEFAULT_URL = 'http://127.0.0.1:8000/mcp'
+# Not the engine's default 8000. Windows can reserve a block of ports that covers 8000 (WinNAT's dynamic exclusions
+# for Hyper-V, WSL and Docker; see `netsh interface ipv4 show excludedportrange protocol=tcp`). The editor then
+# logs "HttpListener unable to bind to 127.0.0.1:8000" even though nothing is listening there. editor_session.py
+# passes this port on the editor's command line; .mcp.json names the same one.
+PORT = 8090
+DEFAULT_URL = 'http://127.0.0.1:%d/mcp' % PORT
 PROTOCOL_VERSION = '2025-06-18'     # an initialization version on both 5.8 and 5.9 (ModelContextProtocolVersion.cpp)
 PYTHON_TOOLSET = 'editor_toolset.toolsets.python_scripting.PythonScriptingTools'   # EditorToolset plugin, 5.9
 # what the 5.9 server writes, and only then, when it refuses a tools/call because the editor is blocked

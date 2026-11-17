@@ -1,4 +1,4 @@
-"""What the editor's MCP server (:8000/mcp) exposes, from a normal shell with the editor up, and whether
+"""What the editor's MCP server (unreal_mcp.PORT, /mcp) exposes, from a normal shell with the editor up, and whether
 MotionTerminal's toolsets are among them.
 
     python Scripts/epic_mcp_probe.py                              list toolsets; exit 0 iff ours are listed
