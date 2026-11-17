@@ -1,0 +1,23 @@
+{
+  "attribution": "The data used in this project was obtained from mocap.cs.cmu.edu. The database was created with funding from NSF EIA-0196217.",
+  "checked_by": "sushiHex",
+  "checked_on": "2026-11-17",
+  "facts": {
+    "fps_source": {
+      "provenance": "verified",
+      "url": "http://mocap.cs.cmu.edu/search.php?subjectnumber=7",
+      "value": 120
+    }
+  },
+  "library": "cmu",
+  "permits": {
+    "commercial": null,
+    "derivatives": true,
+    "public_display": true,
+    "redistribute_raw": true
+  },
+  "status": "checked",
+  "terms_excerpt": "The motion capture data may be copied, modified, or redistributed without permission.",
+  "terms_sha256": "518f04f07d7b0e0e8b605089f1033320d3ad5aa092f9d164f2c76c484a3f4f4e",
+  "terms_url": "http://mocap.cs.cmu.edu/faqs.php"
+}

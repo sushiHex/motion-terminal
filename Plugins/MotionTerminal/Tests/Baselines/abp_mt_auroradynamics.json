@@ -1,0 +1,77 @@
+{
+	"schemaVersion": 2,
+	"animBlueprint": "/Game/MT/Aurora/ABP_MT_AuroraDynamics.ABP_MT_AuroraDynamics",
+	"targetSkeleton": "/Game/ParagonAurora/Characters/Heroes/Aurora/Meshes/Aurora_Skeleton.Aurora_Skeleton",
+	"graphs": [
+		{
+			"name": "AnimGraph",
+			"nodes": [
+				{
+					"class": "AnimGraphNode_ComponentToLocalSpace",
+					"title": "Component To Local"
+				},
+				{
+					"class": "AnimGraphNode_ComponentToLocalSpace",
+					"title": "Component To Local"
+				},
+				{
+					"class": "AnimGraphNode_ControlRig",
+					"title": "Control Rig"
+				},
+				{
+					"class": "AnimGraphNode_ControlRig",
+					"title": "Control Rig"
+				},
+				{
+					"class": "AnimGraphNode_CopyBone",
+					"title": "Copy Bone - Source Bone: foot_l - Target Bone: ik_foot_l"
+				},
+				{
+					"class": "AnimGraphNode_CopyBone",
+					"title": "Copy Bone - Source Bone: foot_r - Target Bone: ik_foot_r"
+				},
+				{
+					"class": "AnimGraphNode_LayeredBoneBlend",
+					"title": "Layered blend per bone"
+				},
+				{
+					"class": "AnimGraphNode_LegIK",
+					"title": "Leg IK"
+				},
+				{
+					"class": "AnimGraphNode_LinkedInputPose",
+					"title": "Input Pose"
+				},
+				{
+					"class": "AnimGraphNode_LocalToComponentSpace",
+					"title": "Local To Component"
+				},
+				{
+					"class": "AnimGraphNode_LocalToComponentSpace",
+					"title": "Local To Component"
+				},
+				{
+					"class": "AnimGraphNode_RigidBodyWithControl",
+					"title": "RigidBodyWithControl"
+				},
+				{
+					"class": "AnimGraphNode_Root",
+					"title": "Output Pose"
+				},
+				{
+					"class": "AnimGraphNode_SequenceEvaluator",
+					"title": "Sequence Evaluator (by time) 'Jog_Fwd'",
+					"asset": "/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Jog_Fwd.Jog_Fwd"
+				},
+				{
+					"class": "K2Node_VariableGet",
+					"title": "Get DynamicsAlpha"
+				},
+				{
+					"class": "K2Node_VariableGet",
+					"title": "Get HitReactionAlpha"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,38 @@
+# N vs anim-eval ms sweep for the army stage. Measured LIVE in the interactive editor (real RHI, PIE, STATGROUP_Anim
+# via an editor stat-group read) on a multi-core desktop CPU, SHIPPED tier config (6:8:32
+# hero/mid/far scaled to N; per-tier URO + forced LOD; NO global a.URO.ForceAnimRate).
+#
+# ============================================================================================
+# CRITICAL: two conditions. DRIVEN is the shipped reality; STANDING was a measurement error.
+# ============================================================================================
+# condition=driven  : the army_conductor is RUNNING — speed/turn/aim waves + montage sectors, exactly what the
+#                     shipped army stage does. THIS is the real cost of what ships. (Re-measured after a later
+#                     check found the original sweep never drove the crowd.)
+# condition=standing: the crowd is spawned but IDLE (no conductor). The original sweep measured ONLY this by
+#                     mistake (army_budget_probe.py spawns + reads, never starts the conductor), so the old
+#                     "8.6 ms worker / gt 3.33 comfortable, keep N=46" conclusion rested on idle-graph cost,
+#                     NOT the driven load. Kept here for the ~1.4-1.8x driven/standing comparison ONLY — it is
+#                     NOT the shipped cost. Do not budget against the standing rows.
+#
+# worker_* = PerformAnimEvaluation_WorkerThread (SUMMED worker-thread cycles) — the ms_ceiling metric, ADVISORY
+#            (parallelized across cores; ~0.8 ms wall-clock at N=46 driven). gt_* = AnimGameThreadTime (SERIAL
+#            game-thread) — the HARD gate. avg/peak are the avg and the max over a settled ~14-frame window; the
+#            driven load OSCILLATES with the speed wave and SPIKES during the montage volley, so peak != avg.
+#
+# DRIVEN CROSSINGS (where the metric first crosses its ceiling): worker(avg)@N~=33, worker(peak)@N~=24;
+#   gt(avg)@N~=52, gt(peak)@N~=42. So under real load the crossings are FAR below the standing sweep's
+#   (worker@42, gt@55). At the shipped N=46 the HARD gt gate is UNDER on average (3.6/4.0) but OVER on PEAK
+#   (4.21/4.0) during the montage volley. Policy: the hard gate is the gt AVERAGE and
+#   the peak is a disclosed risk signal, so N=46 STAYS (army_config budget._ceiling_policy).
+#   Frame-time/N is NOT used (it is the ~324 ms
+#   editor idle-throttle floor); the summed-worker/gt cycle stats are floor-independent.
+n,condition,worker_avg_ms,worker_peak_ms,gt_avg_ms,gt_peak_ms,notes
+12,driven,3.13,4.73,1.17,1.63,two reads
+24,driven,6.53,8.13,1.94,2.12,worker(peak) crosses 8.0 here
+41,driven,9.26,12.34,3.27,3.92,gt(peak) 3.92 just under 4.0
+46,driven,12.41,15.89,3.59,4.21,SHIPPED N; gt avg under / peak over 4.0
+24,standing,6.02,,2.14,,idle — NOT the shipped load
+41,standing,7.65,,3.00,,idle — NOT the shipped load
+46,standing,8.59,,3.33,,idle — the original (wrong) headline
+60,standing,10.92,,4.43,,idle — NOT the shipped load
+80,standing,13.96,,5.80,,idle — NOT the shipped load

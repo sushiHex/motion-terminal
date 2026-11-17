@@ -1,0 +1,23 @@
+# Editor-free checks on every push and pull request: the host-side test suite and the public gate.
+name: host tests
+on: [push, pull_request]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+          cache: pip
+          cache-dependency-path: Scripts/requirements-dev.txt
+      - run: python -m pip install -r Scripts/requirements-dev.txt
+      - run: python Scripts/public_gate.py --generic
+      - run: python -m pytest Scripts -q

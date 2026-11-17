@@ -1,0 +1,96 @@
+# Golden readback fixture — MotionTerminal.AnimGraphTools.ReadAnimGraph
+# Source asset: /Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed (UE 5.8 Third Person template)
+# Generated over MCP by ReadAnimGraph. This is the reference dump the
+# full build's golden-diff baseline derives from. Verbatim tool output below.
+
+AnimBlueprint: /Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed.ABP_Unarmed
+TargetSkeleton: /Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin
+AnimGraph:
+  - [AnimGraphNode_Root] "Output Pose"
+  - [AnimGraphNode_StateMachine] "Locomotion"
+    graph "Locomotion":
+      - [AnimStateEntryNode] "Locomotion"
+      - [AnimStateNode] "Idle"
+        graph "Idle":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Idle'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/MM_Idle.MM_Idle
+      - [AnimStateNode] "Walk / Run"
+        graph "Walk / Run":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_BlendSpacePlayer] "Blendspace Player 'BS_Idle_Walk_Run'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run.BS_Idle_Walk_Run
+          - [K2Node_VariableGet] "Get GroundSpeed"
+          - [K2Node_VariableGet] "Get Direction"
+      - [AnimStateTransitionNode] "Idle to Walk / Run"
+          Idle -> Walk / Run
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get ShouldMove"
+      - [AnimStateTransitionNode] "Walk / Run to Idle"
+          Walk / Run -> Idle
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get ShouldMove"
+          - [K2Node_CallFunction] "NOT Boolean"
+  - [AnimGraphNode_SaveCachedPose] "Save cached pose 'Locomotion'"
+  - [AnimGraphNode_StateMachine] "Main States"
+    graph "Main States":
+      - [AnimStateEntryNode] "Main States"
+      - [AnimStateNode] "Locomotion"
+        graph "Locomotion":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_UseCachedPose] "Use cached pose 'Locomotion'"
+      - [AnimStateAliasNode] "To Falling"
+      - [AnimStateNode] "Jump"
+        graph "Jump":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Jump'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump.MM_Jump
+      - [AnimStateTransitionNode] "To Falling to Jump"
+          To Falling -> Jump
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get IsFalling"
+          - [K2Node_CommutativeAssociativeBinaryOperator] "AND Boolean"
+          - [K2Node_VariableGet] "Get"
+          - [K2Node_PromotableOperator] "float > float"
+      - [AnimStateNode] "Fall Loop"
+        graph "Fall Loop":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Fall_Loop'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop.MM_Fall_Loop
+      - [AnimStateTransitionNode] "To Falling to Fall Loop"
+          To Falling -> Fall Loop
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get IsFalling"
+      - [AnimStateAliasNode] "To Land"
+      - [AnimStateTransitionNode] "Jump to Fall Loop"
+          Jump -> Fall Loop
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+      - [AnimStateNode] "Land"
+        graph "Land":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Land'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land.MM_Land
+      - [AnimStateTransitionNode] "To Land to Land"
+          To Land -> Land
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get IsFalling"
+          - [K2Node_CallFunction] "NOT Boolean"
+      - [AnimStateTransitionNode] "Land to Locomotion"
+          Land -> Locomotion
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+      - [AnimStateTransitionNode] "Land to Locomotion"
+          Land -> Locomotion
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get ShouldMove"
+  - [AnimGraphNode_Slot] "Slot 'DefaultSlot'"
+  - [K2Node_VariableGet] "Get IsFalling"
+  - [K2Node_CallFunction] "NOT Boolean"
+  - [AnimGraphNode_ControlRig] "Control Rig"

@@ -1,0 +1,29 @@
+{
+	"schemaVersion": 2,
+	"fbxSourceRoot": "",
+	"destinationPath": "/Game/MT/GAS_Clips",
+	"skeleton": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+	"clipVariesMethod": "spine_03 local rotation sampled at 25 evenly-spaced times (0-96% of length) via unreal.AnimationLibrary.get_bone_pose_for_time; variance = sum of per-axis (pitch+yaw+roll) range across samples, degrees. Re-runnable via Scripts/clip_varies_check.py, which reads this manifest's clip list. Supersedes the original 5-sample (0/20/40/60/80%) method used when the clips were first authored: that checker was not committed, and its sampling was too coarse.",
+	"clipVariesThresholdDeg": 0.5,
+	"clipVariesThresholdRationale": "Justified against the measured zero-motion floor (clipVariesFloorDeg, 0.0): 0.5 deg sits roughly midway between that floor and the lowest real clip at 25-sample density (MT_GAS_Idle_Loop, 1.414 deg) -- an order of magnitude clear of float noise. Coded as a hard assertion in Scripts/clip_varies_check.py, not a post-hoc judgment call.",
+	"clipVariesFloorDeg": 0.0,
+	"clipVariesFloorMethod": "Two measured negative controls, same instrument (get_bone_pose_for_time), not inferred: (a) MT_GAS_Idle_Loop/spine_03 resampled at one fixed time value (t=5.0s) x5 -> 0.0 deg exactly, proving the instrument's own zero; (b) every clip's translation channel on the same probe bone (spine_03 is rigid-parented, so its local translation is static regardless of animation content) -> 0.0 deg on all 8 clips, i.e. a genuinely static reference read by the same code path as the rotation numbers.",
+	"clipVariesSampleCount": 25,
+	"clipVariesWindowSizeSamples": 5,
+	"clipVariesWindowNote": "minWindowVarianceDeg = minimum rot variance across any consecutive 5-sample window (of the 25) -- catches a mid-clip freeze that whole-clip variance would average away against motion elsewhere. Reported per clip below, not gated (a real clip can legitimately hold a near-still pose for part of its length; see MT_GAS_Gesture_B).",
+	"clips": [
+		{ "asset": "MT_GAS_Idle_Loop",  "fbxSource": "Idle/M_Neutral_Stand_Idle_Loop.FBX",                    "category": "idle",         "lengthSeconds": 10.0,               "seed": true,  "bone": "spine_03", "measuredVarianceDeg": 1.41361, "minWindowVarianceDeg": 0.54403, "translationFloorDeg": 0.0, "verdict": "varies",
+			"spotCheck": { "hand_r": 3.98925, "lowerarm_r": 1.35646, "hand_l": 3.00531 },
+			"spotCheckNote": "Auto-triggered: 1.414 deg is below the 2.0 deg near-low cutoff. Arm/hand bones show comparable-or-larger variance than spine_03, consistent with idle breathing/sway also reaching the arms. Not the clip flagged as weakest (MT_GAS_Gesture_B), but caught by the same general rule." },
+		{ "asset": "MT_GAS_Walk_Fwd",   "fbxSource": "Walk/M_Neutral_Walk_Loop_F.FBX",                        "category": "locomotion",  "lengthSeconds": 4.0,                "seed": false, "bone": "spine_03", "measuredVarianceDeg": 8.91086,  "minWindowVarianceDeg": 6.22975,  "translationFloorDeg": 0.0, "verdict": "varies" },
+		{ "asset": "MT_GAS_Run_Fwd",    "fbxSource": "Run/M_Neutral_Run_Loop_F.FBX",                          "category": "locomotion",  "lengthSeconds": 2.5,                "seed": true,  "bone": "spine_03", "measuredVarianceDeg": 14.06946, "minWindowVarianceDeg": 9.25035,  "translationFloorDeg": 0.0, "verdict": "varies" },
+		{ "asset": "MT_GAS_Sprint_Fwd", "fbxSource": "Sprint/M_Neutral_Sprint_Loop_F.FBX",                    "category": "locomotion",  "lengthSeconds": 2.0,                "seed": false, "bone": "spine_03", "measuredVarianceDeg": 14.09222, "minWindowVarianceDeg": 10.20749, "translationFloorDeg": 0.0, "verdict": "varies" },
+		{ "asset": "MT_GAS_Jump_Land",  "fbxSource": "Jump/M_Neutral_Jump_F_Land_Run_Light_Lfoot.FBX",        "category": "jump",        "lengthSeconds": 2.2,                "seed": false, "bone": "spine_03", "measuredVarianceDeg": 16.55155, "minWindowVarianceDeg": 1.38339,  "translationFloorDeg": 0.0, "verdict": "varies" },
+		{ "asset": "MT_GAS_Gesture_A",  "fbxSource": "Avoidance/M_Neutral_avoid_idle_move_0_6m_F_Rfoot.FBX",  "category": "gesture",     "lengthSeconds": 2.83333,            "seed": false, "bone": "spine_03", "measuredVarianceDeg": 8.27844,  "minWindowVarianceDeg": 0.36267,  "translationFloorDeg": 0.0, "verdict": "varies" },
+		{ "asset": "MT_GAS_Gesture_B",  "fbxSource": "Interactions/Bench/M_interaction_bench_idle_loop.FBX",  "category": "gesture",     "lengthSeconds": 25.0,               "seed": false, "bone": "spine_03", "measuredVarianceDeg": 3.34669,  "minWindowVarianceDeg": 0.09681,  "translationFloorDeg": 0.0, "verdict": "varies",
+			"spotCheck": { "hand_r": 30.15019, "lowerarm_r": 10.92739, "hand_l": 28.01427 },
+			"spotCheckNote": "The weakest data point under the original 5-sample method (1.386 deg). Denser 25-sample spine_03 already raised it to 3.347 deg (above the 0.5 threshold and the 2.0 near-low cutoff), and the hand/arm spot-check confirms why it read low: spine_03 legitimately under-reports this clip -- the animation lives in the arms/hands (a bench-sit interaction), which read 8-9x larger than the spine. minWindowVarianceDeg=0.09681 shows a genuinely near-still ~5s window mid-clip (a held pose while seated); that is real content, not a bake defect, corroborated by both the whole-clip spine reading and the large hand-bone variance. Not downgraded." },
+		{ "asset": "MT_GAS_IdleBreak",  "fbxSource": "Idle/M_Relaxed_Stand_Idle_Loop.FBX",                    "category": "idle variety","lengthSeconds": 10.0,               "seed": false, "bone": "spine_03", "measuredVarianceDeg": 4.30984,  "minWindowVarianceDeg": 1.23321,  "translationFloorDeg": 0.0, "verdict": "varies" }
+	],
+	"dropped": []
+}

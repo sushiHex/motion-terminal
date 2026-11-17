@@ -1,0 +1,11 @@
+{
+ "clip_prefix": {
+  "value": "Khai_",
+  "why": "His retargeted clips and blendspaces were made by hand before the '<short>_' convention existed; renaming them would break GoldenDiff.MTKhaimera, Verify.ClipVaries and every shot that names them."
+ },
+ "grip": {
+  "pose": "/Game/ParagonKhaimera/Characters/Heroes/Khaimera/Animations/Jog_Fwd",
+  "hands": ["hand_l", "hand_r"],
+  "why": "The locomotion is retargeted from the mannequin's unarmed clips, so every bone under a hand (fingers, weapon_l/weapon_r) carries an open hand around nothing. The hero's own Jog_Fwd frame 0 holds the grip (not Idle: Paragon's Idle is an additive, which collapses evaluated alone). dyn_abp layers each hand's subtree from it."
+ }
+}

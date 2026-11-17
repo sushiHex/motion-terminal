@@ -1,0 +1,5 @@
+# Host-side test dependencies (python -m pytest Scripts). Editor-side scripts import `unreal`, which only
+# exists inside Unreal Editor and is not installable here.
+pytest==9.0.2
+pillow==12.1.1   # PIL: dyn_heat, terminal_capture, dyn_overlay and the frame/capture checks
+numpy==2.4.3     # loop_cut, frame_edge_check

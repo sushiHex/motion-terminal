@@ -1,0 +1,599 @@
+{
+	"schemaVersion": 2,
+	"animBlueprint": "/Game/MT/ABP_MT_Locomotion.ABP_MT_Locomotion",
+	"targetSkeleton": "None",
+	"graphs": [
+		{
+			"name": "AnimGraph",
+			"nodes": [
+				{
+					"class": "AnimGraphNode_ComponentToLocalSpace",
+					"title": "Component To Local"
+				},
+				{
+					"class": "AnimGraphNode_ControlRig",
+					"title": "Control Rig",
+					"bindings":
+					{
+						"Alpha": "FootIKAlpha"
+					}
+				},
+				{
+					"class": "AnimGraphNode_Inertialization",
+					"title": "Inertialization"
+				},
+				{
+					"class": "AnimGraphNode_LayeredBoneBlend",
+					"title": "Layered blend per bone"
+				},
+				{
+					"class": "AnimGraphNode_LayeredBoneBlend",
+					"title": "Layered blend per bone"
+				},
+				{
+					"class": "AnimGraphNode_LinkedAnimLayer",
+					"title": "ALI_MT_UpperBody - UpperBodyLayer"
+				},
+				{
+					"class": "AnimGraphNode_LocalToComponentSpace",
+					"title": "Local To Component"
+				},
+				{
+					"class": "AnimGraphNode_Root",
+					"title": "Output Pose"
+				},
+				{
+					"class": "AnimGraphNode_RotationOffsetBlendSpace",
+					"title": "AimOffset Player 'AO_Rifle'",
+					"asset": "/Game/Characters/Mannequins/Anims/Rifle/AIM/AO_Rifle.AO_Rifle",
+					"bindings":
+					{
+						"Alpha": "AimOffsetAlpha",
+						"BlendSpace": "AimOffset_Rifle",
+						"X": "AimYaw",
+						"Y": "AimPitch"
+					}
+				},
+				{
+					"class": "AnimGraphNode_SaveCachedPose",
+					"title": "Save cached pose 'LocomotionPose'"
+				},
+				{
+					"class": "AnimGraphNode_SaveCachedPose",
+					"title": "Save cached pose 'RifleModePose'"
+				},
+				{
+					"class": "AnimGraphNode_SequenceEvaluator",
+					"title": "Sequence Evaluator (by time) 'MF_Rifle_Idle_ADS'",
+					"asset": "/Game/Characters/Mannequins/Anims/Rifle/MF_Rifle_Idle_ADS.MF_Rifle_Idle_ADS"
+				},
+				{
+					"class": "AnimGraphNode_Slot",
+					"title": "Slot 'DefaultSlot'"
+				},
+				{
+					"class": "AnimGraphNode_Slot",
+					"title": "Slot 'UpperBody'"
+				},
+				{
+					"class": "AnimGraphNode_StateMachine",
+					"title": "Locomotion",
+					"graphs": [
+						{
+							"name": "Locomotion",
+							"nodes": [
+								{
+									"class": "AnimStateEntryNode",
+									"title": "Locomotion"
+								},
+								{
+									"class": "AnimStateNode",
+									"title": "Fall",
+									"graphs": [
+										{
+											"name": "Fall",
+											"nodes": [
+												{
+													"class": "AnimGraphNode_SequencePlayer",
+													"title": "Sequence Player 'MM_Fall_Loop'",
+													"asset": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop.MM_Fall_Loop",
+													"bindings":
+													{
+														"Sequence": "Anim_Fall"
+													}
+												},
+												{
+													"class": "AnimGraphNode_StateResult",
+													"title": "Output Animation Pose"
+												}
+											]
+										}
+									]
+								},
+								{
+									"class": "AnimStateNode",
+									"title": "Idle",
+									"graphs": [
+										{
+											"name": "Idle",
+											"nodes": [
+												{
+													"class": "AnimGraphNode_StateMachine",
+													"title": "TurnInPlace",
+													"graphs": [
+														{
+															"name": "TurnInPlace",
+															"nodes": [
+																{
+																	"class": "AnimStateEntryNode",
+																	"title": "TurnInPlace"
+																},
+																{
+																	"class": "AnimStateNode",
+																	"title": "TIP_Neutral",
+																	"graphs": [
+																		{
+																			"name": "TIP_Neutral",
+																			"nodes": [
+																				{
+																					"class": "AnimGraphNode_SequencePlayer",
+																					"title": "Sequence Player 'MM_Idle'",
+																					"asset": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle.MM_Idle",
+																					"bindings":
+																					{
+																						"Sequence": "Anim_Idle"
+																					}
+																				},
+																				{
+																					"class": "AnimGraphNode_StateResult",
+																					"title": "Output Animation Pose"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"class": "AnimStateNode",
+																	"title": "TIP_TurnLeft",
+																	"graphs": [
+																		{
+																			"name": "TIP_TurnLeft",
+																			"nodes": [
+																				{
+																					"class": "AnimGraphNode_RotateRootBone",
+																					"title": "Rotate Root Bone"
+																				},
+																				{
+																					"class": "AnimGraphNode_SequencePlayer",
+																					"title": "Sequence Player 'MM_Idle'",
+																					"asset": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle.MM_Idle",
+																					"bindings":
+																					{
+																						"Sequence": "Anim_Idle"
+																					}
+																				},
+																				{
+																					"class": "AnimGraphNode_StateResult",
+																					"title": "Output Animation Pose"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"class": "AnimStateNode",
+																	"title": "TIP_TurnRight",
+																	"graphs": [
+																		{
+																			"name": "TIP_TurnRight",
+																			"nodes": [
+																				{
+																					"class": "AnimGraphNode_RotateRootBone",
+																					"title": "Rotate Root Bone"
+																				},
+																				{
+																					"class": "AnimGraphNode_SequencePlayer",
+																					"title": "Sequence Player 'MM_Idle'",
+																					"asset": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle.MM_Idle",
+																					"bindings":
+																					{
+																						"Sequence": "Anim_Idle"
+																					}
+																				},
+																				{
+																					"class": "AnimGraphNode_StateResult",
+																					"title": "Output Animation Pose"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"class": "AnimStateTransitionNode",
+																	"title": "TIP_Neutral to TIP_TurnLeft",
+																	"from": "TIP_Neutral",
+																	"to": "TIP_TurnLeft",
+																	"graphs": [
+																		{
+																			"name": "Transition",
+																			"nodes": [
+																				{
+																					"class": "AnimGraphNode_TransitionResult",
+																					"title": "Result"
+																				},
+																				{
+																					"class": "K2Node_CallFunction",
+																					"title": "float < float"
+																				},
+																				{
+																					"class": "K2Node_VariableGet",
+																					"title": "Get TurnYawDelta"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"class": "AnimStateTransitionNode",
+																	"title": "TIP_Neutral to TIP_TurnRight",
+																	"from": "TIP_Neutral",
+																	"to": "TIP_TurnRight",
+																	"graphs": [
+																		{
+																			"name": "Transition",
+																			"nodes": [
+																				{
+																					"class": "AnimGraphNode_TransitionResult",
+																					"title": "Result"
+																				},
+																				{
+																					"class": "K2Node_CallFunction",
+																					"title": "float > float"
+																				},
+																				{
+																					"class": "K2Node_VariableGet",
+																					"title": "Get TurnYawDelta"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"class": "AnimStateTransitionNode",
+																	"title": "TIP_TurnLeft to TIP_Neutral",
+																	"from": "TIP_TurnLeft",
+																	"to": "TIP_Neutral",
+																	"graphs": [
+																		{
+																			"name": "Transition",
+																			"nodes": [
+																				{
+																					"class": "AnimGraphNode_TransitionResult",
+																					"title": "Result"
+																				},
+																				{
+																					"class": "K2Node_CallFunction",
+																					"title": "Absolute (Float)"
+																				},
+																				{
+																					"class": "K2Node_CallFunction",
+																					"title": "float < float"
+																				},
+																				{
+																					"class": "K2Node_VariableGet",
+																					"title": "Get TurnYawDelta"
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"class": "AnimStateTransitionNode",
+																	"title": "TIP_TurnRight to TIP_Neutral",
+																	"from": "TIP_TurnRight",
+																	"to": "TIP_Neutral",
+																	"graphs": [
+																		{
+																			"name": "Transition",
+																			"nodes": [
+																				{
+																					"class": "AnimGraphNode_TransitionResult",
+																					"title": "Result"
+																				},
+																				{
+																					"class": "K2Node_CallFunction",
+																					"title": "Absolute (Float)"
+																				},
+																				{
+																					"class": "K2Node_CallFunction",
+																					"title": "float < float"
+																				},
+																				{
+																					"class": "K2Node_VariableGet",
+																					"title": "Get TurnYawDelta"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"class": "AnimGraphNode_StateResult",
+													"title": "Output Animation Pose"
+												}
+											]
+										}
+									]
+								},
+								{
+									"class": "AnimStateNode",
+									"title": "Jump",
+									"graphs": [
+										{
+											"name": "Jump",
+											"nodes": [
+												{
+													"class": "AnimGraphNode_SequencePlayer",
+													"title": "Sequence Player 'MM_Jump'",
+													"asset": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump.MM_Jump",
+													"bindings":
+													{
+														"Sequence": "Anim_Jump"
+													}
+												},
+												{
+													"class": "AnimGraphNode_StateResult",
+													"title": "Output Animation Pose"
+												}
+											]
+										}
+									]
+								},
+								{
+									"class": "AnimStateNode",
+									"title": "Land",
+									"graphs": [
+										{
+											"name": "Land",
+											"nodes": [
+												{
+													"class": "AnimGraphNode_SequencePlayer",
+													"title": "Sequence Player 'MM_Land'",
+													"asset": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land.MM_Land",
+													"bindings":
+													{
+														"Sequence": "Anim_Land"
+													}
+												},
+												{
+													"class": "AnimGraphNode_StateResult",
+													"title": "Output Animation Pose"
+												}
+											]
+										}
+									]
+								},
+								{
+									"class": "AnimStateNode",
+									"title": "Locomotion",
+									"graphs": [
+										{
+											"name": "Locomotion",
+											"nodes": [
+												{
+													"class": "AnimGraphNode_BlendSpacePlayer",
+													"title": "Blendspace Player 'BS_Idle_Walk_Run'",
+													"asset": "/Game/Characters/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run.BS_Idle_Walk_Run",
+													"bindings":
+													{
+														"BlendSpace": "BS_Locomotion",
+														"Y": "Speed"
+													}
+												},
+												{
+													"class": "AnimGraphNode_StateResult",
+													"title": "Output Animation Pose"
+												}
+											]
+										}
+									]
+								},
+								{
+									"class": "AnimStateTransitionNode",
+									"title": "Fall to Land",
+									"from": "Fall",
+									"to": "Land",
+									"graphs": [
+										{
+											"name": "Transition",
+											"nodes": [
+												{
+													"class": "AnimGraphNode_TransitionResult",
+													"title": "Result"
+												},
+												{
+													"class": "K2Node_CallFunction",
+													"title": "To Float (Integer)"
+												},
+												{
+													"class": "K2Node_CallFunction",
+													"title": "float >= float"
+												},
+												{
+													"class": "K2Node_VariableGet",
+													"title": "Get GroundedFlag"
+												}
+											]
+										}
+									]
+								},
+								{
+									"class": "AnimStateTransitionNode",
+									"title": "Idle to Jump",
+									"from": "Idle",
+									"to": "Jump",
+									"graphs": [
+										{
+											"name": "Transition",
+											"nodes": [
+												{
+													"class": "AnimGraphNode_TransitionResult",
+													"title": "Result"
+												},
+												{
+													"class": "K2Node_VariableGet",
+													"title": "Get IsFalling"
+												}
+											]
+										}
+									]
+								},
+								{
+									"class": "AnimStateTransitionNode",
+									"title": "Idle to Locomotion",
+									"from": "Idle",
+									"to": "Locomotion",
+									"graphs": [
+										{
+											"name": "Transition",
+											"nodes": [
+												{
+													"class": "AnimGraphNode_TransitionResult",
+													"title": "Result"
+												},
+												{
+													"class": "K2Node_CallFunction",
+													"title": "float > float"
+												},
+												{
+													"class": "K2Node_VariableGet",
+													"title": "Get Speed"
+												}
+											]
+										}
+									]
+								},
+								{
+									"class": "AnimStateTransitionNode",
+									"title": "Jump to Fall",
+									"from": "Jump",
+									"to": "Fall",
+									"graphs": [
+										{
+											"name": "Transition",
+											"nodes": [
+												{
+													"class": "AnimGraphNode_TransitionResult",
+													"title": "Result"
+												}
+											]
+										}
+									]
+								},
+								{
+									"class": "AnimStateTransitionNode",
+									"title": "Land to Idle",
+									"from": "Land",
+									"to": "Idle",
+									"graphs": [
+										{
+											"name": "Transition",
+											"nodes": [
+												{
+													"class": "AnimGraphNode_TransitionResult",
+													"title": "Result"
+												}
+											]
+										}
+									]
+								},
+								{
+									"class": "AnimStateTransitionNode",
+									"title": "Locomotion to Idle",
+									"from": "Locomotion",
+									"to": "Idle",
+									"graphs": [
+										{
+											"name": "Transition",
+											"nodes": [
+												{
+													"class": "AnimGraphNode_TransitionResult",
+													"title": "Result"
+												},
+												{
+													"class": "K2Node_CallFunction",
+													"title": "float <= float"
+												},
+												{
+													"class": "K2Node_VariableGet",
+													"title": "Get Speed"
+												}
+											]
+										}
+									]
+								},
+								{
+									"class": "AnimStateTransitionNode",
+									"title": "Locomotion to Jump",
+									"from": "Locomotion",
+									"to": "Jump",
+									"graphs": [
+										{
+											"name": "Transition",
+											"nodes": [
+												{
+													"class": "AnimGraphNode_TransitionResult",
+													"title": "Result"
+												},
+												{
+													"class": "K2Node_VariableGet",
+													"title": "Get IsFalling"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"class": "AnimGraphNode_TwoBoneIK",
+					"title": "Two Bone IK - Bone: hand_l",
+					"bindings":
+					{
+						"Alpha": "WeaponIKAlpha",
+						"EffectorLocation": "WeaponIKTargetWorld"
+					}
+				},
+				{
+					"class": "AnimGraphNode_UseCachedPose",
+					"title": "Use cached pose 'LocomotionPose'"
+				},
+				{
+					"class": "AnimGraphNode_UseCachedPose",
+					"title": "Use cached pose 'RifleModePose'"
+				},
+				{
+					"class": "AnimGraphNode_UseCachedPose",
+					"title": "Use cached pose 'RifleModePose'"
+				},
+				{
+					"class": "K2Node_CallFunction",
+					"title": "To Boolean (Integer)"
+				},
+				{
+					"class": "K2Node_VariableGet",
+					"title": "Get GroundedFlag"
+				},
+				{
+					"class": "K2Node_VariableGet",
+					"title": "Get RifleModeAlpha"
+				}
+			]
+		}
+	]
+}

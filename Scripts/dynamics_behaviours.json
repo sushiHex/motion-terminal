@@ -1,0 +1,56 @@
+{
+ "_doc": "Reusable secondary-motion behaviours (docs/specs/2026-10-28-dynamics-behaviours-design.md). A behaviour is a complete, named setting: native particle properties (FRigDynamicsParticleProperties fields; unnamed fields keep the rig defaults TARGET_STRENGTH_HZ / GRAVITY_MULTIPLIER / AIR_DAMPING_HZ; Damping is a particle's whole air drag) and optional modifiers. `assign` maps a part to a behaviour by its profile facts, most specific first: '<preset>.<kind>', then '<preset>', then '*'. No character name appears here: a hero gets these by its parts' presets and kinds, and a hero profile override ('secondary.behaviours.<part id>') can pick another behaviour for one part. Each behaviour records where it was tuned and how.",
+ "behaviours": {
+  "default": {
+   "native": {},
+   "tuned": "engine defaults plus the rig's global spring (TARGET_STRENGTH_HZ) and drag (AIR_DAMPING_HZ)"
+  },
+  "cloth_panel": {
+   "native": {"AngleLimit": 30.0, "AngleLimitStrength": 3.0, "Mass": 8.0, "bScaleDampingByInverseMass": true, "DampingRatio": 0.2},
+   "tuned": "Khaimera loincloth, tuned in two passes toward heavy cloth that follows the body's motion instead of floating backwards like a cape. Mass 8 with mass-scaled drag feels 1/8 of the air, a 0.2 damping ratio lets it overshoot, a 3 Hz angle limit (was 6) stops tucking behind the belt without soaking up the swing. Rear loincloth: run trail 30 -> 18 deg, stride bounce 2.1 -> 9.6 deg, settle 0.5 -> 1.0 s. Sweep in research/ue58-rigging-tools-assessment.md, 'Heavy cloth and strip twist'"
+  },
+  "cloth_strip": {
+   "native": {"AngleLimit": 30.0, "AngleLimitStrength": 3.0, "Mass": 8.0, "bScaleDampingByInverseMass": true, "DampingRatio": 0.2},
+   "twist": {"TwistGain": 1.0, "TwistMax": 45.0},
+   "tuned": "Khaimera chest strips, which showed no twist in their motion: the heavy cloth values, plus a twist: a flat strip cannot bend within its own plane, so the in-plane part of its simulated bend becomes roll about the strip (dynamics_rig twist modifier). Sweep in research/ue58-rigging-tools-assessment.md, 'Heavy cloth and strip twist'"
+  },
+  "feather": {
+   "native": {"GravityMultiplier": 0.0, "Strength": 2.5, "DampingRatio": 0.15, "AngleLimit": 45.0, "AngleLimitStrength": 3.0},
+   "flutter": {"FlutterRate": 6.0, "FlutterAmbient": 0.0, "FlutterSpeedGain": 5.0},
+   "tuned": "Khaimera hood feathers, over several tuning passes: no gravity, a stiff spring that settles in 0.30 s, speed-driven flutter at ~3 Hz; checked visually in PIE"
+  },
+  "hanging_cord": {
+   "native": {"Strength": 0.25, "AngleLimitStrength": 0.0, "Damping": 4.5},
+   "tuned": "Khaimera axe cords, tuned in two passes, the second because the cords moved too elastically and too damped: barely tracks the pose so it hangs under gravity; its own drag is the brake. own drag 7.0 -> 4.5/s (Damping 4.5 -> 2.0 on top of the then-global 2.5): run swing 44-50 -> 57-62 deg, settle 0.58-0.82 -> 0.48-0.68 s, no flip over the axe. Damping 1 flipped one cord (173 deg at the stop); mass-scaled drag flipped both and sank them up to 12 cm into the colliders. Sweep in research/ue58-rigging-tools-assessment.md, 'Looser axe cords'"
+  },
+  "hair": {
+   "native": {"Strength": 2.0, "DampingRatio": 0.15, "AngleLimit": 45.0, "AngleLimitStrength": 3.0, "GravityMultiplier": 0.5},
+   "particle_radius_cm": 1.5,
+   "chain_curves": {"AngleLimitMultiplier": [[0.0, 0.1], [0.8, 0.4], [1.0, 1.0]], "StrengthMultiplier": [[0.0, 6.0], [0.6, 2.0], [1.0, 1.0]], "AngleLimitStrengthMultiplier": [[0.0, 3.0], [1.0, 1.0]]},
+   "tuned": "Aurora: a styled hairdo holds its sculpt (standing droop ON-OFF 10.8 -> 3.6 deg) and stays lively (run trail 47 deg, flutter 1.25 -> 1.67 cm, settle 0.34 s). Sweep a2/h1-h4: Strength 2 at full gravity drooped 6.2 deg; 3 Hz / 0.2 held 3.4 deg but flattened the motion (flutter 1.05 cm, settle 0.10 s); a 30 deg limit drooped 8.9. Thin particles: clumps lie on the scalp, and the 5 cm default started inside the head and flared the hair at a stand. Sweep in research/ue58-rigging-tools-assessment.md, 'Second hero: Aurora'"
+  },
+  "soft_tissue": {
+   "native": {"Strength": 4.0, "DampingRatio": 0.15, "AngleLimit": 15.0, "AngleLimitStrength": 6.0, "Damping": 0.0, "bCollideWithColliders": false},
+   "deforms_host": true,
+   "tuned": "untuned starting point: a stiff, lightly damped jiggle that stays within a small cone of the animated pose and collides with nothing (it rests inside its own host); tuned on the first hero with soft-tissue bones (Aurora). Damping 0, no air drag (zero drag, so it is never pushed inward by the run's headwind); the target spring's DampingRatio still settles it"
+  },
+  "pendant": {
+   "native": {"Strength": 0.25, "AngleLimit": 35.0, "AngleLimitStrength": 4.0, "Damping": 2.5, "Mass": 8.0, "bScaleDampingByInverseMass": true},
+   "tuned": "Khaimera necklace pendant: a heavy ornament. Mass 8 with mass-scaled drag catches 1/8 of the air the cloth does, so gravity wins: hangs straight down standing (0.2 deg; the animation held it 11.7 deg forward on the chest), trails 5 deg back at a run (13 deg with cloth drag), swings 0.85 s after the stop. The angle limit keeps it from stretching the cord it is welded to. Sweep in research/ue58-rigging-tools-assessment.md, 'Behaviours and the necklace'"
+  }
+ },
+ "garment": {
+  "damping": 0.0498,
+  "local_damping": 0.1,
+  "tuned": "Aurora's dress. Defects: as authored it springs back elastically as it settles after she stops; at local damping 0.5 it barely moves and reads as rigid. The asset authors 2 iterations, damping 0.0498, no local damping (UHeroDynamicsTools.ClothConfigs). Judged on the settle (dyn_heat.garment_settle) AND the run (garment_run: motion and ripple, the motion less the garment's common motion), one change at a time: as authored 1.5 s to rest, 6 rebounds, run motion 159 cm/s, ripple 122; local damping 0.1: 0.57 s, 0 rebounds, 132 / 98; 0.2: 0.95 s, 1, 129 / 95; 0.5 (too rigid): 0.73 s, 3, 129; damping 0.1 alone 1.0 s, 3, 149 / 114; 6 iterations bouncier (7 rebounds); a 0.5 / 0.25 velocity scale changed nothing. Local damping (motion relative to the garment's own rigid motion, PerParticleDampVelocity.h) at 0.1 stops the spring-back and keeps most of the folds"
+ },
+ "assign": {
+  "cloth.flap": "feather",
+  "cloth": "cloth_panel",
+  "tail": "hanging_cord",
+  "strap.flap": "pendant",
+  "hair": "hair",
+  "soft": "soft_tissue",
+  "*": "default"
+ }
+}

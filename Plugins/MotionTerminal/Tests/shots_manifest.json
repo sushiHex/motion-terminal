@@ -1,0 +1,145 @@
+{
+  "_source_of_truth": "Supersedes the earlier prose shot table, which drifted from what was actually rendered; this file is checked by Scripts/shot_check.py, the prose table never was.",
+  "schemaVersion": 1,
+  "target_duration_max_s": 180.0,
+  "resolution": [1920, 1080],
+  "fps_out": 30,
+  "_artifact_why": "The ONE path both shot_assemble.py (where it writes) and shot_check.py (where it looks for the assembly stamp beside it) read, so the gate and the assembler cannot drift onto two different files while both report success.",
+  "artifact": "captures/shots/shots.mp4",
+  "_evidence_files_why": "Two shots are footage with a terminal panel composited into the frames, and that panel's text comes from a file on disk that Scripts/terminal_capture.py renders. That module's contract - the terminal panel may only render output a tool actually produced - was enforced by the PROVENANCE OF THE PATH and by nothing else, so it held only for as long as nothing else wrote the path. Something did: an uncommitted driver-equivalence harness exec'd Scripts/pie_bridge_drive.py against a stubbed `unreal`, the driver reached its dump, and its FIXED output path caught the stub's canned returns (IsFalling = 450.000000 - impossible for an FBoolProperty). The gameplay-bridge take's shipped frames were honest; the file backing them was not, for seven hours, with every gate in this repo green. Each entry below records the sha256 of the bytes a shot's frames were rendered from, and shot_check._check_evidence refuses two things: content that is not those bytes, and a file whose mtime is NEWER than the oldest frame in source_dir (a transcript is written during the render and composited afterwards, so it cannot be). The digests are also inside assembly_fingerprint, so changing one makes the MP4 stale by construction. The write side is closed separately and structurally: drivers no longer name a capture path at all - see mt_drive.write_capture_evidence.",
+  "shots": [
+    {"shot_id": "01_intro", "has_terminal_panel": false, "title": "Cold open - Khaimera + Manny in sync", "order": 10,
+     "source_dir": "captures/m4-roster/cold_open", "frame_range": [0, 300], "fps_in": 30,
+     "duration_s": 10.0, "caption_text": "One animation set. Every rig.",
+     "caption_cites": [], "status": "shipped", "source_take": "three-rig roster retarget take",
+     "_why_a_rebuild_will_not_reproduce_this": "NOT RE-SHOOTABLE, and the one thing missing is the CAMERA. Re-checked against the assets and the surviving capture directory rather than against earlier write-ups. WHAT IS RECOVERABLE: the sequence (Scripts/shot_seq_author.py Seq_Intro, verified field-identical to the shipped asset), the room (Scripts/stage_author.py roster), the three-rig line-up (Manny/Quinn/Khaimera abreast at Y -200 / 0 / +200, with Quinn relocated to Y-3000 off-lane for THIS shot so the pair framing stays tight), the pawn drive (captures/m4-roster/cold_open/_drive.log: add_movement_input +X at Speed 600, gx 0 -> 2912 over 334 ticks, ncams=1) and the fact that Khaimera jogged in place only because his baked pelvis forward-translation was temporarily zeroed for the shoot and re-baked back afterwards. WHAT IS NOT: the camera. Seq_Intro carries a spawnable CineCameraActor with a MovieSceneSpawnTrack and ZERO transform keys (measured, not assumed), so the framing lived only in the driver, and unlike the foot-IK A/B take's harness - which turned out to be sitting in captures/m4-footik-ab/ - this shot's driver .py is on no disk in this project; only its log survives, and the log records the pawns and not the camera. The only surviving description of the framing is 'front-3/4'. The nearest surviving camera geometry is the line-up take's (captures/m4-roster/, its _drive.log: cam = pawnX+912, y 0, z 160, yaw 180, pitch -4), which is a different shot and must not be substituted. Second reason: metahuman_bind.place() has since repositioned the roster pawns onto the current 4-up marks and saved the level, so a rebuild produces the four-rig stage, not the three-rig one."},
+
+    {"shot_id": "02_locomotion_lane", "has_terminal_panel": false, "title": "Manny locomotion lane", "order": 20,
+     "source_dir": "captures/m10-reshoot/lane", "frame_range": [0, 660], "fps_in": 30,
+     "duration_s": 22.0,
+     "caption_text": "One state machine: idle, locomotion, jump, fall, land.",
+     "caption_cites": [], "status": "shipped",
+     "source_take": "locomotion state machine (re-shot with the SM_MT_Rifle cube stand-in hidden per render - a component hide in Scripts/pie_lane_drive.py, no asset changed; re-shot again against the aim-offset fix by Scripts/shot_render.py 02)",
+     "_note_reshoot": "The previous take (captures/m9-lane/lane) predates the aim-offset fix and shows its head-down posture (research/aim-offset-neutrality-defect.md). The new take's own LANE TIMELINE reads Idle@0.03 -> Locomotion@1.88 -> Jump@13.88 -> Fall@14.42 -> Land@16.28 -> Locomotion@16.82 -> Idle@20.55 for both pawns, the sequence the previous take recorded; capture_check luma [155.86, 155.29, 155.08]."},
+
+    {"shot_id": "02b_gameplay_bridge", "has_terminal_panel": true, "title": "Gameplay bridge - SetAnimVariable", "order": 30,
+     "source_dir": "captures/m10-reshoot/bridge", "frame_range": [0, 240], "fps_in": 30,
+     "duration_s": 8.0,
+     "caption_text": "Gameplay writes one movement source; the locomotion contract follows it.",
+     "caption_cites": [], "status": "shipped",
+     "evidence_files": [
+       {"path": "captures/m10-reshoot/bridge_raw/bridge_output.txt",
+        "sha256": "66950ad608815b43d2eab1c88f9183a3a93f08fe0da6ccff1f5f22972f7206de",
+        "written_by": "Scripts/pie_bridge_drive.py"}
+     ],
+     "_note_reshoot": "RE-SHOT against the aim-offset fix (Scripts/shot_render.py 02b) and re-composited from that render's own transcript with the previous terminal_capture arguments unchanged: the transcript is again 22 lines at 67 columns, and differs from the superseded one only in two node indices (13 -> 17, 15 -> 19), the rifle-mode branch's added nodes. The superseded take was 5f9fbee7... in captures/m9-bridge/bridge_raw.",
+     "source_take": "gameplay-to-graph bridge (re-shot with the SM_MT_Rifle cube stand-in hidden per render - a component hide in Scripts/pie_bridge_drive.py, no asset changed; re-shot again to replace a corrupted transcript, see _caption_correction and _evidence_correction)",
+     "_evidence_correction": "(The file 'hashed above' in this paragraph is the take that replaced the corrupted transcript, 5f9fbee7...; the row now hashes the take re-shot against the aim-offset fix, see _note_reshoot.) THIS ROW USED TO END by claiming that the terminal-panel transcript re-captured in that render was byte-identical to the one it replaced. That claim was false against the file on disk and is retracted, not edited away. A later check found captures/m9-bridge/bridge_output.txt containing IsFalling = 450.000000 and GroundedFlag = 450.000000 - readings AnimDebugTools::GetAnimVariable cannot produce for an FBoolProperty - written seven hours after the frames it backed, by an uncommitted equivalence harness driving the driver against a stubbed `unreal`. The shipped MP4 was never affected; the frame at t=38.5s pulled out of the encoded artifact shows the correct transcript. The fix taken here is the self-consistent one rather than the cheap one: the gameplay-bridge take's 240 frames were RE-RENDERED from a real MRQ run (M9_Shot2b_Bridge, success=True, luma [129.47, 130.19, 131.23] against the superseded take's [129.48, 130.19, 131.24]) and re-composited from that run's own transcript, which is the file hashed above. Nothing was reconstructed from pixels. The byte-identical claim is NOT restored for the new take, because the new take's GetAnimDebugState dump is this graph's current one and the superseded file is gone - a claim of byte-identity is exactly the kind of unverifiable assertion this correction exists to remove.",
+     "_caption_correction": "THE CAPTION USED TO READ 'Three variables are the whole animator-to-engineer interface.' Retired because the graph contradicts it: Plugins/MotionTerminal/Tests/Baselines/abp_mt_locomotion.json binds AimYaw and AimPitch to node 7's X/Y and WeaponIKAlpha to node 12's Alpha, and Scripts/army_conductor.py:55 calls TurnYawDelta/AimYaw/AimPitch/WeaponIKAlpha 'pure inputs' in those words. It was true of the first locomotion graph and went stale when the aim offset and hand IK were added. It also defeated shot_check._check_caption_binding, whose NUM_RE only matches digits, so a SPELLED-OUT numeral is an uncited numeric assertion the gate cannot see - noted in that function's docstring. The replacement asserts only what the terminal panel demonstrates: one write to CharacterMovementComponent.Velocity, and Speed/IsFalling/GroundedFlag following it. Captions are burned in, so this cost a re-assemble, which the re-render above required anyway."},
+
+    {"shot_id": "03_montage_layer", "has_terminal_panel": true, "title": "Attack montage over locomotion", "order": 40,
+     "source_dir": "captures/m10-reshoot/montage", "frame_range": [0, 540], "fps_in": 30,
+     "duration_s": 18.0,
+     "caption_text": "Layered actions blend from the spine up - locomotion never flinches.",
+     "caption_cites": [], "status": "shipped",
+     "evidence_files": [
+       {"path": "captures/m10-reshoot/montage_raw/montage_nodeweights.txt",
+        "sha256": "259ea7498be75125b1ce3539080b2bdf8afa8767c21fd314486d635f26149ec7",
+        "written_by": "Scripts/pie_montage_layer_drive.py"}
+     ],
+     "_note_reshoot": "RE-SHOT against the aim-offset fix (Scripts/shot_render.py 03). The GetNodeWeights tree grew from 27 to 31 lines (the rifle-mode branch: a second cached pose, a LayeredBoneBlend, AO_Rifle and the rifle ADS evaluator), so the terminal panel was re-composited at 940x660 with each --beat moved to the SAME node at its new line (12->11, 13->12, 18->17, 20->19, 26->30); terminal_capture reported it fits at 14 px. Every montage_layer figure was re-derived from this render's MBEAT lines (research/fixtures/montage-weights/montage-shipped-render.log, replaced) and reproduces identically: 6/6 attacks, 288 samples, 138 owned, 0 disagreements, slot_delta_max 0.00041. The superseded take was 0693bb78... in captures/m9-montage/montage_raw.",
+     "_evidence_relocated_not_recaptured": "SUPERSEDED - this paragraph describes the cube-hidden take; the montage take has since been re-shot and its evidence is the new file hashed above (see _note_reshoot). As written: This file was at captures/m9-montage/montage_nodeweights.txt and was then moved inside the render's own output directory, because that is where mt_drive.write_capture_evidence puts it - the driver no longer names a path. It was MOVED, not re-captured: sha256 and mtime are byte-for-byte the ones from the render that shot these frames (0693bb78..., written three minutes before the oldest composited frame). The montage take was NOT re-rendered for the move. This file was intact when checked; it had the same exposure the gameplay-bridge take's did and it is closed the same way.",
+     "source_take": "montage layering (re-shot with the SM_MT_Rifle cube stand-in hidden per render - a component hide in Scripts/pie_montage_layer_drive.py, no asset changed. This was the stand-in's most conspicuous appearance: the punch threw it across frame beside the terminal panel. Every montage_layer figure in render_evidence.json was re-derived from the new render's own log and reproduced identically)"},
+
+    {"shot_id": "04_footik_ab", "has_terminal_panel": false, "title": "Foot-IK A/B hero, slow-mo", "order": 50,
+     "source_dir": "captures/m4-footik-ab/B_node_present", "frame_range": [0, 240], "fps_in": 60,
+     "duration_s": 8.0,
+     "caption_text": "Measured, node off vs on: +3.46 / -7.14 cm of signed foot clearance.",
+     "caption_cites": [
+       {"claim": "+3.46 / -7.14 cm",
+        "source": "Plugins/MotionTerminal/Tests/render_evidence.json",
+        "keys": ["footik.signed_clearance_up_cm", "footik.signed_clearance_down_cm"]}
+     ],
+     "status": "shipped", "source_take": "foot-IK A/B take",
+     "_why_a_rebuild_will_not_reproduce_this": "RE-SHOOTABLE, BUT A RE-SHOOT IS A NEW TAKE. The stage (Scripts/stage_author.py footik), the sequence (Scripts/shot_seq_author.py Seq_FootIK) and now the RENDER DRIVER (Scripts/pie_footik_ab_drive.py) are all scripted. This shot's harness was once recorded as scratchpad-only and NOT reconstructible; that was read off the prose and was wrong - the original harness was sitting in captures/m4-footik-ab/render_footik_ab.py next to the frames it shot, with every camera constant in it, and captures/ being gitignored is what kept it out of a clean checkout. WHAT DOES NOT REPRODUCE IS THE POSE, not the framing. A proof re-shoot of take B into captures/m9-shot04proof/ read the camera back at exactly pawnX+55 / -300 / pawnZ-55 at 45 mm, the pawn settled at the byte-identical px=777.6 pz=193.4, and both soles planted level (clr 10.95 / 11.00 cm vs the original 10.26 / 10.61) - but mean |A-B| against the shipped frames is 13.5/255, because ABP_MT_Locomotion has been edited many times since (the aim/hand-IK beats, the skeleton-aware Template) and the settled stance is not the one originally filmed. The shipped frames were deliberately NOT overwritten. The caption's cited figures (+3.46 / -7.14 cm) come from the original in-render foot-clearance measurement, not from any re-render, and render_evidence.json is their source of truth."},
+
+    {"shot_id": "05_roster_lineup", "has_terminal_panel": false, "title": "Roster line-up - one skeleton-aware Template, four rigs", "order": 60,
+     "source_dir": "captures/m10-reshoot/moneyshot_4up", "frame_range": [540, 900], "fps_in": 30,
+     "_note_reshoot": "RE-SHOT against the aim-offset fix (metahuman_bind declare + place(inplace=True), then Scripts/shot_render.py 05). One 900-frame render feeds 05 and 09 as before. The cited figure re-derives from this render's own ROSTER4 LIVE lines (t >= 18 s): all four rigs clear the 10 cm foot threshold (render_evidence roster_4up, updated).",
+     "duration_s": 12.0,
+     "caption_text": "4 rigs on one Template, with measured foot travel. It skips its mannequin foot-IK pass on a skeleton with no mannequin IK rig.",
+     "caption_cites": [
+       {"claim": "4 rigs",
+        "source": "Plugins/MotionTerminal/Tests/render_evidence.json",
+        "keys": ["roster_4up.rigs_with_foot_z_excursion_over_threshold"]}
+     ],
+     "status": "shipped", "source_take": "roster retarget (re-shot as a jogging 4-up; re-shot once the Template was made skeleton-aware; re-shot again once Khaimera's IK effector tracks were baked, which is what finally gave all four rigs measured foot travel)"},
+
+    {"shot_id": "06_crowd", "has_terminal_panel": false, "title": "Crowd pull-back + budget", "order": 70,
+     "source_dir": "captures/m10-reshoot/army_pullback", "frame_range": [0, 480], "fps_in": 60,
+     "_note_reshoot": "RE-SHOT against the aim-offset fix (army_spawn spawn, Scripts/shot_render.py 06, despawn). The spawn reported hero 6 / mid 8 / far 32 with 0 meshless; the render's per-second ARMYPULL lines read army=46 dressed=46 from t=1.03 to t=8.03, with cond=True on each (the t=0.02 line precedes the conductor's bootstrap at tick 3). shot_render now FAILS a 06 take without army=46: its first two attempts passed capture_check with an EMPTY stage (army=0), because the tool reloaded the level and dropped the unsaved crowd, and those runs' log lines are also in this take's _shoot_log.json (the log search spanned the editor session; shot_render now keeps only lines logged after its own render starts). The allocator stays OFF in this take, which is the condition the caption's 3.6 / 4.0 ms was measured under. That measurement predates moving the crowd's two Khaimeras onto the in-place graph; re-measuring with the allocator on is still open: both in-editor routes to the stats read crashed the editor.",
+     "_fps_in_correction": "Was 30 in an earlier revision. Seq_Army has a 60/1 display rate (Scripts/shot_seq_author.py), so these 480 frames are 8 s of sequence time consumed 1:1 into a 30 fps timeline - i.e. this shot plays at HALF SPEED, like the foot-IK A/B and turn/aim/hand-IK takes, and the manifest asserted real-time. fps_in is documentation only (shot_assemble passes fps_out to ffmpeg and nothing reads fps_in), so correcting it changes no pixels and no duration; it stops the field lying about what the viewer sees.",
+     "duration_s": 16.0,
+     "caption_text": "46 instances: game-thread 3.6 / 4.0 ms, inside the budget that is asserted every run.",
+     "caption_cites": [
+       {"claim": "46 instances",
+        "source": "Plugins/MotionTerminal/Tests/render_evidence.json",
+        "keys": ["crowd_budget.instances_spawned"]},
+       {"claim": "3.6 / 4.0 ms",
+        "source": "Plugins/MotionTerminal/Tests/army_config.json",
+        "keys": ["budget.measured_n46_driven_gt_ms_avg", "budget.gt_ms_ceiling"]}
+     ],
+     "status": "shipped",
+     "source_take": "crowd at scale (re-shot with the SM_MT_Rifle cube stand-in hidden per render on all 46 crowd instances - a component hide, no asset changed)",
+     "_why_the_driver_is_new": "The harness that first shot this take (army_take_driver.py + mrq_render.py) was scratchpad-only and never committed, so neither the camera path nor the invocation existed anywhere in the repo - the same repeatability gap Seq_Lane had, and worse. Scripts/pie_army_pullback_drive.py is that harness's pullback branch, promoted and committed, and the geometry is unchanged: same 8.0 s smoothstep from (760,150,175) to (7200,0,2900), same 20 mm, same 480 frames off Seq_Army at 60 fps. The camera's read-back position and focal length are now logged every second by the shipped render itself, so the framing is witnessed rather than asserted.",
+     "_the_measured_figures_were_not_re-derived": "Neither cited number comes from this render and neither was recomputed. 46 is hero 6 + mid 8 + far 32 out of army_config.json (re-checked against that file every pytest run by test_crowd_instance_count_matches_army_config_rings); 3.6 / 4.0 ms is army_config budget._measured / gt_ms_ceiling from the driven crowd sweep. What the re-render adds is a WITNESS: the shipped render's own log reads `army=46` on every one of its per-second lines, and the spawn that fed it reported hero 6 / mid 8 / far 32 with 0 meshless."},
+
+    {"shot_id": "07_aim_hand_ik", "has_terminal_panel": false, "title": "Turn / aim / hand-IK", "order": 80,
+     "source_dir": "captures/m10-reshoot/shot7_rifle", "frame_range": [0, 780], "fps_in": 60,
+     "duration_s": 26.0,
+     "caption_text": "Off-hand to the rifle grip: 10.43 cm with hand IK off, 1.34 cm on - a distance, not a grip.",
+     "caption_cites": [
+       {"claim": "10.43 cm with hand IK off, 1.34 cm on",
+        "source": "Plugins/MotionTerminal/Tests/render_evidence.json",
+        "keys": ["hand_ik_reach.hand_l_to_socket_cm_ik_off", "hand_ik_reach.hand_l_to_socket_cm_ik_on"]}],
+     "status": "shipped", "source_take": "turn / aim / hand-IK beats (re-shot on the real rifle; re-shot again against the aim-offset fix and the rifle-mode branch by Scripts/shot_render.py 07)",
+     "_note_reshoot": "The previous take was labelled KNOWN-DEFECT: head down, rifle across the body. It is not deleted: its frames 380-540 ship as 07b_aim_defect below, added in this same edit so render_shot's shipped-directory guard keeps protecting captures/m9-beatsde/shot7_rifle without a gap (research/aim-offset-neutrality-defect.md, SEQUENCING HAZARD). The caption's numbers changed with the pose, not with the method: the rifle-mode branch holds the off hand near the grip with IK OFF (10.43 cm, was 26.67), and the IK closes it to 1.34 cm (was 0.11). Khaimera, same run: 12.78 off / 4.47 on - short of the grip, as predicted from the foregrip socket sitting at 113% of his left-arm reach."},
+
+    {"shot_id": "07b_aim_defect", "has_terminal_panel": false, "title": "Before the fix", "order": 85,
+     "source_dir": "captures/m9-beatsde/shot7_rifle", "frame_range": [380, 540], "fps_in": 60,
+     "duration_s": 5.33,
+     "caption_text": "Before the fix: the aim offset curled the torso and dropped the rifle. Found by watching the footage.",
+     "caption_cites": [], "status": "shipped",
+     "source_take": "the previous take of the turn/aim/hand-IK take, kept as its own beat",
+     "_why_these_frames": "research/aim-offset-neutrality-defect.md, 'The frames, chosen by looking rather than guessing': the closest framing in the cut, and by frame ~480 one frame carries both defects at once - the head-down, shoulders-rolled, curled torso and the rifle lying across the body with neither hand on it. 60 fps into a 30 fps timeline, so it plays at half speed. This entry is also what keeps the only copy of that footage under render_shot's guard."},
+
+    {"shot_id": "08_verification", "has_terminal_panel": true, "title": "Verification finale", "order": 90,
+     "source_dir": "captures/m9-terminal/verification", "frame_range": [0, 600], "fps_in": 30,
+     "duration_s": 20.0,
+     "caption_text": "Break it, and the gate says exactly what changed.",
+     "caption_cites": [], "status": "shipped", "source_take": "the default-tier verification suite + FixImportScale",
+     "_evidence_files_note": "The verification take is the only shot with no Unreal render behind it - Scripts/terminal_frames.py draws all 600 frames from these four transcripts, so ALL FOUR are pixel-determining. The three suite_*.txt files were teed from real run_verification.py runs (green, deliberately-broken red, green again); f16_catchfix.txt was written in-editor by Scripts/fbx_unit_catchfix_drive.py. That driver is not an MRQ shot, so no render arms it and it arms itself - a weaker guard than the two MRQ drivers get, stated at the driver. This gate is what backstops it: re-run it and these digests stop matching.",
+     "evidence_files": [
+       {"path": "captures/m9-terminal/suite_green.txt",
+        "sha256": "63aceebaa9dfa327f8cd0028bff4eb8fe7f21f822f1664176768f7fb62ce320a",
+        "written_by": "tee of python Scripts/run_verification.py (default tier)"},
+       {"path": "captures/m9-terminal/suite_red.txt",
+        "sha256": "609471948d831327eaa1357618321ea6d7056f2bb3e1e3823907e4c244f8a70f",
+        "written_by": "tee of the same command with the BlendSpace Y<-Speed pin unbound"},
+       {"path": "captures/m9-terminal/suite_green_again.txt",
+        "sha256": "f5ca23b7db375f8b0c60bdc3a6e360f51784ca0ec7f15fdd4eb994b58a446fa7",
+        "written_by": "tee of the same command after re-binding Y<-Speed"},
+       {"path": "captures/m9-terminal/f16_catchfix.txt",
+        "sha256": "4702581b5c62ba997b7ca9dae72694f2219358302659fa4d6458c3ab0064abe2",
+        "written_by": "Scripts/fbx_unit_catchfix_drive.py"}
+     ]},
+
+    {"shot_id": "09_closing_card", "has_terminal_panel": false, "title": "End card - over the roster line-up", "order": 100,
+     "source_dir": "captures/m10-reshoot/moneyshot_4up", "frame_range": [300, 540], "fps_in": 30,
+     "duration_s": 8.0,
+     "caption_text": "MotionTerminal - authored over MCP, verified in C++.",
+     "caption_cites": [], "status": "shipped",
+     "source_take": "end card over the four-rig line-up",
+     "_why_this_range": "The capture honesty rule (every pixel is real captured output) forbids manufacturing frames, and it permits cropping by frame range. The end card sits over the line-up; this is the SAME render the four-rig line-up take ships from, cropped to the EARLIER, unused half of the camera arc ([300,540] against the four-rig line-up take's [540,900]) so no frame appears twice in the cut. Nothing is frozen, duplicated, re-timed or re-lit - only the end-card caption is burned on, by the same assembler path that captions every other shot."}
+  ]
+}

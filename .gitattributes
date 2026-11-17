@@ -1,0 +1,3 @@
+Plugins/MotionTerminal/Tests/Baselines/*.json text eol=lf
+Plugins/MotionTerminal/Tests/ScaleBaselines/*.json text eol=lf
+Plugins/MotionTerminal/Tests/*.json text eol=lf

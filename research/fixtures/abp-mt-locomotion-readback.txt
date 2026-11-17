@@ -1,0 +1,570 @@
+# ReadAnimGraph audit — /Game/MT/ABP_MT_Locomotion (state machine + EventGraph bridge)
+# Tool: MotionTerminal.AnimGraphTools::ReadAnimGraph (via call_method), 2026-07-12
+# Editor: UE 5.8 (++UE5+Release-5.8-CL-55116800)
+#
+# NOTE: ReadAnimGraph prints each player's inline `asset:` (the serialized fallback
+# default) and does NOT surface property-access PIN bindings (a known limit of the tool).
+# The clips are actually driven at runtime by instance-editable variables via pin
+# bindings — audited separately with animation get_anim_node_pin_bindings,
+# NOT by the inline asset lines here. Clip bindings UNCHANGED in this revision.
+#
+# DELTA vs the first audit (this file's prior version):
+#   1. Fall->Land transition rule: was bool `Get IsFalling` (a deviation from the GroundedFlag contract);
+#      now `GroundedFlag >= 1` (int compare) — Get GroundedFlag -> To Float (Integer)
+#      -> float >= float -> Result. The bare-IsFalling reference is GONE (transition
+#      removed + re-added clean, then set_transition_rule kind=compare). Deviation CLOSED.
+#      (Transition list order shifted: Fall->Land is now last, from the remove+re-add.)
+#   2. New runtime contract var GroundedFlag(int,0) added (MT|Runtime, not instance-editable).
+#   3. EventGraph authored (the gameplay bridge — see summary below). SM states/entry/
+#      Output-Pose/clip-bindings and the other 6 transitions are UNCHANGED from the first audit.
+#   4. Locomotion BlendSpacePlayer pin X BOUND to ["Speed"]
+#      (set_anim_node_pin_binding; read-back shows BOTH bindings is_bound:true:
+#      BlendSpace <- ["BS_Locomotion"] and X <- ["Speed"]) — the open item
+#      "drive BlendSpace X from Speed" is CLOSED.
+#
+# EVENTGRAPH BRIDGE (EventBlueprintUpdateAnimation) — authored via BlueprintTools write_graph_dsl,
+# verified by read_graph_dsl round-trip + compile 0/0:
+#   Speed        = VectorLength(GetVelocity(TryGetPawnOwner))
+#   IsFalling    = (CastToCharacter(pawn)).GetCharacterMovement().IsFalling()   [Movement|IsFalling,
+#                  self pin interface:NavMovementInterface accepts the CMC object ref — cast did NOT fight]
+#   GroundedFlag = select(IsFalling, 0, 1)   [K2Node_Select, bool index: falling->0, grounded->1]
+#   Exec chain: Event -> SetSpeed -> CastToCharacter(:then -> GetCharacterMovement -> IsFalling
+#               -> SetIsFalling -> SetGroundedFlag)(:CastFailed noop)
+#
+# CONTRACT PROVEN LIVE (PIE smoke on Lvl_MT_Test, possessed BP_MT_TestPawn, sustained AddMovementInput):
+#   idle    vel=(0,0,0)     -> Speed=0    GroundedFlag=1  IsFalling=False
+#   moving  vel=(600,0,0)   -> Speed=600  GroundedFlag=1  IsFalling=False
+#   stopped vel=(0,0,0)     -> Speed=0    GroundedFlag=1  IsFalling=False
+#   sample_vars timeseries: Speed 0 (t<=1.9) -> 600 (t 2.25 to 4.9) -> 0 (t>=5.2); ok:true, 0 runtime errors.
+#
+# TRANSITION RULES (hand-authored summary of get_transitions):
+#   Idle->Locomotion   compare Speed >  10
+#   Locomotion->Idle   compare Speed <= 10
+#   Idle->Jump         bool IsFalling            (intended — jump start)
+#   Locomotion->Jump   bool IsFalling            (intended — jump start)
+#   Jump->Fall         auto (sequence-player automatic rule)
+#   Land->Idle         auto (sequence-player automatic rule)
+#   Fall->Land         compare GroundedFlag >= 1  <-- deviation CLOSED (was bool IsFalling)
+#
+# CONTRACT VARIABLES: Speed(float,0), IsFalling(bool,false), UpperBodyState(int,0),
+#                     GroundedFlag(int,0) — all MT|Runtime, not instance-editable.
+# COMPILE: 0 errors / 0 warnings.  OUTPUT POSE: Root.Result <- StateMachine "Locomotion".Pose.
+# ============================================================================
+
+AnimBlueprint: /Game/MT/ABP_MT_Locomotion.ABP_MT_Locomotion
+TargetSkeleton: None
+AnimGraph:
+  - [AnimGraphNode_Root] "Output Pose"
+  - [AnimGraphNode_StateMachine] "Locomotion"
+    graph "Locomotion":
+      - [AnimStateEntryNode] "Locomotion"
+      - [AnimStateNode] "Idle"
+        graph "Idle":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Idle'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/MM_Idle.MM_Idle
+      - [AnimStateNode] "Locomotion"
+        graph "Locomotion":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_BlendSpacePlayer] "Blendspace Player 'BS_Idle_Walk_Run'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run.BS_Idle_Walk_Run
+      - [AnimStateNode] "Jump"
+        graph "Jump":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Jump'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump.MM_Jump
+      - [AnimStateNode] "Fall"
+        graph "Fall":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Fall_Loop'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop.MM_Fall_Loop
+      - [AnimStateNode] "Land"
+        graph "Land":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Land'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land.MM_Land
+      - [AnimStateTransitionNode] "Idle to Locomotion"
+          Idle -> Locomotion
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get Speed"
+          - [K2Node_CallFunction] "float > float"
+      - [AnimStateTransitionNode] "Locomotion to Idle"
+          Locomotion -> Idle
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get Speed"
+          - [K2Node_CallFunction] "float <= float"
+      - [AnimStateTransitionNode] "Idle to Jump"
+          Idle -> Jump
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get IsFalling"
+      - [AnimStateTransitionNode] "Locomotion to Jump"
+          Locomotion -> Jump
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get IsFalling"
+      - [AnimStateTransitionNode] "Jump to Fall"
+          Jump -> Fall
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+      - [AnimStateTransitionNode] "Land to Idle"
+          Land -> Idle
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+      - [AnimStateTransitionNode] "Fall to Land"
+          Fall -> Land
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get GroundedFlag"
+          - [K2Node_CallFunction] "float >= float"
+          - [K2Node_CallFunction] "To Float (Integer)"
+
+# ============================================================================
+# UPPER-BODY LAYER DELTA — Template now implements ALI_MT_UpperBody + layered chain.
+# Editor: UE 5.8 (CL-55116800) · 2026-07-12.
+# Compile 0/0, saved. The StateMachine "Locomotion" above (5 states / 7 transitions,
+# clip pin-bindings) is UNCHANGED from the section above. ReadAnimGraph top-level added nodes:
+#   - [AnimGraphNode_SaveCachedPose]  "Save cached pose 'LocomotionPose'"
+#   - [AnimGraphNode_LayeredBoneBlend] "Layered blend per bone"    (branch filter spine_01, depth 1)
+#   - [AnimGraphNode_UseCachedPose]   "Use cached pose 'LocomotionPose'"   (x2)
+#   - [AnimGraphNode_LinkedAnimLayer] "ALI_MT_UpperBody - UpperBodyLayer"  (interface guid resolved)
+#   - [AnimGraphNode_Slot]            "Slot 'UpperBody'"          (group DefaultGroup until a montage registers the slot)
+#
+# CACHED-POSE FAN-OUT (main AnimGraph pin wiring — the load-bearing chain):
+#   StateMachine 'Locomotion'.Pose  -> SaveCachedPose 'LocomotionPose'.Pose
+#   UseCachedPose_0.Pose            -> LayeredBoneBlend.BasePose
+#   UseCachedPose_1.Pose            -> LinkedAnimLayer(UpperBodyLayer).InPose   <-- anti-trap wire, CONNECTED
+#   LinkedAnimLayer.Pose            -> Slot 'UpperBody'.Source
+#   Slot 'UpperBody'.Pose           -> LayeredBoneBlend.BlendPoses_0
+#   LayeredBoneBlend.Pose           -> Root.Result   (Output Pose)
+#
+# INTERFACE LAYER GRAPH "UpperBodyLayer" (passthrough): Root.Result <- LinkedInputPose 'InPose'.Pose
+#
+# DEVIATION (engine-verified): the Slot 'UpperBody' is in the MAIN
+# AnimGraph over the LinkedLayer output, NOT inside the layer graph as originally
+# designed. Root cause: an implemented AnimLayerInterface's layer graph lives in
+# FBPInterfaceDescription::Graphs (UBlueprint::ImplementedInterfaces), not FunctionGraphs;
+# UAnimationBlueprintLibrary::GetAnimationGraphs iterates only FunctionGraphs, so
+# anim-node ops (and Epic DSL / UE-Python reflection) cannot spawn a node inside it. Placement
+# is runtime-equivalent to InPose->Slot->Output; interface + LinkedAnimLayer are RETAINED.
+#
+#
+# UPPER-BODY-ALIVE PROBE (PIE, Lvl_MT_Test, idle/no-montage): spine_03 & hand_r component-space
+# transforms VARY across 4 samples (hand_r ~2.3u X drift) => MM_Idle flows through the layer+slot
+# passthrough; ref-pose trap did NOT fire.
+# ============================================================================
+
+# ============================================================================
+# FOOT-IK DELTA — CR_Mannequin_FootIK ControlRig node + alpha gate (IsFalling).
+# Editor: UE 5.8 (CL-55116800) · 2026-07-13.
+# Compile 0/0, saved. The StateMachine "Locomotion" (5 states/7 transitions) and the upper-body
+# cached-pose/layer/slot chain are UNCHANGED. One top-level node added + one wire spliced:
+#   - [AnimGraphNode_ControlRig] "Control Rig"   (ControlRigClass = CR_Mannequin_FootIK_C)
+#
+# ASSET: /Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK  (class ...CR_Mannequin_FootIK_C)
+#   found via `find` on Content/.
+#
+# NODE INSERTION:
+#   add_anim_control_rig_node(asset=/Game/MT/ABP_MT_Locomotion,
+#     control_rig_class=/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK.CR_Mannequin_FootIK_C,
+#     source_node=AnimGraphNode_LayeredBoneBlend_0)  -> AnimGraphNode_ControlRig_0, pose_input_wired:true
+#   set_output_pose_source(source_node=AnimGraphNode_ControlRig_0, break_existing:true)
+#
+# WIRING ORDER (the splice — was LBPB->Root; now LBPB->ControlRig->Root):
+#   LayeredBoneBlend.Pose  -> ControlRig(FootIK).Source   (get_anim_node_pin_bindings: ControlRig.Source Link<-LBPB)
+#   ControlRig(FootIK).Pose -> Root.Result                (get_anim_graph_output_connection: output_connected:true,
+#                                                          source_node=AnimGraphNode_ControlRig_0, source_pin=Pose)
+#   Foot IK therefore runs on the fully-blended (post-layering) pose: foot IK is the last word.
+#
+# ALPHA GATE — FLOAT mechanism (primary bool path declined: node's AlphaInputType defaults to
+#   Float, the float Alpha pin (default 1.0) is the LIVE driver; bAlphaBoolEnabled/AlphaCurveName
+#   pins are bHidden. Driving the bool would require flipping AlphaInputType, which silently no-ops
+#   if missed). Reused the already-ticking GroundedFlag (int; =1 grounded / =0 falling — the exact
+#   alpha semantic) rather than adding a duplicate var:
+#   set_anim_node_pin_binding(node=AnimGraphNode_ControlRig_0, pin="Alpha", path=["GroundedFlag"])
+#   => Alpha=1.0 grounded (IK full) / Alpha=0.0 airborne (IK passthrough).
+#
+# STRUCTURAL PROOF IT IS NOT A SILENT NO-OP (compiled PropertyAccess subsystem, T3D read-back):
+#   PropertyBindings=(("Alpha",(PropertyName="Alpha",PropertyPath=("GroundedFlag"),
+#                       bIsBound=True,bIsPromotion=True)))
+#   AnimBlueprintExtension_PropertyAccess CopyBatchArray:
+#     (AccessIndex=0, src=GroundedFlag, dest=AnimNode_ControlRig:Alpha, Type=PromoteInt32ToFloat)
+#   -> a genuine compiler-generated int->float fast-path copy that runs every tick on the worker
+#      thread; get_anim_node_pin_bindings confirms Alpha type:Property is_bound:true path:[GroundedFlag].
+#   (Bone-level runtime gating is asserted separately, by Pie.FootIKAlphaGates.)
+#
+# COMPILE: 0 errors / 0 warnings.  OUTPUT POSE: Root.Result <- ControlRig(FootIK).Pose.
+# NOTE: golden baseline GoldenDiff.MTLocomotion goes RED after this change — expected; the baseline is regenerated next.
+# ============================================================================
+
+AnimBlueprint: /Game/MT/ABP_MT_Locomotion.ABP_MT_Locomotion
+TargetSkeleton: None
+AnimGraph:
+  - [AnimGraphNode_Root] "Output Pose"
+  - [AnimGraphNode_StateMachine] "Locomotion"
+    (state machine unchanged — 5 states / 7 transitions; see the sections above)
+  - [AnimGraphNode_SaveCachedPose] "Save cached pose 'LocomotionPose'"
+  - [AnimGraphNode_LayeredBoneBlend] "Layered blend per bone"
+  - [AnimGraphNode_UseCachedPose] "Use cached pose 'LocomotionPose'"
+  - [AnimGraphNode_UseCachedPose] "Use cached pose 'LocomotionPose'"
+  - [AnimGraphNode_LinkedAnimLayer] "ALI_MT_UpperBody - UpperBodyLayer"
+  - [AnimGraphNode_Slot] "Slot 'UpperBody'"
+  - [AnimGraphNode_ControlRig] "Control Rig"          <-- ADDED (CR_Mannequin_FootIK)
+# ============================================================================
+
+# ============================================================================
+# FOOT-IK CONFORMANCE DELTA — foot IK now CONFORMS (ShouldDoIKTrace driven) + golden regen.
+# Editor: UE 5.8 (CL-55116800) · 2026-07-16.
+# Compile 0/0, saved. The StateMachine "Locomotion" (5 states/7 transitions), the upper-body cached-pose/
+# layer/slot chain, and the foot-IK ControlRig node are ALL UNCHANGED. This change exposed the rig's
+# ShouldDoIKTrace input pin and drives it via an in-graph LINK; two K2 nodes were added at AnimGraph
+# top level to feed it. ControlRig node GUID 56A03BAE… unchanged.
+#
+# THE TWO-GATE MECHANISM (both fed by the same GroundedFlag int — found by reading the serialized instance directly):
+#   (1) Alpha  (Float pin  <- GroundedFlag, PROPERTY binding) — WHOLE-NODE airborne blend gate.
+#       AlphaInputType read DIRECTLY off the serialized instance = FLOAT (NOT Bool) → the float Alpha
+#       pin is load-bearing. Alpha=0 airborne → FAnimWeight::IsRelevant(0) false
+#       (AnimNode_ControlRigBase.cpp:197) → the whole rig node is SKIPPED → pure Source passthrough.
+#       (The earlier claim "Bool mode → Alpha inert → remove the binding" was FALSIFIED by the
+#        direct read; a LIVE binding overwrites the pin default every tick via
+#        GetEvaluateGraphExposedInputs, which is why a default-Alpha=0 duplicate still ran at
+#        Alpha=1 on the grounded ramp — the confound that misled the alpha experiment. Binding STAYS.)
+#   (2) ShouldDoIKTrace (bool LINK <- Conv_IntToBool <- GroundedFlag) — ground-trace conformance
+#       gate WITHIN the running rig. Grounded → trace ON → planted feet conform to the ramp surface.
+#
+# PIN BINDINGS (get_anim_node_pin_bindings AnimGraphNode_ControlRig_0, verbatim read-back):
+#   Alpha           <- ["GroundedFlag"]                      Property  is_bound:true   (gate 1, FLOAT)
+#   Source          <- AnimGraphNode_LayeredBoneBlend_0.Pose Link                       (main pose)
+#   ShouldDoIKTrace <- K2Node_CallFunction_5.ReturnValue     Link                       (gate 2)
+#     (K2Node_CallFunction_5 = Conv_IntToBool "To Boolean (Integer)" <- VariableGet "Get GroundedFlag")
+#
+# GOLDEN-BASELINE VISIBILITY (schemaVersion 2, abp_mt_locomotion.json REGENERATED in this change):
+#   VISIBLE  → two new top-level AnimGraph nodes captured as presence lines:
+#                K2Node_CallFunction "To Boolean (Integer)"   (the Conv_IntToBool)
+#                K2Node_VariableGet  "Get GroundedFlag"
+#              and the bindings block STILL shows  "Alpha": "GroundedFlag"  (binding retained).
+#   INVISIBLE→ the exposed ShouldDoIKTrace input pin and the LINK edge feeding it are node-local /
+#              in-graph wiring that schemaVersion 2 does not serialize. THIS FIXTURE + the pin-bindings
+#              read-back above are the compensating control for that blind spot.
+#
+# WORKING-RIG CONFORMANCE (Pie.FootIKAlphaGates re-grounded — foot_l/foot_r BONE sockets):
+#   grounded clearance_l=10.23 clearance_r=10.68  dZ_feet=10.81  (feet now STAGGER to the ~11cm slope
+#   gradient — real conformance; broken rig was ~0.3cm co-planar). airborne peak minClear=157.3.
+#   (These are ankle-BONE clearances ~10cm above the sole; the ball socket reads ~-1 to -3cm.)
+#
+# READANIMGRAPH top-level additions (our tool, call_method — the two new K2 nodes at AnimGraph root):
+#   - [AnimGraphNode_ControlRig] "Control Rig"           (unchanged; CR_Mannequin_FootIK, GUID 56A03BAE)
+#   - [K2Node_VariableGet] "Get GroundedFlag"            <-- ADDED (feeds ShouldDoIKTrace LINK)
+#   - [K2Node_CallFunction] "To Boolean (Integer)"       <-- ADDED (Conv_IntToBool)
+# COMPILE: 0 errors / 0 warnings.  GoldenDiff.MTLocomotion: RED (this change) → GREEN after this regen.
+# ============================================================================
+
+# ============================================================================
+# TURN-IN-PLACE DELTA — nested TurnInPlace sub-state-machine inside the Idle state.
+# Editor: UE 5.8 (CL-55116800) · 2026-07-18.
+# Compile 0/0, saved.
+#
+# The Idle state's inner graph NO LONGER plays MM_Idle directly; its Output Animation Pose is now
+# driven by the nested StateMachine "TurnInPlace" (set_state_result_source Locomotion/Idle <- the
+# nested SM node). The old direct MM_Idle SequencePlayer in the Idle graph was removed (node-slice).
+#
+# NESTED SM "TurnInPlace" (entry TIP_Neutral; 3 states / 4 transitions; selected by TurnYawDelta):
+#   TIP_Neutral    -> SequencePlayer 'MM_Idle' (Sequence pin bound to Anim_Idle) -> StateResult
+#   TIP_TurnLeft   -> SequencePlayer 'MM_Idle' -> RotateRootBone (Yaw pin default -60) -> StateResult
+#   TIP_TurnRight  -> SequencePlayer 'MM_Idle' -> RotateRootBone (Yaw pin default +60) -> StateResult
+#   transitions (native Abs()/negative-literal compare rules — NO negate:true, NO mirror var):
+#     TIP_Neutral   -> TIP_TurnRight   compare  TurnYawDelta      >  45
+#     TIP_Neutral   -> TIP_TurnLeft    compare  TurnYawDelta      < -45
+#     TIP_TurnRight -> TIP_Neutral     compare  Abs(TurnYawDelta) <  10
+#     TIP_TurnLeft  -> TIP_Neutral     compare  Abs(TurnYawDelta) <  10
+#
+# ROOT-YAW DEGRADE (no mannequin turn clips exist): the turn states rotate the WHOLE body in
+# place via AnimGraphNode_RotateRootBone (local-space root rotation that PROPAGATES to all children),
+# NOT AnimGraphNode_ModifyBone. ModifyBone on 'root' (component-space additive yaw) was tried first and
+# PROVEN INERT: a component-space bone modify affects only that single bone's component transform, not
+# its children; root has no geometry, so the body never moved (rootCSyaw stayed 0, pelvis unchanged,
+# OFF==ON). RotateRootBone is the engine's purpose-built turn node. Yaw is set on the exposed PIN
+# DEFAULT (+/-60); the exposed pin overrides the FAnimNode struct value, so set_anim_graph_node_property
+# ('Yaw') alone is inert — the pin literal is the load-bearing value.
+#
+# EFFECT PROVEN (Scripts/pie_turninplace_drive.py, settle->turn, PIE Lvl_MT_Test, possessed BP_MT_TestPawn):
+#   OFF (TurnYawDelta=0, readback=0):  rootCSsweep=0.00, pelvisWorldSweep~idle-sway-only, maxDrift=0.00cm.
+#   ON  (TurnYawDelta=90, readback=90): rootCSsweep=56.67 (-> +60), pelvisWorldSweep~46-51, maxDrift=0.00cm.
+#   GetAnimDebugState @ON: machine 'TurnInPlace' (idx 9, w1.000) state 'TIP_TurnRight' w1.000, while
+#   'Locomotion' (idx 7) state 'Idle' w1.000. The pawn rotates ~57-60deg IN PLACE (root/whole body),
+#   actor location fixed. TurnYawDelta is a pure external var (no EventGraph re-derive) -> OFF proven off.
+#
+# GOLDEN VISIBILITY (schemaVersion 2, abp_mt_locomotion.json REGENERATED in this change): the nested SM is
+# captured NATIVELY — BuildTopologyJson's generic UEdGraphNode::GetSubGraphs() recursion already reaches
+# nested state-machine graphs (NO AnimGraphTopology.cpp change needed; not a schema-2 blind spot). The
+# regenerated baseline now carries the full TurnInPlace subtree (3 states, RotateRootBone x2, 4
+# transitions w/ Get TurnYawDelta + Abs/compare rules) under Idle. DiffAnimGraph -> IDENTICAL.
+#
+# COMPILE: 0 errors / 0 warnings. Full fresh ReadAnimGraph dump follows.
+# ============================================================================
+
+AnimBlueprint: /Game/MT/ABP_MT_Locomotion.ABP_MT_Locomotion
+TargetSkeleton: None
+AnimGraph:
+  - [AnimGraphNode_Root] "Output Pose"
+  - [AnimGraphNode_StateMachine] "Locomotion"
+    graph "Locomotion":
+      - [AnimStateEntryNode] "Locomotion"
+      - [AnimStateNode] "Idle"
+        graph "Idle":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_StateMachine] "TurnInPlace"
+            graph "TurnInPlace":
+              - [AnimStateEntryNode] "TurnInPlace"
+              - [AnimStateNode] "TIP_Neutral"
+                graph "TIP_Neutral":
+                  - [AnimGraphNode_StateResult] "Output Animation Pose"
+                  - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Idle'"
+                      asset: /Game/Characters/Mannequins/Anims/Unarmed/MM_Idle.MM_Idle
+              - [AnimStateNode] "TIP_TurnLeft"
+                graph "TIP_TurnLeft":
+                  - [AnimGraphNode_StateResult] "Output Animation Pose"
+                  - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Idle'"
+                      asset: /Game/Characters/Mannequins/Anims/Unarmed/MM_Idle.MM_Idle
+                  - [AnimGraphNode_RotateRootBone] "Rotate Root Bone"
+              - [AnimStateNode] "TIP_TurnRight"
+                graph "TIP_TurnRight":
+                  - [AnimGraphNode_StateResult] "Output Animation Pose"
+                  - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Idle'"
+                      asset: /Game/Characters/Mannequins/Anims/Unarmed/MM_Idle.MM_Idle
+                  - [AnimGraphNode_RotateRootBone] "Rotate Root Bone"
+              - [AnimStateTransitionNode] "TIP_Neutral to TIP_TurnRight"
+                  TIP_Neutral -> TIP_TurnRight
+                graph "Transition":
+                  - [AnimGraphNode_TransitionResult] "Result"
+                  - [K2Node_VariableGet] "Get TurnYawDelta"
+                  - [K2Node_CallFunction] "float > float"
+              - [AnimStateTransitionNode] "TIP_Neutral to TIP_TurnLeft"
+                  TIP_Neutral -> TIP_TurnLeft
+                graph "Transition":
+                  - [AnimGraphNode_TransitionResult] "Result"
+                  - [K2Node_VariableGet] "Get TurnYawDelta"
+                  - [K2Node_CallFunction] "float < float"
+              - [AnimStateTransitionNode] "TIP_TurnRight to TIP_Neutral"
+                  TIP_TurnRight -> TIP_Neutral
+                graph "Transition":
+                  - [AnimGraphNode_TransitionResult] "Result"
+                  - [K2Node_VariableGet] "Get TurnYawDelta"
+                  - [K2Node_CallFunction] "Absolute (Float)"
+                  - [K2Node_CallFunction] "float < float"
+              - [AnimStateTransitionNode] "TIP_TurnLeft to TIP_Neutral"
+                  TIP_TurnLeft -> TIP_Neutral
+                graph "Transition":
+                  - [AnimGraphNode_TransitionResult] "Result"
+                  - [K2Node_VariableGet] "Get TurnYawDelta"
+                  - [K2Node_CallFunction] "Absolute (Float)"
+                  - [K2Node_CallFunction] "float < float"
+      - [AnimStateNode] "Locomotion"
+        graph "Locomotion":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_BlendSpacePlayer] "Blendspace Player 'BS_Idle_Walk_Run'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run.BS_Idle_Walk_Run
+      - [AnimStateNode] "Jump"
+        graph "Jump":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Jump'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump.MM_Jump
+      - [AnimStateNode] "Fall"
+        graph "Fall":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Fall_Loop'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop.MM_Fall_Loop
+      - [AnimStateNode] "Land"
+        graph "Land":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Land'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land.MM_Land
+      - [AnimStateTransitionNode] "Idle to Locomotion"
+          Idle -> Locomotion
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get Speed"
+          - [K2Node_CallFunction] "float > float"
+      - [AnimStateTransitionNode] "Locomotion to Idle"
+          Locomotion -> Idle
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get Speed"
+          - [K2Node_CallFunction] "float <= float"
+      - [AnimStateTransitionNode] "Idle to Jump"
+          Idle -> Jump
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get IsFalling"
+      - [AnimStateTransitionNode] "Locomotion to Jump"
+          Locomotion -> Jump
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get IsFalling"
+      - [AnimStateTransitionNode] "Jump to Fall"
+          Jump -> Fall
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+      - [AnimStateTransitionNode] "Land to Idle"
+          Land -> Idle
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+      - [AnimStateTransitionNode] "Fall to Land"
+          Fall -> Land
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+          - [K2Node_VariableGet] "Get GroundedFlag"
+          - [K2Node_CallFunction] "float >= float"
+          - [K2Node_CallFunction] "To Float (Integer)"
+  - [AnimGraphNode_SaveCachedPose] "Save cached pose 'LocomotionPose'"
+  - [AnimGraphNode_LayeredBoneBlend] "Layered blend per bone"
+  - [AnimGraphNode_UseCachedPose] "Use cached pose 'LocomotionPose'"
+  - [AnimGraphNode_UseCachedPose] "Use cached pose 'LocomotionPose'"
+  - [AnimGraphNode_LinkedAnimLayer] "ALI_MT_UpperBody - UpperBodyLayer"
+  - [AnimGraphNode_Slot] "Slot 'UpperBody'"
+  - [AnimGraphNode_ControlRig] "Control Rig"
+  - [K2Node_VariableGet] "Get GroundedFlag"
+  - [K2Node_CallFunction] "To Boolean (Integer)"
+# ============================================================================
+
+# ============================================================================
+# AIM-OFFSET DELTA — AO_Rifle aim offset spliced into the upper-body pose path.
+# Editor: UE 5.8 (CL-55116800) · 2026-07-18.
+# Compile 0/0 (list_errored_blueprints=0), saved. The StateMachine "Locomotion" (incl. the nested
+# TurnInPlace SM), the upper-body cached-pose/layer/slot chain, and the ControlRig(FootIK) node are ALL UNCHANGED.
+# ONE top-level node added + one pose edge rerouted:
+#   - [AnimGraphNode_RotationOffsetBlendSpace] "AimOffset Player 'AO_Rifle'"  <-- ADDED (the aim offset)
+#
+# ASSET: /Game/Characters/Mannequins/Anims/Rifle/AIM/AO_Rifle (AimOffsetBlendSpace, skeleton SK_Mannequin;
+#   READ-ONLY — never edited). Axis finding: Y=PITCH (POPULATED, samples CU +0.989 / CC 0 / CD -0.980),
+#   X=YAW (UNPOPULATED — zero left/right samples), both normalized -1..1 (NOT degrees). => the effect probe
+#   and Pie.AimOffset MUST drive PITCH; driving yaw shows nothing in this stock asset (the earlier blend-space X/Y lesson).
+#
+# NODE INSERTION:
+#   add_anim_graph_node(node_class=/Script/AnimGraph.AnimGraphNode_RotationOffsetBlendSpace,
+#     anim_asset=AO_Rifle) -> AnimGraphNode_RotationOffsetBlendSpace_0 (GUID 19C0ACF3…), pins X/Y/BasePose/
+#     Alpha/AlphaCurveName/bAlphaBoolEnabled + Pose out. BlendSpace node property = AO_Rifle (set at create).
+#
+# WIRING — the SPLICE (was LayeredBoneBlend->ControlRig; now LayeredBoneBlend->Aim->ControlRig):
+#   LayeredBoneBlend_0.Pose               -> RotationOffsetBlendSpace_0.BasePose   (connect_anim_graph_pins)
+#   RotationOffsetBlendSpace_0.Pose       -> ControlRig_0.Source                   (rerouted; old direct
+#                                            LBPB->ControlRig edge REPLACED — get_nodes: ControlRig.Source
+#                                            connections:1 (from Aim), LayeredBoneBlend.Pose connections:1 (to Aim))
+#   ControlRig_0.Pose                     -> Root.Result                           (unchanged from the foot-IK delta)
+#   => aim offset runs on the fully-blended (post-layering) pose, BEFORE FootIK: the upper-body aim layer.
+#
+# PIN BINDINGS (get_anim_node_pin_bindings AnimGraphNode_RotationOffsetBlendSpace_0, verbatim read-back —
+#   the property-access mechanism, the compensating control for the golden's link-edge blind spot):
+#   Y         <- ["AimPitch"]         Property  is_bound:true   (pitch axis = the POPULATED axis; -1..1)
+#   X         <- ["AimYaw"]           Property  is_bound:true   (yaw axis = UNPOPULATED in AO_Rifle; -1..1)
+#   BlendSpace<- ["AimOffset_Rifle"]  Property  is_bound:true   (per-rig override; default = AO_Rifle)
+#   BasePose  <- AnimGraphNode_LayeredBoneBlend_0.Pose  Link
+#   RECOMMENDED design: AimPitch/AimYaw are the ALREADY-NORMALIZED (-1..1) aim inputs bound directly to the
+#   Y/X pins — kept PURE EXTERNAL (no EventGraph re-derive), so SetAnimVariable sticks and the probe/test OFF
+#   state is proven off via read-back (the foot-IK A/B confound-immunity rule). No normalization node added.
+#
+# LIVE POSE-CHAIN PROOF (GatherDebugData via AnimDebugTools.GetNodeWeights, PIE on Lvl_MT_Test — the splice
+# order the golden's node-presence list does NOT encode; GetNodeName = StaticStruct()->GetName()):
+#   AnimNode_Root<W:100%> <- AnimNode_ControlRig<W:100%> (CR_Mannequin_FootIK_C)
+#     <- AnimNode_RotationOffsetBlendSpace<W:100%> Alpha (100.0%)      <-- the aim node, weight 1.000
+#       <- AnimNode_LayeredBoneBlend<W:100%> <- (UseCachedPose / Slot 'UpperBody' / LinkedAnimGraph) ...
+#
+# EFFECT PROVEN (Scripts/pie_aimsweep_drive.py, settle->neutral(0)->extreme(+0.9), PIE Lvl_MT_Test,
+# possessed BP_MT_TestPawn; AimPitch proven-set via SetAnimVariable/GetAnimVariable read-back = 0.90):
+#   upper spine_03 world-rot delta neutral->pitch-extreme = 17.04 deg   (> the 15 deg floor)
+#   upper head     world-rot delta neutral->pitch-extreme = 84.43 deg   (strong upper-body signal)
+#   lower foot_r   world-rot delta neutral->pitch-extreme =  0.22 deg   (CONFOUND GUARD < ~5 deg — the aim
+#                                                                        is UPPER-BODY only; the delta is the
+#                                                                        aim offset, not whole-body motion)
+#   Mechanism A: AnimNode_RotationOffsetBlendSpace present with weight 1.000 (> 0). AimYaw held 0 (unpopulated).
+#
+# GOLDEN (schemaVersion 2, abp_mt_locomotion.json REGENERATED in this change, 15629 -> 15946 chars): the reviewed
+# RED diff was purely additive — a new "AnimGraphNode_RotationOffsetBlendSpace" node block (title "AimOffset
+# Player 'AO_Rifle'", asset AO_Rifle) + its 3 property bindings (BlendSpace<-AimOffset_Rifle, X<-AimYaw,
+# Y<-AimPitch); the pose-Source reroute is a link edge schemaVersion 2 does not serialize (this fixture + the
+# pin-bindings read-back above are its compensating control). SnapshotBaseline -> DiffAnimGraph IDENTICAL.
+#
+# COMPILE: 0 errors / 0 warnings.  OUTPUT POSE: Root.Result <- ControlRig(FootIK).Pose <- Aim.Pose (unchanged
+# top-level Output; the aim is spliced UPSTREAM of the FootIK rig). Top-level node list now ends with:
+#   - [AnimGraphNode_RotationOffsetBlendSpace] "AimOffset Player 'AO_Rifle'"
+#       asset: /Game/Characters/Mannequins/Anims/Rifle/AIM/AO_Rifle.AO_Rifle
+# ============================================================================
+#
+# OFF-HAND IK DELTA — hands-to-weapon Two-Bone IK spliced after the aim node.
+# Editor: UE 5.8 (CL-55116800) · 2026-07-18.
+# Compile 0/0 (list_errored_blueprints=0), saved. The StateMachine
+# "Locomotion" (incl. the nested TurnInPlace SM), the upper-body cached-pose/layer/slot chain, the
+# ControlRig(FootIK) node, and the aim node are ALL UNCHANGED. THREE top-level nodes added (the IK node
+# + two engine-auto-inserted space converters) + one pose edge rerouted:
+#   - [AnimGraphNode_TwoBoneIK] "Two Bone IK - Bone: hand_l"          <-- ADDED (the off-hand IK)
+#   - [AnimGraphNode_LocalToComponentSpace] "Local To Component"      <-- auto-inserted (IK is component-space)
+#   - [AnimGraphNode_ComponentToLocalSpace] "Component To Local"      <-- auto-inserted (back to local for FootIK)
+#
+# NODE INSERTION:
+#   add_anim_graph_node(node_type=TwoBoneIK, ik_bone=hand_l, effector_space=WorldSpace,
+#     joint_target_space=ComponentSpace) -> AnimGraphNode_TwoBoneIK_0 (GUID E9340C4A…), pins ComponentPose/
+#     EffectorLocation/JointTargetLocation/Alpha/bAlphaBoolEnabled/AlphaCurveName + Pose out.
+#   set_anim_graph_node_property JointTargetLocation = (X=-30,Y=-40,Z=100)  (component-space elbow pole; the
+#     reach is joint-target-independent so this only sets the elbow plane — retune if the elbow flips).
+#
+# WIRING — the SPLICE (was Aim->ControlRig; now Aim->LocalToComponent->TwoBoneIK->ComponentToLocal->ControlRig;
+#   UE auto-inserts the two space converters because TwoBoneIK is a component-space node):
+#   RotationOffsetBlendSpace_0.Pose  -> LocalToComponentSpace_0.LocalPose   (connect_anim_graph_pins)
+#   LocalToComponentSpace_0          -> TwoBoneIK_0.ComponentPose           (auto)
+#   TwoBoneIK_0.Pose                 -> ComponentToLocalSpace_0             (auto)
+#   ComponentToLocalSpace_0.Pose     -> ControlRig_0.Source                 (rerouted; old direct Aim->ControlRig
+#                                       edge REPLACED)
+#   ControlRig_0.Pose                -> Root.Result                         (unchanged) => off-hand IK runs on the
+#                                       post-aim pose, BEFORE FootIK: the off-hand runtime IK.
+#
+# PIN BINDINGS (get_anim_node_pin_bindings AnimGraphNode_TwoBoneIK_0, verbatim — the golden's link-edge
+#   compensating control):
+#   EffectorLocation <- ["WeaponIKTargetWorld"]  Property is_bound:true  (the weapon IK_Hand_Gun socket world
+#                       pos, EventGraph-derived each tick — "re-read on socket move"; effector_space=World)
+#   Alpha            <- ["WeaponIKAlpha"]         Property is_bound:true  (pure external gate, default 0; the OFF
+#                       state is PROVEN off via read-back — the foot-IK A/B confound-immunity rule)
+#   ComponentPose    <- AnimGraphNode_LocalToComponentSpace_0.ComponentPose  Link
+#
+# EVENTGRAPH FIX (WeaponIKTargetWorld derivation — a latent bug in the original EventGraph, first exercised with a real weapon here):
+#   The original EventGraph chained ForEachLoop(GetComponentsByTag 'MT_Weapon')->Cast->GetSocketLocation('IK_Hand_Gun')->
+#   Set WeaponIKTargetWorld off `Set UpperBodyState.then`, which sits INSIDE the `UpperBodyState==1` montage
+#   branch (Branch.then->Montage->Set UpperBodyState). In idle (UpperBodyState==0) the branch takes the
+#   unconnected `else`, so the derivation NEVER ran -> WeaponIKTargetWorld stayed (0,0,0) -> the IK dragged
+#   hand_l to the WORLD ORIGIN (diag: d(handL,sock)~41cm with the effector at (0,0,0)). FIX: rewired the exec so
+#   the ForEachLoop runs UNCONDITIONALLY every tick, before the branch:
+#     Set GroundedFlag.then -> ForEachLoop.Exec ;  ForEachLoop.Completed -> Branch.execute
+#   (was Set GroundedFlag.then -> Branch.execute ; Set UpperBodyState.then -> ForEachLoop.Exec). Compile 0/0.
+#   NOTE: the EventGraph is OUTSIDE the schemaVersion-2 AnimGraph capture, so this fix does NOT surface in the
+#   golden diff (consistent with the earlier EventGraph changes). WeaponIKTargetWorld now tracks the foregrip socket every tick.
+#
+# WEAPON COMPONENT (BP_MT_TestPawn + BP_MT_TestPawn_Quinn) — the IK effector source:
+#   StaticMeshComponent "WeaponMesh" (mesh /Game/MT/SM_MT_Rifle, RelativeScale3D (0.5,0.08,0.06), ComponentTag
+#   "MT_Weapon"), attached to the CharacterMesh0 `hand_r` BONE (weapon_r is pruned from SKM_Manny_Simple's
+#   89-bone render skeleton; hand_r/ik_hand_gun ARE present). The
+#   SOCKET attach to hand_r is done in the pawn UserConstructionScript (K2_AttachToComponent Parent=Mesh
+#   SocketName=hand_r, KeepRelative rules) because the subobject Python API cannot
+#   set an inherited-parent SCS node's socket. SM_MT_Rifle sockets grip_r(0,0,0)/IK_Hand_Gun(30,0,0) RE-AUTHORED
+#   with the MESH as the socket outer (the first sockets used a transient outer -> never serialized to disk).
+#   PIE read-back: weapon tracks hand_r (d=0.00), IK_Hand_Gun foregrip resolves 15cm out; reachable (deficit -1.1cm).
+#
+# EFFECT PROVEN — THE LOAD-BEARING off-hand IK probe (Scripts/pie_handreach_drive.py, PIE Lvl_MT_Test, possessed
+#   BP_MT_TestPawn; matched pair, WeaponIKAlpha proven-set via SetAnimVariable/GetAnimVariable read-back):
+#   OFF (WeaponIKAlpha=0, read-back 0): hand_l -> IK_Hand_Gun = 53.53 cm mean (the free-swinging idle off-hand)
+#   ON  (WeaponIKAlpha=1, read-back 1): hand_l -> IK_Hand_Gun =  0.64 cm mean, 0.11 cm min (hand REACHES the
+#                                       foregrip) -> distOn < 5cm tol; gap OFF-ON ~53 cm >> 10 cm min. OFF proven
+#                                       off (read-back), ON proven on. The measured hands-to-weapon effect.
+#
+# GOLDEN (schemaVersion 2, abp_mt_locomotion.json REGENERATED in this change): reviewed RED diff purely additive —
+#   the AnimGraphNode_TwoBoneIK block (title "Two Bone IK - Bone: hand_l") + LocalToComponentSpace +
+#   ComponentToLocalSpace nodes + 2 bindings (Alpha<-WeaponIKAlpha, EffectorLocation<-WeaponIKTargetWorld); no
+#   removals. The pose-Source reroute is a link edge schemaVersion 2 does not serialize (this fixture + the
+#   pin-bindings read-back above are its compensating control). SnapshotBaseline -> DiffAnimGraph IDENTICAL.
+#
+# COMPILE: 0/0.  OUTPUT POSE: Root.Result <- ControlRig(FootIK).Pose <- ComponentToLocal <- TwoBoneIK(hand_l)
+#   <- LocalToComponent <- Aim.Pose. Top-level node list now also carries:
+#   - [AnimGraphNode_TwoBoneIK] "Two Bone IK - Bone: hand_l"
+#   - [AnimGraphNode_LocalToComponentSpace] "Local To Component"
+#   - [AnimGraphNode_ComponentToLocalSpace] "Component To Local"
+# ============================================================================

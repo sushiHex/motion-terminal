@@ -1,0 +1,259 @@
+{
+ "chains": [],
+ "chains_unclassified": [
+  {
+   "baked": true,
+   "baked_deg": 48.0,
+   "bones": [
+    "backpack_base",
+    "arm_wire_01",
+    "backpack_gas_01",
+    "backpack_gas_02",
+    "canister_main",
+    "robo_arm_01",
+    "robo_arm_02",
+    "robo_arm_03",
+    "robo_arm_04",
+    "robo_arm_05",
+    "robo_arm_06",
+    "robo_arm_07",
+    "robo_pinky_01",
+    "robo_pinky_02",
+    "robo_pointer_01",
+    "robo_pointer_02",
+    "robo_thumb_01",
+    "robo_thumb_02",
+    "robo_lowarm_pistonrod_02",
+    "robo_lowarm_pistonrod_01",
+    "robo_uparm_pistonrod",
+    "robo_uparm_pistonrod_01",
+    "shield_bott",
+    "shield_top",
+    "spring"
+   ],
+   "mixed": [
+    "robo_pinky_01",
+    "robo_pinky_02",
+    "robo_thumb_01",
+    "robo_thumb_02",
+    "shield_bott",
+    "shield_top"
+   ],
+   "preset": null,
+   "root": "backpack_base",
+   "verts": 18651
+  }
+ ],
+ "colliders": {
+  "chain_half_width_cm": {},
+  "chains": {},
+  "fitted": {
+   "calf_l": {
+    "radius_cm": 11.78,
+    "radius_p50_cm": 8.64,
+    "samples": 561
+   },
+   "calf_r": {
+    "radius_cm": 11.8,
+    "radius_p50_cm": 8.65,
+    "samples": 564
+   },
+   "hips": {
+    "radius_cm": 15.36,
+    "radius_p50_cm": 12.48,
+    "samples": 345
+   },
+   "lowerarm_l": {
+    "radius_cm": 4.99,
+    "radius_p50_cm": 3.74,
+    "samples": 140
+   },
+   "lowerarm_r": {
+    "radius_cm": 8.58,
+    "radius_p50_cm": 5.91,
+    "samples": 1031
+   },
+   "neck": {
+    "radius_cm": 5.61,
+    "radius_p50_cm": 5.07,
+    "samples": 51
+   },
+   "thigh_l": {
+    "radius_cm": 16.72,
+    "radius_p50_cm": 12.87,
+    "samples": 621
+   },
+   "thigh_r": {
+    "radius_cm": 14.72,
+    "radius_p50_cm": 13.06,
+    "samples": 719
+   },
+   "torso_spine_01": {
+    "radius_cm": 9.63,
+    "radius_p50_cm": 8.41,
+    "samples": 32
+   },
+   "torso_spine_02": {
+    "radius_cm": 66.43,
+    "radius_p50_cm": 46.27,
+    "samples": 3446
+   },
+   "torso_spine_03": {
+    "radius_cm": 15.14,
+    "radius_p50_cm": 13.36,
+    "samples": 1168
+   },
+   "upperarm_l": {
+    "radius_cm": 6.03,
+    "radius_p50_cm": 4.71,
+    "samples": 127
+   },
+   "upperarm_r": {
+    "radius_cm": 9.06,
+    "radius_p50_cm": 6.5,
+    "samples": 721
+   }
+  },
+  "margin_cm": 1.0,
+  "shapes": []
+ },
+ "other_bodies": [],
+ "override_count": 0,
+ "overrides": {},
+ "primary": {
+  "mesh": "/Game/ParagonGadget/Characters/Heroes/Gadget/Meshes/Gadget",
+  "meshes_under_root": 9,
+  "rule": "skeleton targeted by 1 AnimBP(s), 103 sequence(s); shallowest of 4 mesh(es) on it",
+  "skeleton": "/Game/ParagonGadget/Characters/Heroes/Gadget/Meshes/Gadget_Skeleton"
+ },
+ "reasons": [
+  "asymmetric lowerarm fit (median 3.7 vs 5.9 cm): lowerarm_r mirrored from lowerarm_l",
+  "asymmetric upperarm fit (median 4.7 vs 6.5 cm): upperarm_r mirrored from upperarm_l"
+ ],
+ "rig": "ParagonGadget",
+ "roles": {
+  "ball_l": "ball_l",
+  "ball_r": "ball_r",
+  "calf_l": "calf_l",
+  "calf_r": "calf_r",
+  "clavicle_l": "clavicle_l",
+  "clavicle_r": "clavicle_r",
+  "foot_l": "foot_l",
+  "foot_r": "foot_r",
+  "hand_l": "hand_l",
+  "hand_r": "hand_r",
+  "head": "head",
+  "lowerarm_l": "lowerarm_l",
+  "lowerarm_r": "lowerarm_r",
+  "neck": "neck_01",
+  "pelvis": "pelvis",
+  "spine": [
+   "spine_01",
+   "spine_02",
+   "spine_03"
+  ],
+  "thigh_l": "thigh_l",
+  "thigh_r": "thigh_r",
+  "upperarm_l": "upperarm_l",
+  "upperarm_r": "upperarm_r"
+ },
+ "roles_unresolved": [],
+ "root": "/Game/ParagonGadget",
+ "scale": {
+  "height_cm": 202.5,
+  "ok": true
+ },
+ "schema": 1,
+ "single_bone_flaps": [
+  {
+   "bone": "breast_l",
+   "preset": null,
+   "verts": 114
+  },
+  {
+   "bone": "breast_r",
+   "preset": null,
+   "verts": 116
+  },
+  {
+   "bone": "arm_wire_02",
+   "preset": null,
+   "verts": 394
+  },
+  {
+   "bone": "thigh_pouch_big",
+   "preset": "strap",
+   "verts": 415
+  },
+  {
+   "bone": "thigh_pouch_sml",
+   "preset": "strap",
+   "verts": 501
+  }
+ ],
+ "skeleton": {
+  "bones": 134,
+  "weighted_bones": 121
+ },
+ "status": "ok",
+ "stock": {
+  "anim_blueprints": [
+   "/Game/ParagonGadget/Characters/Heroes/Gadget/Gadget_AnimBlueprint"
+  ],
+  "animbp_nodes": {
+   "AnimGraphNode_ApplyAdditive": 1,
+   "AnimGraphNode_BlendListByBool": 1,
+   "AnimGraphNode_BlendSpacePlayer": 1,
+   "AnimGraphNode_ComponentToLocalSpace": 1,
+   "AnimGraphNode_CopyBone": 1,
+   "AnimGraphNode_LayeredBoneBlend": 1,
+   "AnimGraphNode_LegIK": 1,
+   "AnimGraphNode_LocalToComponentSpace": 1,
+   "AnimGraphNode_ModifyBone": 1,
+   "AnimGraphNode_Root": 1,
+   "AnimGraphNode_RotationOffsetBlendSpace": 1,
+   "AnimGraphNode_SaveCachedPose": 4,
+   "AnimGraphNode_SequencePlayer": 6,
+   "AnimGraphNode_Slot": 1,
+   "AnimGraphNode_StateMachine": 3,
+   "AnimGraphNode_StateResult": 9,
+   "AnimGraphNode_TransitionResult": 11,
+   "AnimGraphNode_UseCachedPose": 7,
+   "AnimStateEntryNode": 3,
+   "AnimStateNode": 9,
+   "AnimStateTransitionNode": 11,
+   "EdGraphNode_Comment": 4,
+   "K2Node_CallFunction": 8,
+   "K2Node_CommutativeAssociativeBinaryOperator": 4,
+   "K2Node_Knot": 1,
+   "K2Node_VariableGet": 15
+  },
+  "audit_failed": [],
+  "clothing_assets": [],
+  "features": {
+   "aim_offset": true,
+   "anim_dynamics": false,
+   "blend_space": true,
+   "control_rig": false,
+   "foot_placement": false,
+   "leg_ik": true,
+   "look_at": false,
+   "rigid_body": false,
+   "spring_bone": false,
+   "state_machine": true,
+   "two_bone_ik": false
+  },
+  "motion_sampled_from": [
+   "/Game/ParagonGadget/Characters/Heroes/Gadget/Animations/Jog_BwdToFwd_SpinCCW",
+   "/Game/ParagonGadget/Characters/Heroes/Gadget/Animations/Jog_BwdToFwd_SpinCW",
+   "/Game/ParagonGadget/Characters/Heroes/Gadget/Animations/Jog_Bwd_CircleLeft",
+   "/Game/ParagonGadget/Characters/Heroes/Gadget/Animations/Jog_Bwd_CircleRight",
+   "/Game/ParagonGadget/Characters/Heroes/Gadget/Animations/Jog_Bwd_Pivot180",
+   "/Game/ParagonGadget/Characters/Heroes/Gadget/Animations/Jog_Bwd_Start"
+  ],
+  "physics_asset": "/Game/ParagonGadget/Characters/Heroes/Gadget/Meshes/Gadget_Extents",
+  "physics_constraints": 12,
+  "post_process_abp": null,
+  "sequences": 103
+ }
+}

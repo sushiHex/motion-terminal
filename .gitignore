@@ -1,0 +1,53 @@
+# Unreal Engine generated folders
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Platforms/
+
+# Plugin build artifacts
+Plugins/**/Binaries/
+Plugins/**/Intermediate/
+
+# Content: only project-authored assets are committed. Everything else under Content/ is machine-local: Epic's
+# Third Person template (README, Quickstart), the Paragon heroes and Fab packs (separately licensed, tens of GB), and
+# every asset the scripts generate from them.
+Content/*
+!Content/MT/
+!Content/Spike/
+# every hero's generated assets bind licensed content: all of Content/MT's subfolders are generated
+Content/MT/*/
+Content/MT/F16Shot8*
+# Spike assets that reference licensed content
+Content/Spike/IK_Khaimera.uasset
+Content/Spike/RTG_Manny_to_Khaimera.uasset
+Content/Spike/Retargeted/
+Content/Spike/Showcase_Retarget*
+Content/Spike/Seq_Showcase*
+
+# Rendered captures: derived, large, and some show licensed content
+captures/
+
+/private/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Visual Studio / toolchain
+.vs/
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+
+# JetBrains Rider
+.idea/
+*.DotSettings.user
+
+# OS cruft
+Thumbs.db
+Desktop.ini

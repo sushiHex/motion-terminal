@@ -1,0 +1,206 @@
+<title>MotionTerminal Breakdown</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column (65ch) with full-bleed film strips; data in mono tables; one ice-blue accent. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --ink: #18202b;
+  --muted: #5b6676;
+  --rule: #d7dde6;
+  --accent: #2f6fb5;
+  --accent-soft: #e2ecf7;
+  --pass: #2f7a4f;
+  --warn: #9a6a12;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f141b; --surface: #161d27; --ink: #e6ebf2; --muted: #98a3b3; --rule: #2a3442;
+    --accent: #7fb2ea; --accent-soft: #1c2a3b; --pass: #6cc493; --warn: #e0b45a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f141b; --surface: #161d27; --ink: #e6ebf2; --muted: #98a3b3; --rule: #2a3442;
+  --accent: #7fb2ea; --accent-soft: #1c2a3b; --pass: #6cc493; --warn: #e0b45a; color-scheme: dark;
+}
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 64px;
+}
+main { max-width: 68ch; margin: 0 auto; display: grid; gap: 56px; }
+header { padding-block: 56px 8px; display: grid; gap: 14px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(34px, 6vw, 54px); line-height: 1.04; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+h2 { font-family: var(--display); font-weight: 700; font-size: 24px; margin: 0 0 12px; text-wrap: balance; }
+h3 { font-family: var(--display); font-weight: 700; font-size: 17px; margin: 0 0 6px; }
+p { margin: 0 0 12px; }
+.lede { font-size: 19px; color: var(--ink); max-width: 60ch; }
+.muted { color: var(--muted); }
+section { display: grid; gap: 4px; }
+figure { margin: 8px 0 0; display: grid; gap: 8px; }
+video { width: 100%; max-width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 6px; display: block; }
+figcaption { font-size: 14px; color: var(--muted); }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.pair > * { min-width: 0; }
+ol.pipe { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 14px; counter-reset: s; }
+ol.pipe li { counter-increment: s; display: grid; grid-template-columns: 2.2em 1fr; gap: 10px; }
+ol.pipe li::before { content: counter(s); font-family: var(--mono); color: var(--accent); font-weight: 500; padding-top: 1px; }
+ol.pipe code, p code, td code { font-family: var(--mono); font-size: 0.86em; background: var(--accent-soft); padding: 1px 5px; border-radius: 4px; }
+.table { overflow-x: auto; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+tr:last-child td { border-bottom: 0; }
+td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ok { color: var(--pass); font-family: var(--mono); font-size: 13px; }
+.note { color: var(--warn); font-family: var(--mono); font-size: 13px; }
+.lessons { display: grid; gap: 14px; margin-top: 6px; }
+.lesson { border-left: 2px solid var(--accent); padding-left: 14px; }
+.lesson p { margin: 0; }
+ul.plain { margin: 6px 0 0; padding-left: 1.1em; display: grid; gap: 6px; }
+footer { font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 16px; }
+a { color: var(--accent); }
+a:focus-visible, video:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { video { animation: none; } }
+</style>
+<!-- Built by Scripts/breakdown_page.py: every token below resolves from a run record, or the page is not built. -->
+
+<main>
+  <header>
+    <div class="eyebrow">MotionTerminal · Unreal Engine 5.8 · every step checked</div>
+    <h1>One run, from imported mesh to simulated hero</h1>
+    <p class="lede">A Paragon character goes from an imported mesh to a pawn with Control Rig Dynamics on every part that can move, plus a physical hit reaction. No per-character code, and a check behind every step.</p>
+  </header>
+
+  <section>
+    <h2>Every hero, every part that can move</h2>
+    <p>Each hero's hair, cloth, feathers, cords and weapon tails are found from the mesh and simulated by one generated Control Rig Dynamics solver, with Chaos Cloth where the hero brought a garment. Nothing was placed by hand, and a hero joins this lineup by being released.</p>
+    <figure>
+      <video src="{{lineup}}" poster="{{lineup_poster}}" controls muted loop playsinline preload="metadata"></video>
+      <figcaption>Every released hero on the same run, simulation on, through one camera at their true sizes.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>What one run does</h2>
+    <p>Each step deletes and regenerates its assets, reads them back, and writes a record. A second run reproduces the first record exactly.</p>
+    <ol class="pipe">
+      <li><div><h3>Intake</h3><p>Reads the skeleton and mesh into a profile: body roles, every chain and flap that moves geometry, fitted body capsules, held props. Name tokens pick a behaviour (hair, cloth, soft tissue, cord); topology decides what is simulated.</p></div></li>
+      <li><div><h3>Onboarding</h3><p>Builds an IK rig from the body roles and retargets the template's clips onto the hero. A clip's travel is pinned in place along its own straight-line direction, on whichever bone carries it, and dead foot-IK effectors are baked. Then the blendspace, child AnimBP, test pawn and reaction body. <code>hero_onboard.py --hero &lt;Rig&gt;</code></p></div></li>
+      <li><div><h3>Dynamics</h3><p>A Control Rig with one Dynamics solver: a spawner per behaviour, colliders from the fitted capsules, a twist modifier on flat strips, and a grip pose for a held prop, all generated from the profile.</p></div></li>
+      <li><div><h3>Hit reaction</h3><p>Physics Control's RigidBodyWithControl goes into the same post-process AnimBP, ahead of the Dynamics rig, so hair and cloth feel the hit. A C++ toolset builds the reaction body, pelvis, torso and arms, from the hero's fitted capsules. The impacts scale with the hero's height.</p></div></li>
+      <li><div><h3>Release</h3><p>Matched drives at a fixed 60 Hz step, scored, rendered and overlaid, for every hero in one command; this page is rebuilt from what it writes. <code>hit_reaction_release.py --hero &lt;Rig&gt; --hero &lt;Rig&gt;</code></p></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>The hit reaction, on both heroes</h2>
+    <p>Same generated setup, no tuning per hero: a setting is kept only when it passes on both. The near pawn takes one impact to the chest, from the front, and recovers. The struck body moves; the rest follow through the joints, from the clavicles out to the wrists and down into the hips. The feet stay planted and the legs follow the hips: leg IK puts each foot back where the animation had it, and a generated rig lowers the pelvis just enough to keep both feet in reach. The reaction fades in just before the impact, holds for a second, then fades out over 0.3 s.</p>
+    <div class="pair">
+      <figure>
+        <video src="{{ParagonAurora.media.volley}}" poster="{{ParagonAurora.media.volley_poster}}" controls muted playsinline preload="metadata"></video>
+        <figcaption>Aurora: up to {{ParagonAurora.peak_cm}} cm / {{ParagonAurora.peak_deg}}° off the animation, back in {{ParagonAurora.return_s}} s.</figcaption>
+      </figure>
+      <figure>
+        <video src="{{ParagonKhaimera.media.volley}}" poster="{{ParagonKhaimera.media.volley_poster}}" controls muted playsinline preload="metadata"></video>
+        <figcaption>Khaimera: up to {{ParagonKhaimera.peak_cm}} cm / {{ParagonKhaimera.peak_deg}}°, back in {{ParagonKhaimera.return_s}} s. The axes ride the hands.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>What moves, and how much</h2>
+    <p>Aurora was the test of whether the pipeline is general: it had only ever run on Khaimera, and nothing in the code names her. She arrived with 12 hair chains, two soft-tissue bones, a sword in her right hand and a Chaos Cloth dress, none of which the first hero had. Both views are drawn from each run's own record, frame by frame, over the render.</p>
+    <div class="pair">
+      <figure>
+        <video src="{{ParagonAurora.media.dynamics_heat}}" poster="{{ParagonAurora.media.dynamics_heat_poster}}" controls muted loop playsinline preload="metadata"></video>
+        <figcaption>Aurora's dynamics: the mesh tinted by how far each part is from the animation this frame. The cloth, hair and soft tissue run hot; whatever follows the animation stays neutral.</figcaption>
+      </figure>
+      <figure>
+        <video src="{{ParagonKhaimera.media.dynamics_overlay}}" poster="{{ParagonKhaimera.media.dynamics_overlay_poster}}" controls muted loop playsinline preload="metadata"></video>
+        <figcaption>Khaimera's run with every collision shape drawn: the simulated chains' particles and links (red), the capsules they collide with (blue), and the hit reaction's {{ParagonKhaimera.bodies}} bodies from the fitted capsules (green simulated, grey kinematic) with the joints between them (white).</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Measured, not eyeballed</h2>
+    <p>Each hero runs three drives on matched frames: reaction on and hit, reaction off and hit, reaction on with the impulse switched off. The last two must not respond.</p>
+    <div class="table">
+      <table>
+        <thead><tr><th>Check</th><th>Aurora</th><th>Khaimera</th></tr></thead>
+        <tbody>
+          <tr><td>Upper body responds (peak)</td><td class="num">{{ParagonAurora.peak_cm}} cm · {{ParagonAurora.peak_deg}}°</td><td class="num">{{ParagonKhaimera.peak_cm}} cm · {{ParagonKhaimera.peak_deg}}°</td></tr>
+          <tr><td>The impact lands, beyond the motion already under way</td><td class="num">{{ParagonAurora.impacts_cm}} cm</td><td class="num">{{ParagonKhaimera.impacts_cm}} cm</td></tr>
+          <tr><td>Delivered on schedule</td><td class="num">{{ParagonAurora.applied}} of {{ParagonAurora.planned}}, {{ParagonAurora.late_frames}} frames late</td><td class="num">{{ParagonKhaimera.applied}} of {{ParagonKhaimera.planned}}, {{ParagonKhaimera.late_frames}} frames late</td></tr>
+          <tr><td>The arms articulate: clavicle · shoulder · elbow · wrist</td><td class="num">{{ParagonAurora.clavicle_deg}} · {{ParagonAurora.shoulder_deg}} · {{ParagonAurora.elbow_deg}} · {{ParagonAurora.wrist_deg}}°</td><td class="num">{{ParagonKhaimera.clavicle_deg}} · {{ParagonKhaimera.shoulder_deg}} · {{ParagonKhaimera.elbow_deg}} · {{ParagonKhaimera.wrist_deg}}°</td></tr>
+          <tr><td>The hips take part</td><td class="num">{{ParagonAurora.hips_deg}}°</td><td class="num">{{ParagonKhaimera.hips_deg}}°</td></tr>
+          <tr><td>Arms stay out of the torso (worst, beyond the idle's own)</td><td class="num">{{ParagonAurora.penetration_cm}} cm</td><td class="num">{{ParagonKhaimera.penetration_cm}} cm</td></tr>
+          <tr><td>Left at the fade (springs alone)</td><td class="num">{{ParagonAurora.at_fade_cm}} of {{ParagonAurora.last_peak_cm}} cm</td><td class="num">{{ParagonKhaimera.at_fade_cm}} of {{ParagonKhaimera.last_peak_cm}} cm</td></tr>
+          <tr><td>Back to the animation, after the impact</td><td class="num">{{ParagonAurora.return_s}} s</td><td class="num">{{ParagonKhaimera.return_s}} s</td></tr>
+          <tr><td>Feet planted (the legs follow the hips)</td><td class="num">{{ParagonAurora.legs_cm}} cm · {{ParagonAurora.legs_deg}}°</td><td class="num">{{ParagonKhaimera.legs_cm}} cm · {{ParagonKhaimera.legs_deg}}°</td></tr>
+          <tr><td>Hair and cloth react to the hit</td><td class="num">{{ParagonAurora.secondary_moved}} of {{ParagonAurora.secondary_parts}}</td><td class="num">{{ParagonKhaimera.secondary_moved}} of {{ParagonKhaimera.secondary_parts}}</td></tr>
+          <tr><td>Unhit pose held (worst bone)</td><td class="num">{{ParagonAurora.unhit_cm}} cm · {{ParagonAurora.unhit_deg}}° ({{ParagonAurora.unhit_bone}})</td><td class="num">{{ParagonKhaimera.unhit_cm}} cm · {{ParagonKhaimera.unhit_deg}}° ({{ParagonKhaimera.unhit_bone}})</td></tr>
+          <tr><td>Reaction off · impulse off</td><td class="num">{{ParagonAurora.off_cm}} · {{ParagonAurora.noimp_cm}} cm</td><td class="num">{{ParagonKhaimera.off_cm}} · {{ParagonKhaimera.noimp_cm}} cm</td></tr>
+          <tr><td>Verdict</td><td class="ok">PASS {{ParagonAurora.checks_passed}}/{{ParagonAurora.checks}}</td><td class="ok">PASS {{ParagonKhaimera.checks_passed}}/{{ParagonKhaimera.checks}}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table" style="margin-top:14px">
+      <table>
+        <thead><tr><th>Dynamics gate</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Aurora, first baseline · repeat</td><td class="ok">PASS 66/66</td></tr>
+          <tr><td>Aurora, solver off (must fail)</td><td class="ok">FAIL 30/66</td></tr>
+          <tr><td>Khaimera, against his earlier baseline with the new node in place</td><td class="ok">PASS 179/179</td></tr>
+          <tr><td>Both heroes, this release's build (leg IK, leg reach)</td><td class="ok">PASS {{ParagonAurora.dynamics_passed}}/{{ParagonAurora.dynamics_checks}} · {{ParagonKhaimera.dynamics_passed}}/{{ParagonKhaimera.dynamics_checks}}</td></tr>
+          <tr><td>Host-side test suite</td><td class="num">{{tests}} passed</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>What the second hero taught the pipeline</h2>
+    <p>Every difference became a rule rather than a special case.</p>
+    <div class="lessons">
+      <div class="lesson"><h3>Travel on the root</h3><p>Her clips travel on the root bone (1,277 cm per jog loop); Khaimera's travel on the pelvis. The pin now finds whichever bone carries it.</p></div>
+      <div class="lesson"><h3>Blended soft tissue</h3><p>Her breast bones dominate none of the 556 vertices they move, so the flap fit found nothing. Blended flaps now measure their tip over the vertices they carry a real share of.</p></div>
+      <div class="lesson"><h3>Thin hair</h3><p>The first look showed the hair flaring outward at rest: the 5 cm cloth particle started inside her head. Behaviours now set their own particle size, and the worst hair contact went from −10.3 to −0.6 cm.</p></div>
+      <div class="lesson"><h3>A held prop gets a grip</h3><p>The retargeted clips leave her hand open around the sword. A prop bone under a hand now derives a grip from her own jog pose.</p></div>
+      <div class="lesson"><h3>Hair that hugs the scalp</h3><p>A visual check caught her scalp showing through lifted clumps. Behaviours now set multiplier curves along each chain: hair is tight and stiff at the root and free at the tip. The worst root lift fell from 10.1 to 3.6 cm.</p></div>
+      <div class="lesson"><h3>Mesh cloth gets leg colliders</h3><p>Her stock physics asset has no thigh or calf bodies, so her leg cut through the dress. Onboarding now builds hip and leg colliders from the fit and adds them as a cloth collision source.</p></div>
+      <div class="lesson"><h3>Cloth measured inside the body</h3><p>A visual check saw her dress run inside her thigh. The dynamics gate now measures every simulated cloth vertex against her legs, every frame, less any overlap the art already has. It found 6.3 cm. The leg colliders had been fitted to points that included the dress itself and centred on the bone rather than the leg; refitted to her own skin, and with the cloth solver stepping twice a frame, the worst is 0.3 cm, inside the cloth's own 1 cm thickness.</p></div>
+      <div class="lesson"><h3>A collider bounded by the garment at rest</h3><p>Then a visual check saw the opposite: a shelf where her dress begins to simulate, standing off her hip. A collider that covers an oval hip overshoots its narrow side, and 63 of the dress's simulated points sat inside it at rest, 4.7 cm deep; the solver shoved them out on its first step. Each cloth collider is now fitted between two errors, one each way: how far it pushes the garment at rest, and how much skin it leaves bare for the cloth to sink into in motion. It may shrink and move off the bone to balance them, each within the cloth's 1 cm thickness. Three simpler fits each failed a gate first.</p></div>
+      <div class="lesson"><h3>Impacts sized to the hero</h3><p>An impulse reaches the bodies within its radius. Sized for Aurora (181 cm), it reached almost nothing on 210 cm Khaimera: his head moved 3.4 cm, hers 22. Offset and radius are now shares of height.</p></div>
+      <div class="lesson"><h3>Chains that fork at the root</h3><p>Three hair chains looked dead because the tracked tip was their kinematic root. They now track the deepest leaf.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where the checks caught it</h2>
+    <p>The first reaction runs passed "responds and recovers" while both reaction-on pawns had folded the same way, the head 53 cm off the animation. The unhit-pose comparison caught that. After two wrong theories (joint limits, then collision), reading the engine source found the cause: joint limits centred on the reference pose, and a body anchored past an unsimulated neck bone.</p>
+    <p>The volley added arms, and the unhit check failed again: a hand lagged its idle by 4.4 cm. The cause was the solver: a physics asset runs 6 position iterations by default, too few for a chain of 15 bodies. At 32 the hand holds, and the generated asset now carries that number.</p>
+    <p>A visual check then found the clavicles taking the rotation while the shoulders, elbows and wrists stayed set. A per-joint check now requires every joint on each side to turn, and no clavicle to out-turn the joints below it. It traced three causes. The impact was a wide radial push that splayed the arms apart. The hand's body sat on the wrist joint, so the wrist had no lever. And every arm-torso contact was off, so a hit drove the forearms 7 cm into the body. Impacts now push the struck body alone, offset behind its centre of mass. The hand is a capsule along the fingers, and the pelvis is simulated on a soft world-space spring. Arm-torso pairs collide when they clear each other through the idle; each arm body is shrunk by its measured slack until they do.</p>
+  </section>
+
+  <section>
+    <h2>Not claimed</h2>
+    <ul class="plain">
+      <li>Directional locomotion: the template binds speed only, so only forward clips play.</li>
+      <li>A hit during the run: the reaction lagged a jog by about 6 cm, measured before the solver fix and not re-measured since, so it stays a standing reaction.</li>
+      <li>Arm-torso pairs that touch in the idle stay without contact: they are measured (the worst excess above), not prevented. Pairs whose capsules overlap at least 1 cm through the whole idle, a fitted shoulder inside the chest capsule, are not measured at all: {{ParagonAurora.anatomy}} on Aurora, {{ParagonKhaimera.anatomy}} on Khaimera. LOD transitions are untested (the harness forces LOD 0).</li>
+      <li>The rifle aim offset and ADS pose remain the mannequin's.</li>
+    </ul>
+  </section>
+
+  <footer>
+    Animation: Epic Games sample content (Paragon). Tools: Epic's Unreal MCP and MotionTerminal's own toolsets. Every figure in the hit-reaction table comes from the release record of the run shown.
+  </footer>
+</main>
+

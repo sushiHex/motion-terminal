@@ -1,0 +1,6 @@
+{
+	"schemaVersion": 2,
+	"animBlueprint": "/Game/MT/Khaimera/ABP_MT_Khaimera.ABP_MT_Khaimera",
+	"targetSkeleton": "/Game/ParagonKhaimera/Characters/Heroes/Khaimera/Meshes/Khaimera_Skeleton.Khaimera_Skeleton",
+	"graphs": []
+}

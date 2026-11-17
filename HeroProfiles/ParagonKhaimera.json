@@ -1,0 +1,4620 @@
+{
+ "chains": [
+  {
+   "baked": false,
+   "baked_deg": 0.0,
+   "bones": [
+    "loin_cloth_bk_01",
+    "loin_cloth_bk_02",
+    "loin_cloth_bk_03",
+    "loin_cloth_bk_feather_l",
+    "loin_cloth_bk_feather_r"
+   ],
+   "mixed": [],
+   "preset": "cloth",
+   "root": "loin_cloth_bk_01",
+   "verts": 3148
+  },
+  {
+   "baked": false,
+   "baked_deg": 0.0,
+   "bones": [
+    "loin_cloth_fr_01",
+    "loin_cloth_fr_02",
+    "loin_cloth_fr_03"
+   ],
+   "mixed": [],
+   "preset": "cloth",
+   "root": "loin_cloth_fr_01",
+   "verts": 1368
+  },
+  {
+   "baked": false,
+   "baked_deg": 0.0,
+   "bones": [
+    "weapon_tail_l_01",
+    "weapon_tail_l_02"
+   ],
+   "mixed": [],
+   "preset": "tail",
+   "root": "weapon_tail_l_01",
+   "verts": 1099
+  },
+  {
+   "baked": false,
+   "baked_deg": 0.0,
+   "bones": [
+    "weapon_tail_r_01",
+    "weapon_tail_r_02"
+   ],
+   "mixed": [],
+   "preset": "tail",
+   "root": "weapon_tail_r_01",
+   "verts": 1099
+  },
+  {
+   "baked": false,
+   "baked_deg": 0.0,
+   "bones": [
+    "torso_cloth_bk_l_01",
+    "torso_cloth_bk_l_02"
+   ],
+   "mixed": [],
+   "preset": "cloth",
+   "root": "torso_cloth_bk_l_01",
+   "verts": 257
+  },
+  {
+   "baked": false,
+   "baked_deg": 0.0,
+   "bones": [
+    "torso_cloth_bk_r_01",
+    "torso_cloth_bk_r_02"
+   ],
+   "mixed": [],
+   "preset": "cloth",
+   "root": "torso_cloth_bk_r_01",
+   "verts": 257
+  },
+  {
+   "baked": false,
+   "baked_deg": 0.0,
+   "bones": [
+    "torso_cloth_fr_l_01",
+    "torso_cloth_fr_l_02",
+    "torso_cloth_fr_l_03"
+   ],
+   "mixed": [],
+   "preset": "cloth",
+   "root": "torso_cloth_fr_l_01",
+   "verts": 1284
+  },
+  {
+   "baked": false,
+   "baked_deg": 0.0,
+   "bones": [
+    "torso_cloth_fr_r_01",
+    "torso_cloth_fr_r_02",
+    "torso_cloth_fr_r_03"
+   ],
+   "mixed": [],
+   "preset": "cloth",
+   "root": "torso_cloth_fr_r_01",
+   "verts": 1284
+  }
+ ],
+ "chains_unclassified": [
+  {
+   "baked": true,
+   "baked_deg": 104.4,
+   "bones": [
+    "GhostBeast_pelvis",
+    "GhostBeast_spine_01",
+    "GhostBeast_spine_02",
+    "GhostBeast_spine_03",
+    "GhostBeast_clavicle_l",
+    "GhostBeast_upperarm_l",
+    "GhostBeast_lowerarm_l",
+    "GhostBeast_hand_l",
+    "GhostBeast_index_01_l",
+    "GhostBeast_index_02_l",
+    "GhostBeast_middle_01_l",
+    "GhostBeast_ring_01_l",
+    "GhostBeast_thumb_01_l",
+    "GhostBeast_lowerarm_twist_01_l",
+    "GhostBeast_lowerarm_twist_02_l",
+    "GhostBeast_upperarm_twist_01_l",
+    "GhostBeast_upperarm_twist_02_l",
+    "GhostBeast_clavicle_r",
+    "GhostBeast_upperarm_r",
+    "GhostBeast_lowerarm_r",
+    "GhostBeast_hand_r",
+    "GhostBeast_index_01_r",
+    "GhostBeast_index_02_r",
+    "GhostBeast_middle_01_r",
+    "GhostBeast_ring_01_r",
+    "GhostBeast_thumb_01_r",
+    "GhostBeast_lowerarm_twist_01_r",
+    "GhostBeast_lowerarm_twist_02_r",
+    "GhostBeast_upperarm_twist_01_r",
+    "GhostBeast_upperarm_twist_02_r",
+    "GhostBeast_neck_01",
+    "GhostBeast_neck_02",
+    "GhostBeast_head",
+    "GhostBeast_thigh_l",
+    "GhostBeast_calf_l",
+    "GhostBeast_calf_twist_01_l",
+    "GhostBeast_foot_l",
+    "GhostBeast_ball_l",
+    "GhostBeast_thigh_twist_01_l",
+    "GhostBeast_thigh_r",
+    "GhostBeast_calf_r",
+    "GhostBeast_calf_twist_01_r",
+    "GhostBeast_foot_r",
+    "GhostBeast_ball_r",
+    "GhostBeast_thigh_twist_01_r"
+   ],
+   "mixed": [
+    "GhostBeast_calf_twist_01_l",
+    "GhostBeast_calf_twist_01_r",
+    "GhostBeast_index_01_l",
+    "GhostBeast_index_01_r",
+    "GhostBeast_index_02_l",
+    "GhostBeast_index_02_r",
+    "GhostBeast_lowerarm_twist_01_l",
+    "GhostBeast_lowerarm_twist_01_r",
+    "GhostBeast_lowerarm_twist_02_l",
+    "GhostBeast_lowerarm_twist_02_r",
+    "GhostBeast_middle_01_l",
+    "GhostBeast_middle_01_r",
+    "GhostBeast_ring_01_l",
+    "GhostBeast_ring_01_r",
+    "GhostBeast_thigh_twist_01_l",
+    "GhostBeast_thigh_twist_01_r",
+    "GhostBeast_thumb_01_l",
+    "GhostBeast_thumb_01_r",
+    "GhostBeast_upperarm_twist_01_l",
+    "GhostBeast_upperarm_twist_01_r",
+    "GhostBeast_upperarm_twist_02_l",
+    "GhostBeast_upperarm_twist_02_r"
+   ],
+   "preset": null,
+   "root": "GhostBeast_pelvis",
+   "verts": 19097
+  }
+ ],
+ "colliders": {
+  "chain_half_width_cm": {
+   "feather_01_l": 3.54,
+   "feather_01_r": 3.52,
+   "feather_02_l": 10.24,
+   "feather_02_r": 9.85,
+   "feather_03_l": 11.11,
+   "feather_03_r": 10.99,
+   "feather_04_l": 13.14,
+   "feather_04_r": 10.8,
+   "feather_05_l": 6.93,
+   "feather_05_r": 6.93,
+   "feather_06_l": 10.33,
+   "feather_06_r": 10.33,
+   "feather_07_l": 8.93,
+   "feather_07_r": 8.93,
+   "feather_08_l": 10.92,
+   "feather_08_r": 10.92,
+   "feather_09_l": 13.13,
+   "feather_09_r": 13.13,
+   "feather_10_l": 9.71,
+   "feather_10_r": 9.71,
+   "feather_11_l": 11.93,
+   "feather_11_r": 12.36,
+   "feather_12_l": 13.05,
+   "feather_12_r": 13.05,
+   "feather_13_l": 17.67,
+   "feather_13_r": 9.55,
+   "feather_14_l": 7.69,
+   "feather_15_l": 11.42,
+   "feather_15_r": 11.42,
+   "feather_16_l": 11.58,
+   "feather_16_r": 11.58,
+   "feather_17_l": 7.87,
+   "feather_17_r": 7.87,
+   "loin_cloth_bk_01": 23.1,
+   "loin_cloth_fr_01": 13.05,
+   "necklace_center_02": 4.9,
+   "necklace_l": 2.63,
+   "necklace_r": 2.63,
+   "torso_cloth_bk_l_01": 12.57,
+   "torso_cloth_bk_r_01": 12.57,
+   "torso_cloth_fr_l_01": 10.29,
+   "torso_cloth_fr_r_01": 10.29,
+   "weapon_tail_l_01": 22.72,
+   "weapon_tail_r_01": 22.72
+  },
+  "chains": {
+   "feather_01_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 10.0,
+    "tails": [
+     {
+      "bone": "feather_01_l",
+      "length_cm": 6.46,
+      "local": [
+       2.564,
+       -4.583,
+       3.758
+      ],
+      "null": "MT_tail_feather_01_l"
+     }
+    ]
+   },
+   "feather_01_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 10.1,
+    "tails": [
+     {
+      "bone": "feather_01_r",
+      "length_cm": 6.58,
+      "local": [
+       -2.325,
+       4.726,
+       -3.947
+      ],
+      "null": "MT_tail_feather_01_r"
+     }
+    ]
+   },
+   "feather_02_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 22.08,
+    "tails": [
+     {
+      "bone": "feather_02_l",
+      "length_cm": 11.84,
+      "local": [
+       -1.623,
+       -11.051,
+       3.917
+      ],
+      "null": "MT_tail_feather_02_l"
+     }
+    ]
+   },
+   "feather_02_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 21.47,
+    "tails": [
+     {
+      "bone": "feather_02_r",
+      "length_cm": 11.62,
+      "local": [
+       1.086,
+       10.777,
+       -4.195
+      ],
+      "null": "MT_tail_feather_02_r"
+     }
+    ]
+   },
+   "feather_03_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 25.05,
+    "tails": [
+     {
+      "bone": "feather_03_l",
+      "length_cm": 13.94,
+      "local": [
+       -0.534,
+       -12.541,
+       6.059
+      ],
+      "null": "MT_tail_feather_03_l"
+     }
+    ]
+   },
+   "feather_03_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 24.77,
+    "tails": [
+     {
+      "bone": "feather_03_r",
+      "length_cm": 13.78,
+      "local": [
+       0.389,
+       11.892,
+       -6.953
+      ],
+      "null": "MT_tail_feather_03_r"
+     }
+    ]
+   },
+   "feather_04_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 28.67,
+    "tails": [
+     {
+      "bone": "feather_04_l",
+      "length_cm": 15.53,
+      "local": [
+       -8.459,
+       -10.736,
+       7.37
+      ],
+      "null": "MT_tail_feather_04_l"
+     }
+    ]
+   },
+   "feather_04_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 22.96,
+    "tails": [
+     {
+      "bone": "feather_04_r",
+      "length_cm": 12.16,
+      "local": [
+       4.648,
+       5.472,
+       -9.809
+      ],
+      "null": "MT_tail_feather_04_r"
+     }
+    ]
+   },
+   "feather_05_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 18.99,
+    "tails": [
+     {
+      "bone": "feather_05_l",
+      "length_cm": 12.06,
+      "local": [
+       -1.448,
+       -9.52,
+       7.264
+      ],
+      "null": "MT_tail_feather_05_l"
+     }
+    ]
+   },
+   "feather_05_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 18.99,
+    "tails": [
+     {
+      "bone": "feather_05_r",
+      "length_cm": 12.06,
+      "local": [
+       1.448,
+       9.52,
+       -7.264
+      ],
+      "null": "MT_tail_feather_05_r"
+     }
+    ]
+   },
+   "feather_06_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 23.32,
+    "tails": [
+     {
+      "bone": "feather_06_l",
+      "length_cm": 12.99,
+      "local": [
+       2.894,
+       -11.298,
+       5.713
+      ],
+      "null": "MT_tail_feather_06_l"
+     }
+    ]
+   },
+   "feather_06_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 23.32,
+    "tails": [
+     {
+      "bone": "feather_06_r",
+      "length_cm": 12.99,
+      "local": [
+       -2.894,
+       11.298,
+       -5.713
+      ],
+      "null": "MT_tail_feather_06_r"
+     }
+    ]
+   },
+   "feather_07_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 21.46,
+    "tails": [
+     {
+      "bone": "feather_07_l",
+      "length_cm": 12.53,
+      "local": [
+       -1.954,
+       -9.39,
+       8.058
+      ],
+      "null": "MT_tail_feather_07_l"
+     }
+    ]
+   },
+   "feather_07_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 21.71,
+    "tails": [
+     {
+      "bone": "feather_07_r",
+      "length_cm": 12.78,
+      "local": [
+       1.83,
+       9.715,
+       -8.1
+      ],
+      "null": "MT_tail_feather_07_r"
+     }
+    ]
+   },
+   "feather_08_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 24.1,
+    "tails": [
+     {
+      "bone": "feather_08_l",
+      "length_cm": 13.18,
+      "local": [
+       -0.142,
+       -10.915,
+       7.377
+      ],
+      "null": "MT_tail_feather_08_l"
+     }
+    ]
+   },
+   "feather_08_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 24.1,
+    "tails": [
+     {
+      "bone": "feather_08_r",
+      "length_cm": 13.18,
+      "local": [
+       0.142,
+       10.915,
+       -7.377
+      ],
+      "null": "MT_tail_feather_08_r"
+     }
+    ]
+   },
+   "feather_09_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 29.83,
+    "tails": [
+     {
+      "bone": "feather_09_l",
+      "length_cm": 16.7,
+      "local": [
+       2.589,
+       -15.032,
+       6.804
+      ],
+      "null": "MT_tail_feather_09_l"
+     }
+    ]
+   },
+   "feather_09_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 29.83,
+    "tails": [
+     {
+      "bone": "feather_09_r",
+      "length_cm": 16.7,
+      "local": [
+       -2.589,
+       15.032,
+       -6.804
+      ],
+      "null": "MT_tail_feather_09_r"
+     }
+    ]
+   },
+   "feather_10_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 22.32,
+    "tails": [
+     {
+      "bone": "feather_10_l",
+      "length_cm": 12.61,
+      "local": [
+       -6.528,
+       -10.067,
+       3.885
+      ],
+      "null": "MT_tail_feather_10_l"
+     }
+    ]
+   },
+   "feather_10_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 22.32,
+    "tails": [
+     {
+      "bone": "feather_10_r",
+      "length_cm": 12.61,
+      "local": [
+       6.528,
+       10.067,
+       -3.885
+      ],
+      "null": "MT_tail_feather_10_r"
+     }
+    ]
+   },
+   "feather_11_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 26.95,
+    "tails": [
+     {
+      "bone": "feather_11_l",
+      "length_cm": 15.02,
+      "local": [
+       -2.083,
+       -14.531,
+       3.159
+      ],
+      "null": "MT_tail_feather_11_l"
+     }
+    ]
+   },
+   "feather_11_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 28.37,
+    "tails": [
+     {
+      "bone": "feather_11_r",
+      "length_cm": 16.01,
+      "local": [
+       1.964,
+       15.672,
+       -2.602
+      ],
+      "null": "MT_tail_feather_11_r"
+     }
+    ]
+   },
+   "feather_12_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 32.78,
+    "tails": [
+     {
+      "bone": "feather_12_l",
+      "length_cm": 19.73,
+      "local": [
+       -3.714,
+       -17.77,
+       7.718
+      ],
+      "null": "MT_tail_feather_12_l"
+     }
+    ]
+   },
+   "feather_12_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 32.94,
+    "tails": [
+     {
+      "bone": "feather_12_r",
+      "length_cm": 19.89,
+      "local": [
+       3.161,
+       18.1,
+       -7.612
+      ],
+      "null": "MT_tail_feather_12_r"
+     }
+    ]
+   },
+   "feather_13_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 39.74,
+    "tails": [
+     {
+      "bone": "feather_13_l",
+      "length_cm": 22.07,
+      "local": [
+       -2.969,
+       -21.122,
+       5.66
+      ],
+      "null": "MT_tail_feather_13_l"
+     }
+    ]
+   },
+   "feather_13_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 29.19,
+    "tails": [
+     {
+      "bone": "feather_13_r",
+      "length_cm": 19.64,
+      "local": [
+       -3.471,
+       17.661,
+       -7.849
+      ],
+      "null": "MT_tail_feather_13_r"
+     }
+    ]
+   },
+   "feather_14_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 19.69,
+    "tails": [
+     {
+      "bone": "feather_14_l",
+      "length_cm": 12.0,
+      "local": [
+       -3.672,
+       -10.299,
+       4.937
+      ],
+      "null": "MT_tail_feather_14_l"
+     }
+    ]
+   },
+   "feather_15_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 26.12,
+    "tails": [
+     {
+      "bone": "feather_15_l",
+      "length_cm": 14.7,
+      "local": [
+       -0.889,
+       -13.428,
+       5.927
+      ],
+      "null": "MT_tail_feather_15_l"
+     }
+    ]
+   },
+   "feather_15_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 26.12,
+    "tails": [
+     {
+      "bone": "feather_15_r",
+      "length_cm": 14.7,
+      "local": [
+       0.889,
+       13.428,
+       -5.927
+      ],
+      "null": "MT_tail_feather_15_r"
+     }
+    ]
+   },
+   "feather_16_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 26.72,
+    "tails": [
+     {
+      "bone": "feather_16_l",
+      "length_cm": 15.14,
+      "local": [
+       0.324,
+       -13.096,
+       7.591
+      ],
+      "null": "MT_tail_feather_16_l"
+     }
+    ]
+   },
+   "feather_16_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 26.72,
+    "tails": [
+     {
+      "bone": "feather_16_r",
+      "length_cm": 15.14,
+      "local": [
+       -0.324,
+       13.096,
+       -7.591
+      ],
+      "null": "MT_tail_feather_16_r"
+     }
+    ]
+   },
+   "feather_17_l": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 20.66,
+    "tails": [
+     {
+      "bone": "feather_17_l",
+      "length_cm": 12.79,
+      "local": [
+       -2.936,
+       -10.064,
+       7.321
+      ],
+      "null": "MT_tail_feather_17_l"
+     }
+    ]
+   },
+   "feather_17_r": {
+    "behaviour": "feather",
+    "collides_with": [
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_flaps_feather_neck",
+     "rest_flaps_feather_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "feather",
+    "kind": "flap",
+    "particle_radius_cm": 1.61,
+    "reach_cm": 20.66,
+    "tails": [
+     {
+      "bone": "feather_17_r",
+      "length_cm": 12.79,
+      "local": [
+       2.936,
+       10.064,
+       -7.321
+      ],
+      "null": "MT_tail_feather_17_r"
+     }
+    ]
+   },
+   "loin_cloth_bk_01": {
+    "behaviour": "cloth_panel",
+    "collides_with": [
+     "calf_l",
+     "calf_r",
+     "head",
+     "lowerarm_l",
+     "lowerarm_r",
+     "neck",
+     "rest_loin_cloth_bk_01_hips",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "torso_spine_03",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "faces": {
+     "loin_cloth_bk_01": {
+      "flat": 0.058,
+      "normal_local": [
+       0.0,
+       -0.0,
+       1.0
+      ]
+     },
+     "loin_cloth_bk_02": {
+      "flat": 0.051,
+      "normal_local": [
+       0.0,
+       -0.0,
+       1.0
+      ]
+     }
+    },
+    "kind": "chain",
+    "particle_radius_cm": 5.0,
+    "reach_cm": 93.76,
+    "tails": []
+   },
+   "loin_cloth_fr_01": {
+    "behaviour": "cloth_panel",
+    "collides_with": [
+     "calf_l",
+     "calf_r",
+     "head",
+     "lowerarm_l",
+     "lowerarm_r",
+     "neck",
+     "rest_loin_cloth_fr_01_hips",
+     "rest_loin_cloth_fr_01_thigh_l",
+     "rest_loin_cloth_fr_01_thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "torso_spine_03",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "faces": {
+     "loin_cloth_fr_01": {
+      "flat": 0.096,
+      "normal_local": [
+       -0.0042,
+       0.0,
+       1.0
+      ]
+     },
+     "loin_cloth_fr_02": {
+      "flat": 0.102,
+      "normal_local": [
+       -0.003,
+       0.0,
+       1.0
+      ]
+     },
+     "loin_cloth_fr_03": {
+      "flat": 0.142,
+      "normal_local": [
+       -0.0016,
+       -0.0,
+       1.0
+      ]
+     }
+    },
+    "kind": "chain",
+    "particle_radius_cm": 5.0,
+    "reach_cm": 68.74,
+    "tails": [
+     {
+      "bone": "loin_cloth_fr_03",
+      "length_cm": 16.16,
+      "local": [
+       0.0,
+       -16.163,
+       -0.0
+      ],
+      "null": "MT_tail_loin_cloth_fr_03"
+     }
+    ]
+   },
+   "necklace_center_02": {
+    "behaviour": "pendant",
+    "collides_with": [
+     "lowerarm_l",
+     "lowerarm_r",
+     "neck",
+     "rest_flaps_pendant_torso_spine_02",
+     "rest_flaps_pendant_torso_spine_03",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "group": "pendant",
+    "kind": "flap",
+    "particle_radius_cm": 2.12,
+    "reach_cm": 13.38,
+    "tails": [
+     {
+      "bone": "necklace_center_02",
+      "length_cm": 8.48,
+      "local": [
+       -0.109,
+       -7.79,
+       -3.355
+      ],
+      "null": "MT_tail_necklace_center_02"
+     }
+    ]
+   },
+   "torso_cloth_bk_l_01": {
+    "behaviour": "cloth_strip",
+    "collides_with": [
+     "calf_l",
+     "calf_r",
+     "head",
+     "lowerarm_l",
+     "lowerarm_r",
+     "neck",
+     "rest_torso_cloth_bk_l_01_hips",
+     "rest_torso_cloth_bk_l_01_thigh_l",
+     "rest_torso_cloth_bk_l_01_torso_spine_01_p",
+     "rest_torso_cloth_bk_l_01_torso_spine_02",
+     "rest_torso_cloth_bk_l_01_torso_spine_03",
+     "rest_torso_cloth_bk_l_01_waist",
+     "thigh_r",
+     "torso_spine_01_n",
+     "upperarm_l",
+     "upperarm_r"
+    ],
+    "faces": {
+     "torso_cloth_bk_l_01": {
+      "flat": 0.35,
+      "normal_local": [
+       0.2938,
+       -0.0,
+       -0.9559
+      ]
+     }
+    },
+    "kind": "chain",
+    "particle_radius_cm": 5.0,
+    "reach_cm": 43.91,
+    "tails": [
+     {
+      "bone": "torso_cloth_bk_l_02",
+      "length_cm": 17.67,
+      "local": [
+       0.0,
+       -17.607,
+       1.465
+      ],
+      "null": "MT_tail_torso_cloth_bk_l_02"
+     }
+    ]
+   },
+   "torso_cloth_bk_r_01": {
+    "behaviour": "cloth_strip",
+    "collides_with": [
+     "calf_l",
+     "calf_r",
+     "head",
+     "lowerarm_l",
+     "lowerarm_r",
+     "neck",
+     "rest_torso_cloth_bk_r_01_hips",
+     "rest_torso_cloth_bk_r_01_thigh_r",
+     "rest_torso_cloth_bk_r_01_torso_spine_01_n",
+     "rest_torso_cloth_bk_r_01_torso_spine_02",
+     "rest_torso_cloth_bk_r_01_torso_spine_03",
+     "rest_torso_cloth_bk_r_01_waist",
+     "thigh_l",
+     "torso_spine_01_p",
+     "upperarm_l",
+     "upperarm_r"
+    ],
+    "faces": {
+     "torso_cloth_bk_r_01": {
+      "flat": 0.35,
+      "normal_local": [
+       -0.2938,
+       -0.0,
+       0.9559
+      ]
+     }
+    },
+    "kind": "chain",
+    "particle_radius_cm": 5.0,
+    "reach_cm": 43.91,
+    "tails": [
+     {
+      "bone": "torso_cloth_bk_r_02",
+      "length_cm": 17.67,
+      "local": [
+       0.0,
+       17.607,
+       -1.465
+      ],
+      "null": "MT_tail_torso_cloth_bk_r_02"
+     }
+    ]
+   },
+   "torso_cloth_fr_l_01": {
+    "behaviour": "cloth_strip",
+    "collides_with": [
+     "calf_l",
+     "calf_r",
+     "head",
+     "lowerarm_l",
+     "lowerarm_r",
+     "neck",
+     "rest_torso_cloth_fr_l_01_hips",
+     "rest_torso_cloth_fr_l_01_thigh_l",
+     "rest_torso_cloth_fr_l_01_torso_spine_01_p",
+     "rest_torso_cloth_fr_l_01_torso_spine_02",
+     "rest_torso_cloth_fr_l_01_torso_spine_03",
+     "rest_torso_cloth_fr_l_01_waist",
+     "thigh_r",
+     "torso_spine_01_n",
+     "upperarm_l",
+     "upperarm_r"
+    ],
+    "faces": {
+     "torso_cloth_fr_l_01": {
+      "flat": 0.17,
+      "normal_local": [
+       0.1322,
+       -0.0,
+       -0.9912
+      ]
+     },
+     "torso_cloth_fr_l_02": {
+      "flat": 0.255,
+      "normal_local": [
+       -0.043,
+       -0.0,
+       -0.9991
+      ]
+     },
+     "torso_cloth_fr_l_03": {
+      "flat": 0.302,
+      "normal_local": [
+       -0.0795,
+       0.0,
+       -0.9968
+      ]
+     }
+    },
+    "kind": "chain",
+    "particle_radius_cm": 5.0,
+    "reach_cm": 68.54,
+    "tails": [
+     {
+      "bone": "torso_cloth_fr_l_03",
+      "length_cm": 14.28,
+      "local": [
+       -0.0,
+       -14.276,
+       0.0
+      ],
+      "null": "MT_tail_torso_cloth_fr_l_03"
+     }
+    ]
+   },
+   "torso_cloth_fr_r_01": {
+    "behaviour": "cloth_strip",
+    "collides_with": [
+     "calf_l",
+     "calf_r",
+     "head",
+     "lowerarm_l",
+     "lowerarm_r",
+     "neck",
+     "rest_torso_cloth_fr_r_01_hips",
+     "rest_torso_cloth_fr_r_01_thigh_r",
+     "rest_torso_cloth_fr_r_01_torso_spine_01_n",
+     "rest_torso_cloth_fr_r_01_torso_spine_02",
+     "rest_torso_cloth_fr_r_01_torso_spine_03",
+     "rest_torso_cloth_fr_r_01_waist",
+     "thigh_l",
+     "torso_spine_01_p",
+     "upperarm_l",
+     "upperarm_r"
+    ],
+    "faces": {
+     "torso_cloth_fr_r_01": {
+      "flat": 0.17,
+      "normal_local": [
+       -0.1322,
+       -0.0,
+       0.9912
+      ]
+     },
+     "torso_cloth_fr_r_02": {
+      "flat": 0.255,
+      "normal_local": [
+       0.043,
+       -0.0,
+       0.9991
+      ]
+     },
+     "torso_cloth_fr_r_03": {
+      "flat": 0.302,
+      "normal_local": [
+       0.0795,
+       -0.0,
+       0.9968
+      ]
+     }
+    },
+    "kind": "chain",
+    "particle_radius_cm": 5.0,
+    "reach_cm": 68.54,
+    "tails": [
+     {
+      "bone": "torso_cloth_fr_r_03",
+      "length_cm": 14.28,
+      "local": [
+       -0.0,
+       14.276,
+       0.0
+      ],
+      "null": "MT_tail_torso_cloth_fr_r_03"
+     }
+    ]
+   },
+   "weapon_tail_l_01": {
+    "behaviour": "hanging_cord",
+    "collides_with": [
+     "calf_l",
+     "calf_r",
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "neck",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "torso_spine_03",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "faces": {},
+    "kind": "chain",
+    "particle_radius_cm": 5.0,
+    "reach_cm": 87.83,
+    "tails": [
+     {
+      "bone": "weapon_tail_l_02",
+      "length_cm": 32.21,
+      "local": [
+       -0.0,
+       -32.209,
+       -0.0
+      ],
+      "null": "MT_tail_weapon_tail_l_02"
+     }
+    ]
+   },
+   "weapon_tail_r_01": {
+    "behaviour": "hanging_cord",
+    "collides_with": [
+     "calf_l",
+     "calf_r",
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "neck",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01_n",
+     "torso_spine_01_p",
+     "torso_spine_02",
+     "torso_spine_03",
+     "upperarm_l",
+     "upperarm_r",
+     "waist"
+    ],
+    "faces": {},
+    "kind": "chain",
+    "particle_radius_cm": 5.0,
+    "reach_cm": 87.83,
+    "tails": [
+     {
+      "bone": "weapon_tail_r_02",
+      "length_cm": 32.21,
+      "local": [
+       0.0,
+       32.209,
+       0.0
+      ],
+      "null": "MT_tail_weapon_tail_r_02"
+     }
+    ]
+   }
+  },
+  "fitted": {
+   "calf_l": {
+    "radius_cm": 11.61,
+    "radius_p50_cm": 8.37,
+    "samples": 864,
+    "skin": {
+     "bands": 6,
+     "far": [
+      21.299,
+      -2.592,
+      10.831
+     ],
+     "near": [
+      18.555,
+      0.168,
+      64.627
+     ],
+     "radius_cm": [
+      11.19,
+      7.82
+     ]
+    }
+   },
+   "calf_r": {
+    "radius_cm": 11.61,
+    "radius_p50_cm": 8.37,
+    "samples": 864,
+    "skin": {
+     "bands": 6,
+     "far": [
+      -21.299,
+      -2.592,
+      10.831
+     ],
+     "near": [
+      -18.555,
+      0.168,
+      64.627
+     ],
+     "radius_cm": [
+      11.19,
+      7.82
+     ]
+    }
+   },
+   "hips": {
+    "radius_cm": 29.49,
+    "radius_p50_cm": 20.94,
+    "samples": 635,
+    "skin": {
+     "bands": 2,
+     "far": [
+      -12.878,
+      -3.999,
+      116.827
+     ],
+     "near": [
+      12.879,
+      -1.274,
+      117.516
+     ],
+     "radius_cm": [
+      22.87,
+      21.0
+     ]
+    }
+   },
+   "lowerarm_l": {
+    "radius_cm": 8.83,
+    "radius_p50_cm": 7.15,
+    "samples": 394,
+    "skin": {
+     "bands": 6,
+     "far": [
+      60.684,
+      17.327,
+      124.604
+     ],
+     "near": [
+      43.779,
+      2.603,
+      147.492
+     ],
+     "radius_cm": [
+      11.35,
+      6.52
+     ]
+    }
+   },
+   "lowerarm_r": {
+    "radius_cm": 8.83,
+    "radius_p50_cm": 7.15,
+    "samples": 394,
+    "skin": {
+     "bands": 6,
+     "far": [
+      -60.684,
+      17.327,
+      124.604
+     ],
+     "near": [
+      -43.779,
+      2.603,
+      147.492
+     ],
+     "radius_cm": [
+      11.35,
+      6.52
+     ]
+    }
+   },
+   "neck": {
+    "radius_cm": 20.34,
+    "radius_p50_cm": 15.04,
+    "samples": 666,
+    "skin": {
+     "bands": 5,
+     "far": [
+      -0.079,
+      22.047,
+      193.336
+     ],
+     "near": [
+      0.178,
+      2.087,
+      187.684
+     ],
+     "radius_cm": [
+      29.06,
+      13.22
+     ]
+    }
+   },
+   "thigh_l": {
+    "radius_cm": 13.09,
+    "radius_p50_cm": 10.51,
+    "samples": 436,
+    "skin": {
+     "bands": 6,
+     "far": [
+      15.017,
+      5.61,
+      64.135
+     ],
+     "near": [
+      12.144,
+      0.302,
+      108.519
+     ],
+     "radius_cm": [
+      16.55,
+      11.0
+     ]
+    }
+   },
+   "thigh_r": {
+    "radius_cm": 13.09,
+    "radius_p50_cm": 10.51,
+    "samples": 436,
+    "skin": {
+     "bands": 6,
+     "far": [
+      -15.017,
+      5.61,
+      64.135
+     ],
+     "near": [
+      -12.144,
+      0.302,
+      108.52
+     ],
+     "radius_cm": [
+      16.55,
+      11.0
+     ]
+    }
+   },
+   "torso_spine_01": {
+    "radius_cm": 17.66,
+    "radius_p50_cm": 14.08,
+    "samples": 108,
+    "skin": {
+     "bands": 3,
+     "far": [
+      -0.009,
+      -5.872,
+      142.298
+     ],
+     "near": [
+      0.041,
+      1.644,
+      129.781
+     ],
+     "radius_cm": [
+      15.93,
+      20.29
+     ]
+    }
+   },
+   "torso_spine_02": {
+    "radius_cm": 19.22,
+    "radius_p50_cm": 15.23,
+    "samples": 61,
+    "skin": null
+   },
+   "torso_spine_03": {
+    "radius_cm": 26.54,
+    "radius_p50_cm": 22.52,
+    "samples": 2577,
+    "skin": {
+     "bands": 6,
+     "far": [
+      -0.073,
+      3.071,
+      182.375
+     ],
+     "near": [
+      0.025,
+      -1.188,
+      158.182
+     ],
+     "radius_cm": [
+      31.21,
+      25.06
+     ]
+    }
+   },
+   "upperarm_l": {
+    "radius_cm": 13.02,
+    "radius_p50_cm": 11.82,
+    "samples": 2467,
+    "skin": {
+     "bands": 6,
+     "far": [
+      42.379,
+      1.829,
+      147.21
+     ],
+     "near": [
+      20.478,
+      6.177,
+      173.173
+     ],
+     "radius_cm": [
+      17.64,
+      9.33
+     ]
+    }
+   },
+   "upperarm_r": {
+    "radius_cm": 13.02,
+    "radius_p50_cm": 11.82,
+    "samples": 2467,
+    "skin": {
+     "bands": 6,
+     "far": [
+      -42.379,
+      1.829,
+      147.211
+     ],
+     "near": [
+      -20.478,
+      6.177,
+      173.173
+     ],
+     "radius_cm": [
+      17.64,
+      9.33
+     ]
+    }
+   },
+   "waist": {
+    "radius_cm": 19.61,
+    "radius_p50_cm": 16.9,
+    "samples": 142,
+    "skin": {
+     "bands": 4,
+     "far": [
+      0.002,
+      -0.78,
+      129.977
+     ],
+     "near": [
+      -0.001,
+      -5.478,
+      123.89
+     ],
+     "radius_cm": [
+      22.18,
+      19.9
+     ]
+    }
+   }
+  },
+  "margin_cm": 1.0,
+  "shapes": [
+   {
+    "a_cs": [
+     12.879,
+     0.371,
+     108.592
+    ],
+    "b_cs": [
+     -12.879,
+     0.37,
+     108.592
+    ],
+    "local": {
+     "length_cm": 25.76,
+     "radius_cm": 30.49,
+     "rotation_xyzw": [
+      -1.9e-05,
+      0.0,
+      0.001817,
+      -0.999999
+     ],
+     "translation": [
+      -14.6964,
+      2.2155,
+      0.0
+     ]
+    },
+    "name": "hips",
+    "owner": "pelvis",
+    "radius_cm": 30.49,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     -1.792,
+     123.296
+    ],
+    "b_cs": [
+     0.0,
+     -0.718,
+     129.967
+    ],
+    "local": {
+     "length_cm": 6.76,
+     "radius_cm": 20.61,
+     "rotation_xyzw": [
+      0.537438,
+      -0.459522,
+      0.459522,
+      -0.537438
+     ],
+     "translation": [
+      3.3371,
+      0.5245,
+      0.0
+     ]
+    },
+    "name": "waist",
+    "owner": "pelvis",
+    "radius_cm": 20.61,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     10.62,
+     -0.718,
+     129.967
+    ],
+    "b_cs": [
+     10.62,
+     0.214,
+     141.82
+    ],
+    "local": {
+     "length_cm": 11.89,
+     "radius_cm": 15.02,
+     "rotation_xyzw": [
+      -0.506471,
+      0.493444,
+      -0.493444,
+      0.506471
+     ],
+     "translation": [
+      5.9431,
+      0.1545,
+      -10.62
+     ]
+    },
+    "name": "torso_spine_01_p",
+    "owner": "spine_01",
+    "radius_cm": 15.02,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -9.5,
+     -0.718,
+     129.967
+    ],
+    "b_cs": [
+     -9.5,
+     0.214,
+     141.82
+    ],
+    "local": {
+     "length_cm": 11.89,
+     "radius_cm": 14.75,
+     "rotation_xyzw": [
+      -0.506471,
+      0.493444,
+      -0.493444,
+      0.506471
+     ],
+     "translation": [
+      5.9431,
+      0.1545,
+      9.5
+     ]
+    },
+    "name": "torso_spine_01_n",
+    "owner": "spine_01",
+    "radius_cm": 14.75,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     0.214,
+     141.82
+    ],
+    "b_cs": [
+     0.0,
+     0.044,
+     157.851
+    ],
+    "local": {
+     "length_cm": 16.03,
+     "radius_cm": 20.22,
+     "rotation_xyzw": [
+      0.492519,
+      -0.507372,
+      0.507372,
+      -0.492519
+     ],
+     "translation": [
+      8.0128,
+      -0.2382,
+      0.0
+     ]
+    },
+    "name": "torso_spine_02",
+    "owner": "spine_02",
+    "radius_cm": 20.22,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     0.044,
+     157.851
+    ],
+    "b_cs": [
+     0.0,
+     6.383,
+     181.486
+    ],
+    "local": {
+     "length_cm": 24.47,
+     "radius_cm": 27.54,
+     "rotation_xyzw": [
+      -0.55659,
+      0.436128,
+      -0.436128,
+      0.55659
+     ],
+     "translation": [
+      11.8797,
+      2.9265,
+      0.0
+     ]
+    },
+    "name": "torso_spine_03",
+    "owner": "spine_03",
+    "radius_cm": 27.54,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     6.383,
+     181.486
+    ],
+    "b_cs": [
+     0.0,
+     22.512,
+     192.665
+    ],
+    "local": {
+     "length_cm": 19.62,
+     "radius_cm": 21.34,
+     "rotation_xyzw": [
+      0.558651,
+      -0.433485,
+      0.433485,
+      -0.558651
+     ],
+     "translation": [
+      9.5047,
+      2.4373,
+      0.0
+     ]
+    },
+    "name": "neck",
+    "owner": "neck_01",
+    "radius_cm": 21.34,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     20.448,
+     6.722,
+     173.081
+    ],
+    "b_cs": [
+     43.35,
+     3.748,
+     147.865
+    ],
+    "local": {
+     "length_cm": 34.19,
+     "radius_cm": 14.02,
+     "rotation_xyzw": [
+      0.538369,
+      0.45843,
+      0.538364,
+      0.458439
+     ],
+     "translation": [
+      17.097,
+      -0.0002,
+      0.0001
+     ]
+    },
+    "name": "upperarm_l",
+    "owner": "upperarm_l",
+    "radius_cm": 14.02,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     43.35,
+     3.748,
+     147.865
+    ],
+    "b_cs": [
+     60.112,
+     17.68,
+     124.405
+    ],
+    "local": {
+     "length_cm": 32.02,
+     "radius_cm": 9.83,
+     "rotation_xyzw": [
+      -0.621134,
+      -0.338584,
+      -0.62058,
+      -0.338283
+     ],
+     "translation": [
+      16.0114,
+      -0.0007,
+      -0.0142
+     ]
+    },
+    "name": "lowerarm_l",
+    "owner": "lowerarm_l",
+    "radius_cm": 9.83,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     12.879,
+     0.371,
+     108.592
+    ],
+    "b_cs": [
+     16.933,
+     4.026,
+     64.18
+    ],
+    "local": {
+     "length_cm": 44.75,
+     "radius_cm": 14.09,
+     "rotation_xyzw": [
+      0.505163,
+      0.495368,
+      -0.498224,
+      -0.501192
+     ],
+     "translation": [
+      -22.3715,
+      0.2859,
+      -0.0264
+     ]
+    },
+    "name": "thigh_l",
+    "owner": "thigh_l",
+    "radius_cm": 14.09,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     16.933,
+     4.026,
+     64.18
+    ],
+    "b_cs": [
+     21.147,
+     -0.4,
+     10.638
+    ],
+    "local": {
+     "length_cm": 53.89,
+     "radius_cm": 12.61,
+     "rotation_xyzw": [
+      -0.503855,
+      -0.497059,
+      0.492651,
+      0.506316
+     ],
+     "translation": [
+      -26.9391,
+      0.5519,
+      -0.0506
+     ]
+    },
+    "name": "calf_l",
+    "owner": "calf_l",
+    "radius_cm": 12.61,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -20.448,
+     6.722,
+     173.081
+    ],
+    "b_cs": [
+     -43.35,
+     3.749,
+     147.865
+    ],
+    "local": {
+     "length_cm": 34.19,
+     "radius_cm": 14.02,
+     "rotation_xyzw": [
+      0.538378,
+      -0.458425,
+      -0.538367,
+      0.458429
+     ],
+     "translation": [
+      -17.0971,
+      -0.0002,
+      -0.0001
+     ]
+    },
+    "name": "upperarm_r",
+    "owner": "upperarm_r",
+    "radius_cm": 14.02,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -43.35,
+     3.749,
+     147.865
+    ],
+    "b_cs": [
+     -60.112,
+     17.68,
+     124.405
+    ],
+    "local": {
+     "length_cm": 32.02,
+     "radius_cm": 9.83,
+     "rotation_xyzw": [
+      -0.62057,
+      0.338295,
+      0.621138,
+      -0.338582
+     ],
+     "translation": [
+      -16.0117,
+      0.0003,
+      0.0142
+     ]
+    },
+    "name": "lowerarm_r",
+    "owner": "lowerarm_r",
+    "radius_cm": 9.83,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -12.879,
+     0.37,
+     108.592
+    ],
+    "b_cs": [
+     -16.933,
+     4.026,
+     64.18
+    ],
+    "local": {
+     "length_cm": 44.75,
+     "radius_cm": 14.09,
+     "rotation_xyzw": [
+      -0.498219,
+      0.501197,
+      -0.505169,
+      0.495362
+     ],
+     "translation": [
+      22.3717,
+      -0.2854,
+      0.0264
+     ]
+    },
+    "name": "thigh_r",
+    "owner": "thigh_r",
+    "radius_cm": 14.09,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -16.933,
+     4.026,
+     64.18
+    ],
+    "b_cs": [
+     -21.147,
+     -0.4,
+     10.638
+    ],
+    "local": {
+     "length_cm": 53.89,
+     "radius_cm": 12.61,
+     "rotation_xyzw": [
+      0.492651,
+      -0.506316,
+      0.503855,
+      -0.497059
+     ],
+     "translation": [
+      26.939,
+      -0.5517,
+      0.0506
+     ]
+    },
+    "name": "calf_r",
+    "owner": "calf_r",
+    "radius_cm": 12.61,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -0.002,
+     28.375,
+     189.94
+    ],
+    "b_cs": [
+     -0.002,
+     28.375,
+     189.94
+    ],
+    "local": {
+     "length_cm": 0.0,
+     "radius_cm": 16.45,
+     "rotation_xyzw": [
+      0.008101,
+      -0.70706,
+      -0.008101,
+      -0.70706
+     ],
+     "translation": [
+      -2.8589,
+      5.7988,
+      0.002
+     ]
+    },
+    "name": "head",
+    "owner": "head",
+    "radius_cm": 16.45,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     6.383,
+     181.486
+    ],
+    "b_cs": [
+     0.0,
+     22.512,
+     192.665
+    ],
+    "for_chain": "flaps_feather",
+    "local": {
+     "length_cm": 19.62,
+     "radius_cm": 14.01,
+     "rotation_xyzw": [
+      0.558651,
+      -0.433485,
+      0.433485,
+      -0.558651
+     ],
+     "translation": [
+      9.5047,
+      2.4373,
+      0.0
+     ]
+    },
+    "name": "rest_flaps_feather_neck",
+    "owner": "neck_01",
+    "radius_cm": 14.01,
+    "role": "rest",
+    "shrunk_from_cm": 21.34,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     0.044,
+     157.851
+    ],
+    "b_cs": [
+     0.0,
+     6.383,
+     181.486
+    ],
+    "for_chain": "flaps_feather",
+    "local": {
+     "length_cm": 24.47,
+     "radius_cm": 20.19,
+     "rotation_xyzw": [
+      -0.55659,
+      0.436128,
+      -0.436128,
+      0.55659
+     ],
+     "translation": [
+      11.8797,
+      2.9265,
+      0.0
+     ]
+    },
+    "name": "rest_flaps_feather_torso_spine_03",
+    "owner": "spine_03",
+    "radius_cm": 20.19,
+    "role": "rest",
+    "shrunk_from_cm": 27.54,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     12.879,
+     0.371,
+     108.592
+    ],
+    "b_cs": [
+     -12.879,
+     0.37,
+     108.592
+    ],
+    "for_chain": "loin_cloth_bk_01",
+    "local": {
+     "length_cm": 25.76,
+     "radius_cm": 18.27,
+     "rotation_xyzw": [
+      -1.9e-05,
+      0.0,
+      0.001817,
+      -0.999999
+     ],
+     "translation": [
+      -14.6964,
+      2.2155,
+      0.0
+     ]
+    },
+    "name": "rest_loin_cloth_bk_01_hips",
+    "owner": "pelvis",
+    "radius_cm": 18.27,
+    "role": "rest",
+    "shrunk_from_cm": 30.49,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     12.879,
+     0.371,
+     108.592
+    ],
+    "b_cs": [
+     -12.879,
+     0.37,
+     108.592
+    ],
+    "for_chain": "loin_cloth_fr_01",
+    "local": {
+     "length_cm": 25.76,
+     "radius_cm": 17.68,
+     "rotation_xyzw": [
+      -1.9e-05,
+      0.0,
+      0.001817,
+      -0.999999
+     ],
+     "translation": [
+      -14.6964,
+      2.2155,
+      0.0
+     ]
+    },
+    "name": "rest_loin_cloth_fr_01_hips",
+    "owner": "pelvis",
+    "radius_cm": 17.68,
+    "role": "rest",
+    "shrunk_from_cm": 30.49,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     12.879,
+     0.371,
+     108.592
+    ],
+    "b_cs": [
+     16.933,
+     4.026,
+     64.18
+    ],
+    "for_chain": "loin_cloth_fr_01",
+    "local": {
+     "length_cm": 44.75,
+     "radius_cm": 11.56,
+     "rotation_xyzw": [
+      0.505163,
+      0.495368,
+      -0.498224,
+      -0.501192
+     ],
+     "translation": [
+      -22.3715,
+      0.2859,
+      -0.0264
+     ]
+    },
+    "name": "rest_loin_cloth_fr_01_thigh_l",
+    "owner": "thigh_l",
+    "radius_cm": 11.56,
+    "role": "rest",
+    "shrunk_from_cm": 14.09,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -12.879,
+     0.37,
+     108.592
+    ],
+    "b_cs": [
+     -16.933,
+     4.026,
+     64.18
+    ],
+    "for_chain": "loin_cloth_fr_01",
+    "local": {
+     "length_cm": 44.75,
+     "radius_cm": 11.56,
+     "rotation_xyzw": [
+      -0.498219,
+      0.501197,
+      -0.505169,
+      0.495362
+     ],
+     "translation": [
+      22.3717,
+      -0.2854,
+      0.0264
+     ]
+    },
+    "name": "rest_loin_cloth_fr_01_thigh_r",
+    "owner": "thigh_r",
+    "radius_cm": 11.56,
+    "role": "rest",
+    "shrunk_from_cm": 14.09,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     0.214,
+     141.82
+    ],
+    "b_cs": [
+     0.0,
+     0.044,
+     157.851
+    ],
+    "for_chain": "flaps_pendant",
+    "local": {
+     "length_cm": 16.03,
+     "radius_cm": 18.87,
+     "rotation_xyzw": [
+      0.492519,
+      -0.507372,
+      0.507372,
+      -0.492519
+     ],
+     "translation": [
+      8.0128,
+      -0.2382,
+      0.0
+     ]
+    },
+    "name": "rest_flaps_pendant_torso_spine_02",
+    "owner": "spine_02",
+    "radius_cm": 18.87,
+    "role": "rest",
+    "shrunk_from_cm": 20.22,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     0.044,
+     157.851
+    ],
+    "b_cs": [
+     0.0,
+     6.383,
+     181.486
+    ],
+    "for_chain": "flaps_pendant",
+    "local": {
+     "length_cm": 24.47,
+     "radius_cm": 22.85,
+     "rotation_xyzw": [
+      -0.55659,
+      0.436128,
+      -0.436128,
+      0.55659
+     ],
+     "translation": [
+      11.8797,
+      2.9265,
+      0.0
+     ]
+    },
+    "name": "rest_flaps_pendant_torso_spine_03",
+    "owner": "spine_03",
+    "radius_cm": 22.85,
+    "role": "rest",
+    "shrunk_from_cm": 27.54,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     12.879,
+     0.371,
+     108.592
+    ],
+    "b_cs": [
+     -12.879,
+     0.37,
+     108.592
+    ],
+    "for_chain": "torso_cloth_bk_l_01",
+    "local": {
+     "length_cm": 25.76,
+     "radius_cm": 13.0,
+     "rotation_xyzw": [
+      -1.9e-05,
+      0.0,
+      0.001817,
+      -0.999999
+     ],
+     "translation": [
+      -14.6964,
+      2.2155,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_bk_l_01_hips",
+    "owner": "pelvis",
+    "radius_cm": 13.0,
+    "role": "rest",
+    "shrunk_from_cm": 30.49,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     -1.792,
+     123.296
+    ],
+    "b_cs": [
+     0.0,
+     -0.718,
+     129.967
+    ],
+    "for_chain": "torso_cloth_bk_l_01",
+    "local": {
+     "length_cm": 6.76,
+     "radius_cm": 13.53,
+     "rotation_xyzw": [
+      0.537438,
+      -0.459522,
+      0.459522,
+      -0.537438
+     ],
+     "translation": [
+      3.3371,
+      0.5245,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_bk_l_01_waist",
+    "owner": "pelvis",
+    "radius_cm": 13.53,
+    "role": "rest",
+    "shrunk_from_cm": 20.61,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     10.62,
+     -0.718,
+     129.967
+    ],
+    "b_cs": [
+     10.62,
+     0.214,
+     141.82
+    ],
+    "for_chain": "torso_cloth_bk_l_01",
+    "local": {
+     "length_cm": 11.89,
+     "radius_cm": 5.28,
+     "rotation_xyzw": [
+      -0.506471,
+      0.493444,
+      -0.493444,
+      0.506471
+     ],
+     "translation": [
+      5.9431,
+      0.1545,
+      -10.62
+     ]
+    },
+    "name": "rest_torso_cloth_bk_l_01_torso_spine_01_p",
+    "owner": "spine_01",
+    "radius_cm": 5.28,
+    "role": "rest",
+    "shrunk_from_cm": 15.02,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     0.214,
+     141.82
+    ],
+    "b_cs": [
+     0.0,
+     0.044,
+     157.851
+    ],
+    "for_chain": "torso_cloth_bk_l_01",
+    "local": {
+     "length_cm": 16.03,
+     "radius_cm": 15.29,
+     "rotation_xyzw": [
+      0.492519,
+      -0.507372,
+      0.507372,
+      -0.492519
+     ],
+     "translation": [
+      8.0128,
+      -0.2382,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_bk_l_01_torso_spine_02",
+    "owner": "spine_02",
+    "radius_cm": 15.29,
+    "role": "rest",
+    "shrunk_from_cm": 20.22,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     0.044,
+     157.851
+    ],
+    "b_cs": [
+     0.0,
+     6.383,
+     181.486
+    ],
+    "for_chain": "torso_cloth_bk_l_01",
+    "local": {
+     "length_cm": 24.47,
+     "radius_cm": 19.69,
+     "rotation_xyzw": [
+      -0.55659,
+      0.436128,
+      -0.436128,
+      0.55659
+     ],
+     "translation": [
+      11.8797,
+      2.9265,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_bk_l_01_torso_spine_03",
+    "owner": "spine_03",
+    "radius_cm": 19.69,
+    "role": "rest",
+    "shrunk_from_cm": 27.54,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     12.879,
+     0.371,
+     108.592
+    ],
+    "b_cs": [
+     16.933,
+     4.026,
+     64.18
+    ],
+    "for_chain": "torso_cloth_bk_l_01",
+    "local": {
+     "length_cm": 44.75,
+     "radius_cm": 13.0,
+     "rotation_xyzw": [
+      0.505163,
+      0.495368,
+      -0.498224,
+      -0.501192
+     ],
+     "translation": [
+      -22.3715,
+      0.2859,
+      -0.0264
+     ]
+    },
+    "name": "rest_torso_cloth_bk_l_01_thigh_l",
+    "owner": "thigh_l",
+    "radius_cm": 13.0,
+    "role": "rest",
+    "shrunk_from_cm": 14.09,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     12.879,
+     0.371,
+     108.592
+    ],
+    "b_cs": [
+     -12.879,
+     0.37,
+     108.592
+    ],
+    "for_chain": "torso_cloth_bk_r_01",
+    "local": {
+     "length_cm": 25.76,
+     "radius_cm": 13.0,
+     "rotation_xyzw": [
+      -1.9e-05,
+      0.0,
+      0.001817,
+      -0.999999
+     ],
+     "translation": [
+      -14.6964,
+      2.2155,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_bk_r_01_hips",
+    "owner": "pelvis",
+    "radius_cm": 13.0,
+    "role": "rest",
+    "shrunk_from_cm": 30.49,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     -1.792,
+     123.296
+    ],
+    "b_cs": [
+     0.0,
+     -0.718,
+     129.967
+    ],
+    "for_chain": "torso_cloth_bk_r_01",
+    "local": {
+     "length_cm": 6.76,
+     "radius_cm": 13.53,
+     "rotation_xyzw": [
+      0.537438,
+      -0.459522,
+      0.459522,
+      -0.537438
+     ],
+     "translation": [
+      3.3371,
+      0.5245,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_bk_r_01_waist",
+    "owner": "pelvis",
+    "radius_cm": 13.53,
+    "role": "rest",
+    "shrunk_from_cm": 20.61,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -9.5,
+     -0.718,
+     129.967
+    ],
+    "b_cs": [
+     -9.5,
+     0.214,
+     141.82
+    ],
+    "for_chain": "torso_cloth_bk_r_01",
+    "local": {
+     "length_cm": 11.89,
+     "radius_cm": 6.12,
+     "rotation_xyzw": [
+      -0.506471,
+      0.493444,
+      -0.493444,
+      0.506471
+     ],
+     "translation": [
+      5.9431,
+      0.1545,
+      9.5
+     ]
+    },
+    "name": "rest_torso_cloth_bk_r_01_torso_spine_01_n",
+    "owner": "spine_01",
+    "radius_cm": 6.12,
+    "role": "rest",
+    "shrunk_from_cm": 14.75,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     0.214,
+     141.82
+    ],
+    "b_cs": [
+     0.0,
+     0.044,
+     157.851
+    ],
+    "for_chain": "torso_cloth_bk_r_01",
+    "local": {
+     "length_cm": 16.03,
+     "radius_cm": 15.29,
+     "rotation_xyzw": [
+      0.492519,
+      -0.507372,
+      0.507372,
+      -0.492519
+     ],
+     "translation": [
+      8.0128,
+      -0.2382,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_bk_r_01_torso_spine_02",
+    "owner": "spine_02",
+    "radius_cm": 15.29,
+    "role": "rest",
+    "shrunk_from_cm": 20.22,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     0.044,
+     157.851
+    ],
+    "b_cs": [
+     0.0,
+     6.383,
+     181.486
+    ],
+    "for_chain": "torso_cloth_bk_r_01",
+    "local": {
+     "length_cm": 24.47,
+     "radius_cm": 19.69,
+     "rotation_xyzw": [
+      -0.55659,
+      0.436128,
+      -0.436128,
+      0.55659
+     ],
+     "translation": [
+      11.8797,
+      2.9265,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_bk_r_01_torso_spine_03",
+    "owner": "spine_03",
+    "radius_cm": 19.69,
+    "role": "rest",
+    "shrunk_from_cm": 27.54,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -12.879,
+     0.37,
+     108.592
+    ],
+    "b_cs": [
+     -16.933,
+     4.026,
+     64.18
+    ],
+    "for_chain": "torso_cloth_bk_r_01",
+    "local": {
+     "length_cm": 44.75,
+     "radius_cm": 13.0,
+     "rotation_xyzw": [
+      -0.498219,
+      0.501197,
+      -0.505169,
+      0.495362
+     ],
+     "translation": [
+      22.3717,
+      -0.2854,
+      0.0264
+     ]
+    },
+    "name": "rest_torso_cloth_bk_r_01_thigh_r",
+    "owner": "thigh_r",
+    "radius_cm": 13.0,
+    "role": "rest",
+    "shrunk_from_cm": 14.09,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     12.879,
+     0.371,
+     108.592
+    ],
+    "b_cs": [
+     -12.879,
+     0.37,
+     108.592
+    ],
+    "for_chain": "torso_cloth_fr_l_01",
+    "local": {
+     "length_cm": 25.76,
+     "radius_cm": 11.6,
+     "rotation_xyzw": [
+      -1.9e-05,
+      0.0,
+      0.001817,
+      -0.999999
+     ],
+     "translation": [
+      -14.6964,
+      2.2155,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_fr_l_01_hips",
+    "owner": "pelvis",
+    "radius_cm": 11.6,
+    "role": "rest",
+    "shrunk_from_cm": 30.49,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     -1.792,
+     123.296
+    ],
+    "b_cs": [
+     0.0,
+     -0.718,
+     129.967
+    ],
+    "for_chain": "torso_cloth_fr_l_01",
+    "local": {
+     "length_cm": 6.76,
+     "radius_cm": 19.47,
+     "rotation_xyzw": [
+      0.537438,
+      -0.459522,
+      0.459522,
+      -0.537438
+     ],
+     "translation": [
+      3.3371,
+      0.5245,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_fr_l_01_waist",
+    "owner": "pelvis",
+    "radius_cm": 19.47,
+    "role": "rest",
+    "shrunk_from_cm": 20.61,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     10.62,
+     -0.718,
+     129.967
+    ],
+    "b_cs": [
+     10.62,
+     0.214,
+     141.82
+    ],
+    "for_chain": "torso_cloth_fr_l_01",
+    "local": {
+     "length_cm": 11.89,
+     "radius_cm": 12.36,
+     "rotation_xyzw": [
+      -0.506471,
+      0.493444,
+      -0.493444,
+      0.506471
+     ],
+     "translation": [
+      5.9431,
+      0.1545,
+      -10.62
+     ]
+    },
+    "name": "rest_torso_cloth_fr_l_01_torso_spine_01_p",
+    "owner": "spine_01",
+    "radius_cm": 12.36,
+    "role": "rest",
+    "shrunk_from_cm": 15.02,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     0.214,
+     141.82
+    ],
+    "b_cs": [
+     0.0,
+     0.044,
+     157.851
+    ],
+    "for_chain": "torso_cloth_fr_l_01",
+    "local": {
+     "length_cm": 16.03,
+     "radius_cm": 17.61,
+     "rotation_xyzw": [
+      0.492519,
+      -0.507372,
+      0.507372,
+      -0.492519
+     ],
+     "translation": [
+      8.0128,
+      -0.2382,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_fr_l_01_torso_spine_02",
+    "owner": "spine_02",
+    "radius_cm": 17.61,
+    "role": "rest",
+    "shrunk_from_cm": 20.22,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     0.044,
+     157.851
+    ],
+    "b_cs": [
+     0.0,
+     6.383,
+     181.486
+    ],
+    "for_chain": "torso_cloth_fr_l_01",
+    "local": {
+     "length_cm": 24.47,
+     "radius_cm": 22.94,
+     "rotation_xyzw": [
+      -0.55659,
+      0.436128,
+      -0.436128,
+      0.55659
+     ],
+     "translation": [
+      11.8797,
+      2.9265,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_fr_l_01_torso_spine_03",
+    "owner": "spine_03",
+    "radius_cm": 22.94,
+    "role": "rest",
+    "shrunk_from_cm": 27.54,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     12.879,
+     0.371,
+     108.592
+    ],
+    "b_cs": [
+     16.933,
+     4.026,
+     64.18
+    ],
+    "for_chain": "torso_cloth_fr_l_01",
+    "local": {
+     "length_cm": 44.75,
+     "radius_cm": 10.71,
+     "rotation_xyzw": [
+      0.505163,
+      0.495368,
+      -0.498224,
+      -0.501192
+     ],
+     "translation": [
+      -22.3715,
+      0.2859,
+      -0.0264
+     ]
+    },
+    "name": "rest_torso_cloth_fr_l_01_thigh_l",
+    "owner": "thigh_l",
+    "radius_cm": 10.71,
+    "role": "rest",
+    "shrunk_from_cm": 14.09,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     12.879,
+     0.371,
+     108.592
+    ],
+    "b_cs": [
+     -12.879,
+     0.37,
+     108.592
+    ],
+    "for_chain": "torso_cloth_fr_r_01",
+    "local": {
+     "length_cm": 25.76,
+     "radius_cm": 11.6,
+     "rotation_xyzw": [
+      -1.9e-05,
+      0.0,
+      0.001817,
+      -0.999999
+     ],
+     "translation": [
+      -14.6964,
+      2.2155,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_fr_r_01_hips",
+    "owner": "pelvis",
+    "radius_cm": 11.6,
+    "role": "rest",
+    "shrunk_from_cm": 30.49,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     -1.792,
+     123.296
+    ],
+    "b_cs": [
+     0.0,
+     -0.718,
+     129.967
+    ],
+    "for_chain": "torso_cloth_fr_r_01",
+    "local": {
+     "length_cm": 6.76,
+     "radius_cm": 19.47,
+     "rotation_xyzw": [
+      0.537438,
+      -0.459522,
+      0.459522,
+      -0.537438
+     ],
+     "translation": [
+      3.3371,
+      0.5245,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_fr_r_01_waist",
+    "owner": "pelvis",
+    "radius_cm": 19.47,
+    "role": "rest",
+    "shrunk_from_cm": 20.61,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -9.5,
+     -0.718,
+     129.967
+    ],
+    "b_cs": [
+     -9.5,
+     0.214,
+     141.82
+    ],
+    "for_chain": "torso_cloth_fr_r_01",
+    "local": {
+     "length_cm": 11.89,
+     "radius_cm": 12.71,
+     "rotation_xyzw": [
+      -0.506471,
+      0.493444,
+      -0.493444,
+      0.506471
+     ],
+     "translation": [
+      5.9431,
+      0.1545,
+      9.5
+     ]
+    },
+    "name": "rest_torso_cloth_fr_r_01_torso_spine_01_n",
+    "owner": "spine_01",
+    "radius_cm": 12.71,
+    "role": "rest",
+    "shrunk_from_cm": 14.75,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     0.214,
+     141.82
+    ],
+    "b_cs": [
+     0.0,
+     0.044,
+     157.851
+    ],
+    "for_chain": "torso_cloth_fr_r_01",
+    "local": {
+     "length_cm": 16.03,
+     "radius_cm": 17.61,
+     "rotation_xyzw": [
+      0.492519,
+      -0.507372,
+      0.507372,
+      -0.492519
+     ],
+     "translation": [
+      8.0128,
+      -0.2382,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_fr_r_01_torso_spine_02",
+    "owner": "spine_02",
+    "radius_cm": 17.61,
+    "role": "rest",
+    "shrunk_from_cm": 20.22,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     0.044,
+     157.851
+    ],
+    "b_cs": [
+     0.0,
+     6.383,
+     181.486
+    ],
+    "for_chain": "torso_cloth_fr_r_01",
+    "local": {
+     "length_cm": 24.47,
+     "radius_cm": 22.94,
+     "rotation_xyzw": [
+      -0.55659,
+      0.436128,
+      -0.436128,
+      0.55659
+     ],
+     "translation": [
+      11.8797,
+      2.9265,
+      0.0
+     ]
+    },
+    "name": "rest_torso_cloth_fr_r_01_torso_spine_03",
+    "owner": "spine_03",
+    "radius_cm": 22.94,
+    "role": "rest",
+    "shrunk_from_cm": 27.54,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -12.879,
+     0.37,
+     108.592
+    ],
+    "b_cs": [
+     -16.933,
+     4.026,
+     64.18
+    ],
+    "for_chain": "torso_cloth_fr_r_01",
+    "local": {
+     "length_cm": 44.75,
+     "radius_cm": 10.71,
+     "rotation_xyzw": [
+      -0.498219,
+      0.501197,
+      -0.505169,
+      0.495362
+     ],
+     "translation": [
+      22.3717,
+      -0.2854,
+      0.0264
+     ]
+    },
+    "name": "rest_torso_cloth_fr_r_01_thigh_r",
+    "owner": "thigh_r",
+    "radius_cm": 10.71,
+    "role": "rest",
+    "shrunk_from_cm": 14.09,
+    "type": "capsule"
+   }
+  ]
+ },
+ "held_props": [
+  {
+   "bone": "weapon_l",
+   "hand": "hand_l",
+   "verts": 1651
+  },
+  {
+   "bone": "weapon_r",
+   "hand": "hand_r",
+   "verts": 1651
+  }
+ ],
+ "other_bodies": [
+  "GhostBeast_pelvis"
+ ],
+ "override_count": 4,
+ "overrides": {
+  "secondary.behaviours.torso_cloth_bk_l_01": {
+   "by": "tuning",
+   "value": "cloth_strip",
+   "why": "chest strips showed no twist in their motion; cloth_strip adds the twist modifier to the heavy cloth values (the loincloth panels stay cloth_panel)"
+  },
+  "secondary.behaviours.torso_cloth_bk_r_01": {
+   "by": "tuning",
+   "value": "cloth_strip",
+   "why": "chest strips showed no twist in their motion; cloth_strip adds the twist modifier to the heavy cloth values (the loincloth panels stay cloth_panel)"
+  },
+  "secondary.behaviours.torso_cloth_fr_l_01": {
+   "by": "tuning",
+   "value": "cloth_strip",
+   "why": "chest strips showed no twist in their motion; cloth_strip adds the twist modifier to the heavy cloth values (the loincloth panels stay cloth_panel)"
+  },
+  "secondary.behaviours.torso_cloth_fr_r_01": {
+   "by": "tuning",
+   "value": "cloth_strip",
+   "why": "chest strips showed no twist in their motion; cloth_strip adds the twist modifier to the heavy cloth values (the loincloth panels stay cloth_panel)"
+  }
+ },
+ "primary": {
+  "mesh": "/Game/ParagonKhaimera/Characters/Heroes/Khaimera/Meshes/Khaimera",
+  "meshes_under_root": 7,
+  "rule": "skeleton targeted by 1 AnimBP(s), 146 sequence(s); shallowest of 7 mesh(es) on it",
+  "skeleton": "/Game/ParagonKhaimera/Characters/Heroes/Khaimera/Meshes/Khaimera_Skeleton"
+ },
+ "reasons": [
+  "other bodies in the rig (reported, not classified): GhostBeast_pelvis",
+  "flap necklace_l dropped: painted onto its host (0 of 121 vertices its own)",
+  "flap necklace_r dropped: painted onto its host (0 of 121 vertices its own)",
+  "no face normal for torso_cloth_bk_l_02 on torso_cloth_bk_l_01: not flat (thickness/width 0.37, max 0.35)",
+  "no face normal for torso_cloth_bk_r_02 on torso_cloth_bk_r_01: not flat (thickness/width 0.37, max 0.35)"
+ ],
+ "rig": "ParagonKhaimera",
+ "roles": {
+  "ball_l": "ball_l",
+  "ball_r": "ball_r",
+  "calf_l": "calf_l",
+  "calf_r": "calf_r",
+  "clavicle_l": "clavicle_l",
+  "clavicle_r": "clavicle_r",
+  "foot_l": "foot_l",
+  "foot_r": "foot_r",
+  "hand_l": "hand_l",
+  "hand_r": "hand_r",
+  "head": "head",
+  "lowerarm_l": "lowerarm_l",
+  "lowerarm_r": "lowerarm_r",
+  "neck": "neck_01",
+  "pelvis": "pelvis",
+  "spine": [
+   "spine_01",
+   "spine_02",
+   "spine_03"
+  ],
+  "thigh_l": "thigh_l",
+  "thigh_r": "thigh_r",
+  "upperarm_l": "upperarm_l",
+  "upperarm_r": "upperarm_r"
+ },
+ "roles_unresolved": [],
+ "root": "/Game/ParagonKhaimera",
+ "scale": {
+  "height_cm": 209.9,
+  "ok": true
+ },
+ "schema": 1,
+ "secondary": {
+  "behaviours": {
+   "torso_cloth_bk_l_01": "cloth_strip",
+   "torso_cloth_bk_r_01": "cloth_strip",
+   "torso_cloth_fr_l_01": "cloth_strip",
+   "torso_cloth_fr_r_01": "cloth_strip"
+  },
+  "parts": [
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_01_l"
+    ],
+    "id": "feather_01_l",
+    "kind": "flap",
+    "parent": "head",
+    "preset": "cloth",
+    "root": "feather_01_l",
+    "tip": "feather_01_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_01_r"
+    ],
+    "id": "feather_01_r",
+    "kind": "flap",
+    "parent": "head",
+    "preset": "cloth",
+    "root": "feather_01_r",
+    "tip": "feather_01_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_02_l"
+    ],
+    "id": "feather_02_l",
+    "kind": "flap",
+    "parent": "head",
+    "preset": "cloth",
+    "root": "feather_02_l",
+    "tip": "feather_02_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_02_r"
+    ],
+    "id": "feather_02_r",
+    "kind": "flap",
+    "parent": "head",
+    "preset": "cloth",
+    "root": "feather_02_r",
+    "tip": "feather_02_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_03_l"
+    ],
+    "id": "feather_03_l",
+    "kind": "flap",
+    "parent": "neck_02",
+    "preset": "cloth",
+    "root": "feather_03_l",
+    "tip": "feather_03_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_03_r"
+    ],
+    "id": "feather_03_r",
+    "kind": "flap",
+    "parent": "neck_02",
+    "preset": "cloth",
+    "root": "feather_03_r",
+    "tip": "feather_03_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_04_l"
+    ],
+    "id": "feather_04_l",
+    "kind": "flap",
+    "parent": "neck_01",
+    "preset": "cloth",
+    "root": "feather_04_l",
+    "tip": "feather_04_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_04_r"
+    ],
+    "id": "feather_04_r",
+    "kind": "flap",
+    "parent": "neck_01",
+    "preset": "cloth",
+    "root": "feather_04_r",
+    "tip": "feather_04_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_05_l"
+    ],
+    "id": "feather_05_l",
+    "kind": "flap",
+    "parent": "neck_01",
+    "preset": "cloth",
+    "root": "feather_05_l",
+    "tip": "feather_05_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_05_r"
+    ],
+    "id": "feather_05_r",
+    "kind": "flap",
+    "parent": "neck_01",
+    "preset": "cloth",
+    "root": "feather_05_r",
+    "tip": "feather_05_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_06_l"
+    ],
+    "id": "feather_06_l",
+    "kind": "flap",
+    "parent": "neck_01",
+    "preset": "cloth",
+    "root": "feather_06_l",
+    "tip": "feather_06_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_06_r"
+    ],
+    "id": "feather_06_r",
+    "kind": "flap",
+    "parent": "neck_01",
+    "preset": "cloth",
+    "root": "feather_06_r",
+    "tip": "feather_06_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_07_l"
+    ],
+    "id": "feather_07_l",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_07_l",
+    "tip": "feather_07_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_07_r"
+    ],
+    "id": "feather_07_r",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_07_r",
+    "tip": "feather_07_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_08_l"
+    ],
+    "id": "feather_08_l",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_08_l",
+    "tip": "feather_08_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_08_r"
+    ],
+    "id": "feather_08_r",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_08_r",
+    "tip": "feather_08_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_09_l"
+    ],
+    "id": "feather_09_l",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_09_l",
+    "tip": "feather_09_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_09_r"
+    ],
+    "id": "feather_09_r",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_09_r",
+    "tip": "feather_09_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_10_l"
+    ],
+    "id": "feather_10_l",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_10_l",
+    "tip": "feather_10_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_10_r"
+    ],
+    "id": "feather_10_r",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_10_r",
+    "tip": "feather_10_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_11_l"
+    ],
+    "id": "feather_11_l",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_11_l",
+    "tip": "feather_11_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_11_r"
+    ],
+    "id": "feather_11_r",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_11_r",
+    "tip": "feather_11_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_12_l"
+    ],
+    "id": "feather_12_l",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_12_l",
+    "tip": "feather_12_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_12_r"
+    ],
+    "id": "feather_12_r",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_12_r",
+    "tip": "feather_12_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_13_l"
+    ],
+    "id": "feather_13_l",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_13_l",
+    "tip": "feather_13_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_13_r"
+    ],
+    "id": "feather_13_r",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_13_r",
+    "tip": "feather_13_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_14_l"
+    ],
+    "id": "feather_14_l",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_14_l",
+    "tip": "feather_14_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_15_l"
+    ],
+    "id": "feather_15_l",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_15_l",
+    "tip": "feather_15_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_15_r"
+    ],
+    "id": "feather_15_r",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_15_r",
+    "tip": "feather_15_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_16_l"
+    ],
+    "id": "feather_16_l",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_16_l",
+    "tip": "feather_16_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_16_r"
+    ],
+    "id": "feather_16_r",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_16_r",
+    "tip": "feather_16_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_17_l"
+    ],
+    "id": "feather_17_l",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_17_l",
+    "tip": "feather_17_l",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "feather_17_r"
+    ],
+    "id": "feather_17_r",
+    "kind": "flap",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "feather_17_r",
+    "tip": "feather_17_r",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "loin_cloth_bk_01",
+     "loin_cloth_bk_02",
+     "loin_cloth_bk_03",
+     "loin_cloth_bk_feather_l",
+     "loin_cloth_bk_feather_r"
+    ],
+    "id": "loin_cloth_bk_01",
+    "kind": "chain",
+    "parent": "pelvis",
+    "preset": "cloth",
+    "root": "loin_cloth_bk_01",
+    "tip": "loin_cloth_bk_03",
+    "topology": "branching"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "loin_cloth_fr_01",
+     "loin_cloth_fr_02",
+     "loin_cloth_fr_03"
+    ],
+    "id": "loin_cloth_fr_01",
+    "kind": "chain",
+    "parent": "pelvis",
+    "preset": "cloth",
+    "root": "loin_cloth_fr_01",
+    "tip": "loin_cloth_fr_03",
+    "topology": "linear"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "necklace_center_02"
+    ],
+    "id": "necklace_center_02",
+    "kind": "flap",
+    "parent": "necklace_center_01",
+    "preset": "strap",
+    "root": "necklace_center_02",
+    "tip": "necklace_center_02",
+    "topology": "single"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "torso_cloth_bk_l_01",
+     "torso_cloth_bk_l_02"
+    ],
+    "id": "torso_cloth_bk_l_01",
+    "kind": "chain",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "torso_cloth_bk_l_01",
+    "tip": "torso_cloth_bk_l_02",
+    "topology": "linear"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "torso_cloth_bk_r_01",
+     "torso_cloth_bk_r_02"
+    ],
+    "id": "torso_cloth_bk_r_01",
+    "kind": "chain",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "torso_cloth_bk_r_01",
+    "tip": "torso_cloth_bk_r_02",
+    "topology": "linear"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "torso_cloth_fr_l_01",
+     "torso_cloth_fr_l_02",
+     "torso_cloth_fr_l_03"
+    ],
+    "id": "torso_cloth_fr_l_01",
+    "kind": "chain",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "torso_cloth_fr_l_01",
+    "tip": "torso_cloth_fr_l_03",
+    "topology": "linear"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "torso_cloth_fr_r_01",
+     "torso_cloth_fr_r_02",
+     "torso_cloth_fr_r_03"
+    ],
+    "id": "torso_cloth_fr_r_01",
+    "kind": "chain",
+    "parent": "spine_03",
+    "preset": "cloth",
+    "root": "torso_cloth_fr_r_01",
+    "tip": "torso_cloth_fr_r_03",
+    "topology": "linear"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "weapon_tail_l_01",
+     "weapon_tail_l_02"
+    ],
+    "id": "weapon_tail_l_01",
+    "kind": "chain",
+    "parent": "weapon_l",
+    "preset": "tail",
+    "root": "weapon_tail_l_01",
+    "tip": "weapon_tail_l_02",
+    "topology": "linear"
+   },
+   {
+    "backend": "cr_dynamics",
+    "bones": [
+     "weapon_tail_r_01",
+     "weapon_tail_r_02"
+    ],
+    "id": "weapon_tail_r_01",
+    "kind": "chain",
+    "parent": "weapon_r",
+    "preset": "tail",
+    "root": "weapon_tail_r_01",
+    "tip": "weapon_tail_r_02",
+    "topology": "linear"
+   }
+  ]
+ },
+ "single_bone_flaps": [
+  {
+   "bone": "back_moon",
+   "preset": null,
+   "verts": 659
+  },
+  {
+   "bone": "feather_07_l",
+   "preset": "cloth",
+   "verts": 101
+  },
+  {
+   "bone": "feather_07_r",
+   "preset": "cloth",
+   "verts": 101
+  },
+  {
+   "bone": "feather_08_l",
+   "preset": "cloth",
+   "verts": 74
+  },
+  {
+   "bone": "feather_08_r",
+   "preset": "cloth",
+   "verts": 74
+  },
+  {
+   "bone": "feather_09_l",
+   "preset": "cloth",
+   "verts": 74
+  },
+  {
+   "bone": "feather_09_r",
+   "preset": "cloth",
+   "verts": 74
+  },
+  {
+   "bone": "feather_10_l",
+   "preset": "cloth",
+   "verts": 33
+  },
+  {
+   "bone": "feather_10_r",
+   "preset": "cloth",
+   "verts": 33
+  },
+  {
+   "bone": "feather_11_l",
+   "preset": "cloth",
+   "verts": 37
+  },
+  {
+   "bone": "feather_11_r",
+   "preset": "cloth",
+   "verts": 37
+  },
+  {
+   "bone": "feather_12_l",
+   "preset": "cloth",
+   "verts": 70
+  },
+  {
+   "bone": "feather_12_r",
+   "preset": "cloth",
+   "verts": 70
+  },
+  {
+   "bone": "feather_13_l",
+   "preset": "cloth",
+   "verts": 37
+  },
+  {
+   "bone": "feather_13_r",
+   "preset": "cloth",
+   "verts": 67
+  },
+  {
+   "bone": "feather_14_l",
+   "preset": "cloth",
+   "verts": 30
+  },
+  {
+   "bone": "feather_15_l",
+   "preset": "cloth",
+   "verts": 37
+  },
+  {
+   "bone": "feather_15_r",
+   "preset": "cloth",
+   "verts": 37
+  },
+  {
+   "bone": "feather_16_l",
+   "preset": "cloth",
+   "verts": 33
+  },
+  {
+   "bone": "feather_16_r",
+   "preset": "cloth",
+   "verts": 33
+  },
+  {
+   "bone": "feather_17_l",
+   "preset": "cloth",
+   "verts": 30
+  },
+  {
+   "bone": "feather_17_r",
+   "preset": "cloth",
+   "verts": 30
+  },
+  {
+   "bone": "feather_04_l",
+   "preset": "cloth",
+   "verts": 123
+  },
+  {
+   "bone": "feather_04_r",
+   "preset": "cloth",
+   "verts": 61
+  },
+  {
+   "bone": "feather_05_l",
+   "preset": "cloth",
+   "verts": 71
+  },
+  {
+   "bone": "feather_05_r",
+   "preset": "cloth",
+   "verts": 71
+  },
+  {
+   "bone": "feather_06_l",
+   "preset": "cloth",
+   "verts": 104
+  },
+  {
+   "bone": "feather_06_r",
+   "preset": "cloth",
+   "verts": 104
+  },
+  {
+   "bone": "feather_03_l",
+   "preset": "cloth",
+   "verts": 71
+  },
+  {
+   "bone": "feather_03_r",
+   "preset": "cloth",
+   "verts": 71
+  },
+  {
+   "bone": "feather_01_l",
+   "preset": "cloth",
+   "verts": 126
+  },
+  {
+   "bone": "feather_01_r",
+   "preset": "cloth",
+   "verts": 127
+  },
+  {
+   "bone": "feather_02_l",
+   "preset": "cloth",
+   "verts": 92
+  },
+  {
+   "bone": "feather_02_r",
+   "preset": "cloth",
+   "verts": 91
+  },
+  {
+   "bone": "necklace_center_02",
+   "preset": "strap",
+   "verts": 1158
+  },
+  {
+   "bone": "necklace_l",
+   "preset": "strap",
+   "verts": 333
+  },
+  {
+   "bone": "necklace_r",
+   "preset": "strap",
+   "verts": 333
+  }
+ ],
+ "skeleton": {
+  "bones": 198,
+  "weighted_bones": 170
+ },
+ "status": "ok",
+ "stock": {
+  "anim_blueprints": [
+   "/Game/ParagonKhaimera/Characters/Heroes/Khaimera/Khaimera_AnimBlueprint"
+  ],
+  "animbp_nodes": {
+   "AnimGraphNode_ApplyAdditive": 1,
+   "AnimGraphNode_BlendListByBool": 1,
+   "AnimGraphNode_BlendSpacePlayer": 1,
+   "AnimGraphNode_ComponentToLocalSpace": 1,
+   "AnimGraphNode_LayeredBoneBlend": 1,
+   "AnimGraphNode_LegIK": 1,
+   "AnimGraphNode_LocalToComponentSpace": 1,
+   "AnimGraphNode_Root": 1,
+   "AnimGraphNode_RotationOffsetBlendSpace": 1,
+   "AnimGraphNode_SaveCachedPose": 4,
+   "AnimGraphNode_SequencePlayer": 7,
+   "AnimGraphNode_Slot": 1,
+   "AnimGraphNode_StateMachine": 3,
+   "AnimGraphNode_StateResult": 10,
+   "AnimGraphNode_TransitionResult": 12,
+   "AnimGraphNode_UseCachedPose": 7,
+   "AnimStateEntryNode": 3,
+   "AnimStateNode": 10,
+   "AnimStateTransitionNode": 12,
+   "EdGraphNode_Comment": 4,
+   "K2Node_CallFunction": 6,
+   "K2Node_CommutativeAssociativeBinaryOperator": 3,
+   "K2Node_VariableGet": 16
+  },
+  "audit_failed": [],
+  "clothing_assets": [],
+  "features": {
+   "aim_offset": true,
+   "anim_dynamics": false,
+   "blend_space": true,
+   "control_rig": false,
+   "foot_placement": false,
+   "leg_ik": true,
+   "look_at": false,
+   "rigid_body": false,
+   "spring_bone": false,
+   "state_machine": true,
+   "two_bone_ik": false
+  },
+  "motion_sampled_from": [
+   "/Game/ParagonKhaimera/Characters/Heroes/Khaimera/Animations/Jog_Bwd",
+   "/Game/ParagonKhaimera/Characters/Heroes/Khaimera/Animations/Jog_Bwd_CircleLeft",
+   "/Game/ParagonKhaimera/Characters/Heroes/Khaimera/Animations/Jog_Bwd_CircleRight",
+   "/Game/ParagonKhaimera/Characters/Heroes/Khaimera/Animations/Jog_Bwd_Pivot_180",
+   "/Game/ParagonKhaimera/Characters/Heroes/Khaimera/Animations/Jog_Bwd_SlopeDown",
+   "/Game/ParagonKhaimera/Characters/Heroes/Khaimera/Animations/Jog_Bwd_SlopeUp"
+  ],
+  "physics_asset": "/Game/ParagonKhaimera/Characters/Heroes/Khaimera/Meshes/Khaimera_Extents",
+  "physics_constraints": 14,
+  "post_process_abp": null,
+  "sequences": 146
+ }
+}

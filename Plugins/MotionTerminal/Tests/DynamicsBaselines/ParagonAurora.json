@@ -1,0 +1,231 @@
+{
+ "build": {
+  "abp": "/Game/MT/Aurora/ABP_MT_AuroraDynamics",
+  "air": null,
+  "backends": [
+   "cr_dynamics"
+  ],
+  "behaviours": null,
+  "colliders": "e24d32969bca",
+  "cr": "/Game/MT/Aurora/CR_MT_AuroraDynamics",
+  "engine": "5.8.4-58902052+++UE5+Release-5.8",
+  "grip_pose": "/Game/ParagonAurora/Characters/Heroes/Aurora/Animations/Jog_Fwd",
+  "hero": "ParagonAurora",
+  "mesh": "/Game/ParagonAurora/Characters/Heroes/Aurora/Meshes/Aurora",
+  "parts": "ef778fe573a2",
+  "reaction": {
+   "builder": "HeroPhysicsTools/5",
+   "control": "(bEnabled=True,LinearStrength=0.000000,AngularStrength=30.000000,AngularDampingRatio=5.000000,bDisableCollision=True)",
+   "initial": "(ControlMultiplierParameters=((Name=\"ParentSpace_Arm_l\",Data=(AngularStrengthMultiplier=6.000000)),(Name=\"ParentSpace_Arm_r\",Data=(AngularStrengthMultiplier=6.000000)),(Name=\"spine_03_clavicle_l\",Data=(AngularStrengthMultiplier=12.275929,AngularDampingRatioMultiplier=1.023015)),(Name=\"clavicle_l_upperarm_l\",Data=(AngularStrengthMultiplier=1.022249,AngularDampingRatioMultiplier=1.022212)),(Name=\"upperarm_l_lowerarm_l\",Data=(AngularStrengthMultiplier=0.245282,AngularDampingRatioMultiplier=0.981131)),(Name=\"lowerarm_l_hand_l\",Data=(AngularStrengthMultiplier=0.249517,AngularDampingRatioMultiplier=0.998065)),(Name=\"spine_03_clavicle_r\",Data=(AngularStrengthMultiplier=11.724083,AngularDampingRatioMultiplier=0.977027)),(Name=\"clavicle_r_upperarm_r\",Data=(AngularStrengthMultiplier=0.977753,AngularDampingRatioMultiplier=0.977718)),(Name=\"upperarm_r_lowerarm_r\",Data=(AngularStrengthMultiplier=0.254718,AngularDampingRatioMultiplier=1.018876)),(Name=\"lowerarm_r_hand_r\",Data=(AngularStrengthMultiplier=0.250484,AngularDampingRatioMultiplier=1.001933))))",
+   "leg_ik": [
+    {
+     "calf": "calf_l",
+     "foot": "foot_l",
+     "target": "ik_foot_l",
+     "thigh": "thigh_l"
+    },
+    {
+     "calf": "calf_r",
+     "foot": "foot_r",
+     "target": "ik_foot_r",
+     "thigh": "thigh_r"
+    }
+   ],
+   "limb": "((LimbName=\"Arm_l\",StartBone=\"clavicle_l\",bIncludeParentBone=False,bCreateWorldSpaceControls=False,bCreateParentSpaceControls=True,bCreateBodyModifiers=True),(LimbName=\"Arm_r\",StartBone=\"clavicle_r\",bIncludeParentBone=False,bCreateWorldSpaceControls=False,bCreateParentSpaceControls=True,bCreateBodyModifiers=True),(LimbName=\"Spine\",StartBone=\"spine_01\",bIncludeParentBone=False,bCreateWorldSpaceControls=False,bCreateParentSpaceControls=True,bCreateBodyModifiers=True),(LimbName=\"Pelvis\",StartBone=\"pelvis\",bIncludeParentBone=False,bCreateWorldSpaceControls=True,bCreateParentSpaceControls=False,bCreateBodyModifiers=True))",
+   "modifier": "(MovementType=Simulated,GravityMultiplier=0.000000)",
+   "node": "AnimGraphNode_RigidBodyWithControl_1",
+   "out": "AnimGraphNode_ComponentToLocalSpace_2",
+   "override": null,
+   "physics_asset": "/Game/MT/Aurora/PA_MT_Aurora",
+   "physics_digest": "3fed0a392ba6",
+   "reach_rig": "/Game/MT/Aurora/CR_MT_AuroraLegReach",
+   "world_control": "(bEnabled=True,LinearStrength=6.000000,LinearDampingRatio=3.000000,AngularStrength=12.000000,AngularDampingRatio=3.000000,bDisableCollision=True)"
+  },
+  "scripts": {
+   "collider_autofit.py": "1bb0fb3be6ac",
+   "dyn_behaviours.py": "d3777a2b659f",
+   "dyn_hero.py": "b4b32855923b",
+   "dynamics_behaviours.json": "dda10ddeb1ff",
+   "hit_reaction_core.py": "5ad430a6262d",
+   "dynamics_graph.py": "64879b37364a",
+   "dynamics_rig.py": "94dd7bf3d656",
+   "leg_reach.py": "26a524a80e46"
+  },
+  "with_colliders": true
+ },
+ "cost_ms": 1.1623666666666668,
+ "legs": {},
+ "legs_applicable": false,
+ "parts": {
+  "breast_l": {
+   "clearance_na": true,
+   "frames_under_tol": null,
+   "max_step_cm": 2.9327,
+   "min_clearance_cm": null,
+   "settle_step_cm": 0.0491,
+   "stop_fwd_deg": 127.3,
+   "stop_twist_peak_deg": 0.0,
+   "stop_window_tip_delta_cm": 2.3565,
+   "trail_deg": -106.38,
+   "twist_rms_deg": 0.0
+  },
+  "breast_r": {
+   "clearance_na": true,
+   "frames_under_tol": null,
+   "max_step_cm": 2.526,
+   "min_clearance_cm": null,
+   "settle_step_cm": 0.0369,
+   "stop_fwd_deg": 137.32,
+   "stop_twist_peak_deg": 0.0,
+   "stop_window_tip_delta_cm": 2.9123,
+   "trail_deg": -119.87,
+   "twist_rms_deg": 0.0
+  },
+  "hair_back_01": {
+   "clearance_na": false,
+   "frames_under_tol": 0,
+   "max_step_cm": 1.8288,
+   "min_clearance_cm": -0.08,
+   "settle_step_cm": 0.0289,
+   "stop_fwd_deg": -18.99,
+   "stop_twist_peak_deg": 1.29,
+   "stop_window_tip_delta_cm": 4.3731,
+   "trail_deg": 43.12,
+   "twist_rms_deg": 0.24
+  },
+  "hair_fr_l_01": {
+   "clearance_na": false,
+   "frames_under_tol": 0,
+   "max_step_cm": 2.3183,
+   "min_clearance_cm": -0.05,
+   "settle_step_cm": 0.0685,
+   "stop_fwd_deg": 14.93,
+   "stop_twist_peak_deg": 4.98,
+   "stop_window_tip_delta_cm": 10.3018,
+   "trail_deg": 38.24,
+   "twist_rms_deg": 1.3
+  },
+  "hair_fr_r_01": {
+   "clearance_na": false,
+   "frames_under_tol": 2,
+   "max_step_cm": 2.4366,
+   "min_clearance_cm": -1.13,
+   "settle_step_cm": 0.0604,
+   "stop_fwd_deg": 15.83,
+   "stop_twist_peak_deg": 5.29,
+   "stop_window_tip_delta_cm": 11.3501,
+   "trail_deg": 35.03,
+   "twist_rms_deg": 1.12
+  },
+  "hair_mid_l_01": {
+   "clearance_na": false,
+   "frames_under_tol": 0,
+   "max_step_cm": 2.0133,
+   "min_clearance_cm": 0.04,
+   "settle_step_cm": 0.0519,
+   "stop_fwd_deg": -5.34,
+   "stop_twist_peak_deg": 2.89,
+   "stop_window_tip_delta_cm": 5.4728,
+   "trail_deg": 37.72,
+   "twist_rms_deg": 1.14
+  },
+  "hair_mid_r_01": {
+   "clearance_na": false,
+   "frames_under_tol": 0,
+   "max_step_cm": 2.0787,
+   "min_clearance_cm": -0.08,
+   "settle_step_cm": 0.0396,
+   "stop_fwd_deg": 15.3,
+   "stop_twist_peak_deg": 6.47,
+   "stop_window_tip_delta_cm": 11.979,
+   "trail_deg": 44.15,
+   "twist_rms_deg": 1.11
+  },
+  "hair_strand_back_01": {
+   "clearance_na": false,
+   "frames_under_tol": 0,
+   "max_step_cm": 1.8227,
+   "min_clearance_cm": -0.05,
+   "settle_step_cm": 0.0689,
+   "stop_fwd_deg": -10.64,
+   "stop_twist_peak_deg": 0.0,
+   "stop_window_tip_delta_cm": 5.2203,
+   "trail_deg": 41.16,
+   "twist_rms_deg": 0.0
+  },
+  "hair_strand_bk_l_01": {
+   "clearance_na": false,
+   "frames_under_tol": 0,
+   "max_step_cm": 1.748,
+   "min_clearance_cm": -0.06,
+   "settle_step_cm": 0.0429,
+   "stop_fwd_deg": -15.28,
+   "stop_twist_peak_deg": 3.17,
+   "stop_window_tip_delta_cm": 4.6415,
+   "trail_deg": 41.76,
+   "twist_rms_deg": 1.39
+  },
+  "hair_strand_mid_r_01": {
+   "clearance_na": false,
+   "frames_under_tol": 0,
+   "max_step_cm": 1.9222,
+   "min_clearance_cm": -0.15,
+   "settle_step_cm": 0.0414,
+   "stop_fwd_deg": -17.87,
+   "stop_twist_peak_deg": 0.0,
+   "stop_window_tip_delta_cm": 4.0389,
+   "trail_deg": 43.72,
+   "twist_rms_deg": 0.0
+  },
+  "hair_top_fr_l_01": {
+   "clearance_na": false,
+   "frames_under_tol": 0,
+   "max_step_cm": 2.3223,
+   "min_clearance_cm": -0.0,
+   "settle_step_cm": 0.0406,
+   "stop_fwd_deg": -15.25,
+   "stop_twist_peak_deg": 24.68,
+   "stop_window_tip_delta_cm": 2.4561,
+   "trail_deg": 55.18,
+   "twist_rms_deg": 0.69
+  },
+  "hair_top_fr_r_01": {
+   "clearance_na": false,
+   "frames_under_tol": 0,
+   "max_step_cm": 2.3299,
+   "min_clearance_cm": -0.08,
+   "settle_step_cm": 0.0547,
+   "stop_fwd_deg": -48.45,
+   "stop_twist_peak_deg": 95.5,
+   "stop_window_tip_delta_cm": 2.0336,
+   "trail_deg": 72.76,
+   "twist_rms_deg": 0.58
+  },
+  "hair_top_mid_01": {
+   "clearance_na": false,
+   "frames_under_tol": 0,
+   "max_step_cm": 2.4103,
+   "min_clearance_cm": 0.02,
+   "settle_step_cm": 0.0461,
+   "stop_fwd_deg": -51.76,
+   "stop_twist_peak_deg": 169.08,
+   "stop_window_tip_delta_cm": 2.3141,
+   "trail_deg": 78.95,
+   "twist_rms_deg": 0.19
+  },
+  "hair_top_mid_l_01": {
+   "clearance_na": false,
+   "frames_under_tol": 0,
+   "max_step_cm": 2.3966,
+   "min_clearance_cm": -0.05,
+   "settle_step_cm": 0.0443,
+   "stop_fwd_deg": -49.88,
+   "stop_twist_peak_deg": 61.22,
+   "stop_window_tip_delta_cm": 2.2483,
+   "trail_deg": 78.81,
+   "twist_rms_deg": 0.41
+  }
+ },
+ "source": "dyn_ParagonAurora_rebase_breast.json",
+ "why": "breasts (soft_tissue) without air drag (zero drag, so never pushed inward); every other part's drag folded unchanged into its own Damping: breast trail -112/-129 -> -106/-120 deg (less lag inward), stop swing +1.3/+1.8 deg"
+}

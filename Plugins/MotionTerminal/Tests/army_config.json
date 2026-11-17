@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "spot_check_k": 10,
+  "_standing_claim": "tiered crowd of 46 spawned and verified distinct; LIVE DRIVEN COST AT SCALE MEASURED (re-measured with the army_conductor RUNNING — the shipped speed/turn/aim waves + montage sectors, NOT an idle crowd). The DRIVEN cost at N=46 is worker ~12.4 ms avg / 15.9 ms peak and game-thread ~3.6 ms avg / 4.21 ms PEAK. NOTE the original sweep mistakenly measured a STANDING/idle crowd (worker 8.6, gt 3.33) and under-reported by ~1.4-1.8x; that '8.6 over 8.0, gt comfortable, keep N=46' conclusion is SUPERSEDED. Under real load the HARD game-thread gate is UNDER on average (3.6/4.0) but OVER on PEAK (4.21/4.0) during the montage volley; the advisory summed-worker gate is exceeded from N~=24-33. Driven-safe N: gt avg@~52, gt peak@~42, worker avg@~33. BY DESIGN the HARD gate is the gt AVERAGE and the peak is a disclosed risk signal, so N=46 STAYS (gt avg 3.6/4.0). See budget._ceiling_policy, budget._measured and research/fixtures/army-contact/n_vs_eval_ms.csv.",
+  "_source": "Per-instance costs MEASURED on the development machine (a multi-core desktop CPU) over 51 live anim instances, IK ON in every tier. The tier shape below is arithmetically summed against the ceilings and asserted at spawn time by Scripts/army_spawn.py.",
+  "_costs_validated_via_interactive_probe": "VALIDATED against a LIVE measurement (interactive-editor STATGROUP_Anim; re-measure via Scripts/archive/army_budget_probe.py if the config or hardware changes). The per-instance worker_ms/gt_ms numbers below are REAL MEASUREMENTS, but they were measured under a GLOBAL `a.URO.ForceAnimRate` (mid at rate 2, far at rate 4) that the SHIPPED ARMY DOES NOT SET — and at rates the engine cannot produce here (AnimUpdateRateSetParams / SkinnedMeshComponent.cpp:283-360: with ForceAnimRate 0 the distance-factor branch caps at Num(BaseVisibleDistanceFactorThesholds)+1 = 3, so far can never reach 4). So they were MODELLED, NOT VALIDATED for the shipped config — and the live measurement CONFIRMED they UNDER-PREDICT it, twice over: even the STANDING/idle live cost at N=46 (~8.6 ms worker) already exceeds the modelled 7.54, and the DRIVEN cost (conductor running the shipped waves + montages, the real load) is ~12.4 ms avg / 15.9 ms peak worker and ~3.6 ms avg / 4.21 ms peak game-thread (re-measured after the original sweep was found to have measured a standing crowd). assert_budget() stays a genuine pre-spawn guard on the MODELLED tier SHAPE; the live per-frame cost is now in budget._measured (DRIVEN). See research/fixtures/army-contact/n_vs_eval_ms.csv (both conditions).",
+  "_not_a_ceiling": "N = 46 is the SHIPPED shape, not the army's maximum, and it HOLDS under real (driven) load by design: driven (conductor running) the HARD game-thread gate is under on AVERAGE (3.6/4.0) at N=46, and the gate is on the average (the peak 4.21/4.0 on the montage volley is a disclosed risk signal, not a failure — see budget._ceiling_policy). ms_ceiling is SUMMED worker-thread cycle time; on a multi-core desktop CPU the wall-clock anim eval is well under it, which is why the summed-worker ceiling is ADVISORY and gt_ms_ceiling is the hard gate. N was NOT re-derived from wall-clock frame time — that figure is the ~324 ms editor idle-throttle floor, not the crowd, and frame-time/N is forbidden; the honest instrument is the summed-worker/gt stat, measured DRIVEN in budget._measured.",
+
+  "rings": {
+    "hero": {
+      "count": 6,
+      "radius": 400,
+      "uro": false,
+      "forced_lod": 0,
+      "_intended_budgeted": false,
+      "worker_ms_per_inst": 0.386,
+      "gt_ms_per_inst": 0.098
+    },
+    "mid": {
+      "count": 8,
+      "radius": 1200,
+      "uro": true,
+      "forced_lod": 2,
+      "_intended_budgeted": false,
+      "worker_ms_per_inst": 0.217,
+      "gt_ms_per_inst": 0.081
+    },
+    "far": {
+      "count": 32,
+      "radius": 3000,
+      "uro": true,
+      "forced_lod": 3,
+      "_intended_budgeted": true,
+      "budget": {
+        "significance": 0.25,
+        "tick_even_if_not_rendered": true,
+        "_why": "Present = this ring is handed to the Animation Budget Allocator in live PIE (army_spawn.register_budget; Pie.Army.BudgetThrottle), which then owns its tick rate and switches its URO off, so `uro` above is the fallback when the allocator is not running. 0.25 marks the far ring as the first to lose fidelity; it is the only budgeted ring, so the value orders nothing against other rings today. tick_even_if_not_rendered keeps the allocator's throttling separate from visibility culling, which the crowd already bypasses with AlwaysTickPoseAndRefreshBones."
+      },
+      "_budgeted_measured": "MEASURED, four-arm Pie.Army.BudgetThrottle (graph-update rate per frame over 90 frames; every enabled arm lifts MaxTickedOffsreenComponents to the ring size). A control: hero 1.000 / far 1.000, 0/32 under allocator tick control. B world-enabled, a.Budget.Enabled 0 (the pre-fix route): 1.000 / 1.000, 0/32. C live, 100 ms budget: 1.000 / 1.000, 32/32. D live, 0.1 ms budget, the only change from C: hero 1.000 / far 0.204, slowest far mesh 0.100 (the allocator's MaxTickRate 10 floor), 32/32. So the BUDGET is what throttles. Python route (army_spawn report in live PIE): far 32/32 registered, a.Budget.Enabled 1, budget_in_ms 1.024. NOT measured: the driven anim-eval ms with the allocator on at the shipped 1.024 ms budget (budget._measured predates this), and the crowd take's render path does not register the budget at all.",
+      "_budgeted_measured_superseded": "The first version of the gate had three arms and read far 0.214 / 0.213 under the 0.1 ms budget. It left MaxTickedOffsreenComponents at its default 4, which throttles offscreen meshes by visibility rather than budget, and this tier's viewport is 0x0, so that figure could not show the BUDGET was the cause. Kept as the record; arm C/D above isolate it.",
+      "_budgeted_applied": "SUPERSEDED by the `budget` object above, AMTCharacter, and `_budgeted_measured`; kept as the record of what was true before. Was: false — verified 0/32. The Animation Budget Allocator drives only SkeletalMeshComponentBudgeted components; the roster pawns' inherited ACharacter Mesh is a plain USkeletalMeshComponent and cannot be reparented from a Blueprint (the Epic route is a C++ subclass using ObjectInitializer.SetDefaultSubobjectClass). register_budget() reports the live count rather than assuming.",
+      "worker_ms_per_inst": 0.109,
+      "gt_ms_per_inst": 0.032
+    }
+  },
+
+  "uro": {
+    "_applied": false,
+    "_why_not_applied": "NOTHING IN THIS BLOCK IS APPLIED. The per-instance URO cadence lives in FAnimUpdateRateParameters, which is not a UPROPERTY, so these rates cannot be set per component and no live code reads them (the keys are underscore-prefixed to keep it that way).",
+    "_intended_mid_rate": 2,
+    "_intended_far_rate": 4,
+    "_reachability": "RECORDED INTENT ONLY. `AnimUpdateRateShiftTag` is NOT reflected to Python (live probe: 'Failed to find property'). The reachable knobs are the per-component boolean `enable_update_rate_optimizations` (applied per tier by the spawner) and the GLOBAL CVar `a.URO.ForceAnimRate` (one value for the whole world — it cannot express 2 and 4 at once). With ForceAnimRate 0 the engine's own distance-driven URO caps at rate 3 for every rendered instance, so the intended 4 is unreachable even globally. The Animation Budget Allocator is the real per-component cadence mechanism, but it drives only SkeletalMeshComponentBudgeted components (0/32 here) and registering a component DISABLES URO on it (IAnimationBudgetAllocator.h:24) — the two mechanisms are mutually exclusive, not additive. See the spawner's readback for what actually applied."
+  },
+
+  "budget": {
+    "ms_ceiling": 8.0,
+    "gt_ms_ceiling": 4.0,
+    "mb_ceiling": 6.0,
+    "measured_n46_driven_worker_ms_avg": 12.4,
+    "measured_n46_driven_worker_ms_peak": 15.9,
+    "measured_n46_driven_gt_ms_avg": 3.6,
+    "measured_n46_driven_gt_ms_peak": 4.21,
+    "measured_n46_standing_worker_ms": 8.6,
+    "measured_n46_standing_gt_ms": 3.33,
+    "measured_n46_mb": 4.637,
+    "shipped_safe_n_worker_ceiling": 33,
+    "driven_safe_n_worker_avg": 33,
+    "driven_safe_n_worker_peak": 24,
+    "driven_safe_n_gt_avg": 52,
+    "driven_safe_n_gt_peak": 42,
+    "_measured": "RE-MEASURED DRIVEN (interactive editor, real RHI, PIE, STATGROUP_Anim; army_conductor RUNNING — speed/turn/aim waves + montage sectors, the actual shipped load). THE ORIGINAL SWEEP MEASURED A STANDING (idle, conductor-off) CROWD BY MISTAKE (army_budget_probe.py spawns + reads but never starts the conductor) and under-reported the shipped cost by ~1.4-1.8x — the old '8.6 ms worker / gt 3.33 comfortable / keep N=46' conclusion rested on idle-graph cost and is SUPERSEDED. Both conditions are in n_vs_eval_ms.csv. DRIVEN at the shipped N=46: worker ~12.4 ms avg / 15.9 ms peak (standing 8.6); gt ~3.6 ms avg / 4.21 ms PEAK (standing 3.33). Driven crossings: worker(avg)@N~=33, worker(peak)@N~=24; gt(avg)@N~=52, gt(peak)@N~=42. So under real load the HARD gt gate is UNDER on average (3.6/4.0) but OVER on PEAK (4.21/4.0) during the montage volley. BY DESIGN the hard gate is the AVERAGE, the peak is a disclosed risk signal, and N=46 STAYS (see _ceiling_policy).",
+    "_ceiling_policy": "ALL budget numbers are DRIVEN (conductor running) unless labelled 'standing'. HARD gate = gt_ms_ceiling (AnimGameThreadTime, SERIAL per-frame anim work). ADVISORY = ms_ceiling (PerformAnimEvaluation_WorkerThread SUMS cycles across parallel cores; ~0.8 ms wall-clock at N=46 driven). GT AVG-vs-PEAK — the HARD gate asserts on the AVERAGE over a settled window; the PEAK is REPORTED as a disclosed risk signal, NOT a failure condition. WHY the avg: the 4.0 ms ceiling is itself a SUSTAINED allocation (24% of a 60 fps 16.67 ms frame), the average governs sustained throughput, and a lone driven peak (~4.21 ms at N=46, over 4.0 during the montage volley) is still only 25% of the frame with ~12 ms of frame margin so it does not by itself drop a frame; a short-window max is also too noisy (one GC/PSO hitch) to gate on. On that basis N=46 STAYS (gt avg 3.6/4.0; driven avg-safe to N~=52). The peak breach (4.21, driven-safe on peak to N~=42) is disclosed, not a defect. Pie.Army.Budget hard-fails on gt AVG and AddInfo-reports the peak. Separately mb_ceiling (6.0 MB) is a HARD headless-CI gate (GetResourceSizeBytes, no stats thread).",
+    "_ms_ceiling": "PerformAnimEvaluation_WorkerThread, SUMMED worker cycles. Chosen for the development hardware; not a fixed requirement. ADVISORY, not a hard gate (see _ceiling_policy): summed across parallel cores, so N=46's DRIVEN ~12.4 ms avg is ~0.8 ms wall-clock on a multi-core desktop CPU. Driven, worker(avg) crosses 8.0 at N~=33 and worker(peak) at N~=24 — well below 46 — but as an advisory/parallel metric that is a headroom signal, not a frame-binding defect.",
+    "_gt_ms_ceiling": "AnimGameThreadTime. Derived: 60 fps frame = 16.67 ms, anim allowed 24% = 4.0 ms. This is the HARD/binding gate (serial game-thread per frame). DRIVEN at N=46: 3.6 ms avg (under), 4.21 ms PEAK (over, montage volley). Driven crossings: avg@N~=52, peak@N~=42. BY DESIGN Pie.Army.Budget hard-fails on the AVERAGE and reports the peak as a disclosed risk (see _ceiling_policy; headless CI cannot read this stat anyway — see _mb_ceiling).",
+    "_mb_ceiling": "MEASURED. Method: sum GetResourceSizeBytes(EstimatedTotal) over every crowd SkeletalMeshComponent + its AnimInstance (the per-instance runtime anim memory — bone buffers, component-space transforms, anim proxy). STATGROUP_Anim is a TIME group and STATGROUP_SkeletalMesh is ASSET/GPU memory (shared, does not scale per instance), and GetResourceSizeBytes is not exposed to Python — so the C++ test IS the measurement, summed the same way the assertion sums it. Measured 4.637 MB at N=46 (~0.101 MB/instance, scales linearly); ceiling set to 6.0 MB (~1.3x headroom, catches a ~30%+ regression). UNLIKE the ms gate, this reads live components with NO stats thread, so it is a HARD headless CI gate: Pie.Army.Budget asserts total < mb_ceiling AND that it scales with N (a zero/one-instance or broken reading fails)."
+  },
+
+  "roster": {
+    "manny": "/Game/MT/BP_MT_TestPawn.BP_MT_TestPawn_C",
+    "quinn": "/Game/MT/BP_MT_TestPawn_Quinn.BP_MT_TestPawn_Quinn_C",
+    "khaimera": "/Game/MT/Khaimera/BP_MT_TestPawn_Khaimera.BP_MT_TestPawn_Khaimera_C"
+  },
+
+  "spawn": {
+    "level": "/Game/MT/Army/Lvl_MT_Army",
+    "center": [0.0, 0.0, 0.0],
+    "z": 110.0,
+    "face_center": true,
+    "tag_all": "MT_Army",
+    "tag_prefix": "MT_Tier_",
+    "require_all_rigs": true,
+    "crowd_anim_class": {
+      "khaimera": "/Game/MT/Khaimera/InPlace/ABP_MT_Khaimera_InPlace.ABP_MT_Khaimera_InPlace_C",
+      "_why": "A rig whose shipped graph carries baked root travel walks its mesh off its capsule in the crowd, where nothing extracts that travel (Khaimera: 941.2 cm at speed 450 on the original clips, 10.1 cm on the in-place graph). Each entry swaps that rig's crowd instances onto an in-place graph. A new rig with the same problem is a row here, not code."
+    },
+    "tier_pawns": {
+      "hero": ["manny", "quinn", "khaimera"],
+      "mid": ["manny", "quinn"],
+      "far": ["manny", "quinn"]
+    }
+  }
+}

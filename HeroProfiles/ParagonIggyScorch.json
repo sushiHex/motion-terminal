@@ -1,0 +1,891 @@
+{
+ "chains": [
+  {
+   "baked": false,
+   "baked_deg": 0.0,
+   "bones": [
+    "tail_01",
+    "tail_02",
+    "muscle_tail_bott",
+    "tail_03",
+    "tail_04"
+   ],
+   "mixed": [],
+   "preset": "tail",
+   "root": "tail_01",
+   "verts": 11942
+  },
+  {
+   "baked": false,
+   "baked_deg": 0.0,
+   "bones": [
+    "tail_armor_01",
+    "tail_armor_02",
+    "tail_armor_03"
+   ],
+   "mixed": [],
+   "preset": "tail",
+   "root": "tail_armor_01",
+   "verts": 383
+  }
+ ],
+ "chains_unclassified": [
+  {
+   "baked": false,
+   "baked_deg": 0.1,
+   "bones": [
+    "bottle_sack",
+    "bottle_01",
+    "bottle_01_rag_01",
+    "bottle_01_rag_02",
+    "bottle_02",
+    "bottle_02_rag_01",
+    "bottle_02_rag_02",
+    "bottle_throw",
+    "bottle_throw_rag_01",
+    "bottle_throw_rag_02"
+   ],
+   "mixed": [],
+   "preset": null,
+   "root": "bottle_sack",
+   "verts": 1401
+  },
+  {
+   "baked": false,
+   "baked_deg": 0.1,
+   "bones": [
+    "dispencer_base",
+    "dispencer_handle",
+    "dispencer_pipe_l",
+    "dispencer_pipe_r",
+    "dispencer_plug",
+    "dispencer_top",
+    "dispencer_clip_bl",
+    "dispencer_clip_br",
+    "dispencer_clip_fl",
+    "dispencer_clip_fr"
+   ],
+   "mixed": [],
+   "preset": null,
+   "root": "dispencer_base",
+   "verts": 3006
+  },
+  {
+   "baked": false,
+   "baked_deg": 0.1,
+   "bones": [
+    "Goblin_pelvis",
+    "Goblin_spine_01",
+    "Goblin_muscle_belly",
+    "Goblin_spine_02",
+    "Goblin_spine_03",
+    "Goblin_clavicle_l",
+    "Goblin_upperarm_l",
+    "Goblin_lowerarm_l",
+    "Goblin_hand_l",
+    "Goblin_arm_piston_A_bott",
+    "Goblin_arm_piston_B_bott",
+    "Goblin_dispencer_hand",
+    "Goblin_index_01_l",
+    "Goblin_thumb_01_l",
+    "Goblin_lowerarm_twist_01_l",
+    "Goblin_arm_piston_A_top",
+    "Goblin_arm_piston_B_top",
+    "Goblin_upperarm_twist_01_l",
+    "Goblin_upperarm_twist_02_l",
+    "Goblin_clavicle_r",
+    "Goblin_upperarm_r",
+    "Goblin_lowerarm_r",
+    "Goblin_hand_r",
+    "Goblin_bottle",
+    "Goblin_bottle_rag_01",
+    "Goblin_bottle_rag_02",
+    "Goblin_index_01_r",
+    "Goblin_index_02_r",
+    "Goblin_index_03_r",
+    "Goblin_middle_01_r",
+    "Goblin_middle_02_r",
+    "Goblin_middle_03_r",
+    "Goblin_pinky_01_r",
+    "Goblin_ring_01_r",
+    "Goblin_ring_02_r",
+    "Goblin_ring_03_r",
+    "Goblin_thumb_01_r",
+    "Goblin_thumb_02_r",
+    "Goblin_thumb_03_r",
+    "Goblin_lowerarm_twist_01_r",
+    "Goblin_upperarm_twist_01_r",
+    "Goblin_upperarm_twist_02_r",
+    "Goblin_neck_01",
+    "Goblin_head",
+    "Goblin_ear_l",
+    "Goblin_ear_r",
+    "Goblin_eyeball_l",
+    "Goblin_eyeball_r",
+    "Goblin_eyelid_bott_l",
+    "Goblin_eyelid_bott_r",
+    "Goblin_eyelid_top_l",
+    "Goblin_eyelid_top_r",
+    "Goblin_jaw",
+    "Goblin_tongue_01",
+    "Goblin_tongue_02",
+    "Goblin_ponytail_01",
+    "Goblin_ponytail_02",
+    "Goblin_ponytail_03",
+    "Goblin_plunger",
+    "Goblin_thigh_l",
+    "Goblin_calf_l",
+    "Goblin_foot_l",
+    "Goblin_ball_l",
+    "Goblin_toe_big_a_l",
+    "Goblin_toe_mid_a_l",
+    "Goblin_toe_pink_a_l",
+    "Goblin_thigh_twist_01_l",
+    "Goblin_thigh_twist_02_l",
+    "Goblin_thigh_r",
+    "Goblin_calf_r",
+    "Goblin_foot_r",
+    "Goblin_ball_r",
+    "Goblin_toe_big_a_r",
+    "Goblin_toe_mid_a_r",
+    "Goblin_toe_pink_a_r",
+    "Goblin_thigh_twist_01_r",
+    "Goblin_thigh_twist_02_r"
+   ],
+   "mixed": [
+    "Goblin_eyelid_bott_l",
+    "Goblin_eyelid_bott_r",
+    "Goblin_eyelid_top_l",
+    "Goblin_eyelid_top_r",
+    "Goblin_index_01_l",
+    "Goblin_index_01_r",
+    "Goblin_index_02_r",
+    "Goblin_index_03_r",
+    "Goblin_jaw",
+    "Goblin_lowerarm_twist_01_l",
+    "Goblin_lowerarm_twist_01_r",
+    "Goblin_middle_01_r",
+    "Goblin_middle_02_r",
+    "Goblin_middle_03_r",
+    "Goblin_pinky_01_r",
+    "Goblin_ring_01_r",
+    "Goblin_ring_02_r",
+    "Goblin_ring_03_r",
+    "Goblin_thigh_twist_01_l",
+    "Goblin_thigh_twist_01_r",
+    "Goblin_thigh_twist_02_l",
+    "Goblin_thigh_twist_02_r",
+    "Goblin_thumb_01_l",
+    "Goblin_thumb_01_r",
+    "Goblin_thumb_02_r",
+    "Goblin_thumb_03_r",
+    "Goblin_tongue_01",
+    "Goblin_tongue_02",
+    "Goblin_upperarm_twist_01_l",
+    "Goblin_upperarm_twist_01_r",
+    "Goblin_upperarm_twist_02_l",
+    "Goblin_upperarm_twist_02_r"
+   ],
+   "preset": null,
+   "root": "Goblin_pelvis",
+   "verts": 26392
+  }
+ ],
+ "colliders": {
+  "chain_half_width_cm": {
+   "tail_01": 24.84,
+   "tail_armor_01": 17.03
+  },
+  "chains": {
+   "tail_01": {
+    "collides_with": [
+     "calf_l",
+     "calf_r",
+     "head",
+     "hips",
+     "lowerarm_l",
+     "lowerarm_r",
+     "rest_tail_01_torso_spine_02",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01",
+     "torso_spine_03",
+     "upperarm_l",
+     "upperarm_r"
+    ],
+    "particle_radius_cm": 5.0,
+    "reach_cm": 105.99
+   },
+   "tail_armor_01": {
+    "collides_with": [
+     "calf_l",
+     "calf_r",
+     "hips",
+     "rest_tail_armor_01_torso_spine_02",
+     "thigh_l",
+     "thigh_r",
+     "torso_spine_01",
+     "torso_spine_03"
+    ],
+    "particle_radius_cm": 5.0,
+    "reach_cm": 38.36
+   }
+  },
+  "fitted": {
+   "calf_l": {
+    "radius_cm": 16.89,
+    "radius_p50_cm": 10.65,
+    "samples": 282
+   },
+   "calf_r": {
+    "radius_cm": 16.89,
+    "radius_p50_cm": 10.65,
+    "samples": 282
+   },
+   "hips": {
+    "radius_cm": 88.46,
+    "radius_p50_cm": 59.11,
+    "samples": 19476
+   },
+   "lowerarm_l": {
+    "radius_cm": 3.03,
+    "radius_p50_cm": 2.72,
+    "samples": 29
+   },
+   "lowerarm_r": {
+    "radius_cm": 3.03,
+    "radius_p50_cm": 2.72,
+    "samples": 29
+   },
+   "neck": {
+    "radius_cm": null,
+    "radius_p50_cm": null,
+    "samples": 0
+   },
+   "thigh_l": {
+    "radius_cm": 16.5,
+    "radius_p50_cm": 11.38,
+    "samples": 306
+   },
+   "thigh_r": {
+    "radius_cm": 16.5,
+    "radius_p50_cm": 11.38,
+    "samples": 306
+   },
+   "torso_spine_01": {
+    "radius_cm": 24.36,
+    "radius_p50_cm": 22.77,
+    "samples": 34
+   },
+   "torso_spine_02": {
+    "radius_cm": 39.59,
+    "radius_p50_cm": 37.38,
+    "samples": 28
+   },
+   "torso_spine_03": {
+    "radius_cm": 36.93,
+    "radius_p50_cm": 27.94,
+    "samples": 204
+   },
+   "upperarm_l": {
+    "radius_cm": 4.79,
+    "radius_p50_cm": 3.73,
+    "samples": 76
+   },
+   "upperarm_r": {
+    "radius_cm": 4.79,
+    "radius_p50_cm": 3.73,
+    "samples": 76
+   }
+  },
+  "margin_cm": 1.0,
+  "shapes": [
+   {
+    "a_cs": [
+     19.397,
+     -12.435,
+     92.318
+    ],
+    "b_cs": [
+     -19.397,
+     -12.435,
+     92.318
+    ],
+    "local": {
+     "length_cm": 38.79,
+     "radius_cm": 89.46,
+     "rotation_xyzw": [
+      0.0,
+      0.0,
+      -0.708391,
+      0.70582
+     ],
+     "translation": [
+      5.1336,
+      -9.8084,
+      0.0
+     ]
+    },
+    "name": "hips",
+    "owner": "pelvis",
+    "radius_cm": 89.46,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     -7.04,
+     82.838
+    ],
+    "b_cs": [
+     0.0,
+     1.1,
+     83.129
+    ],
+    "local": {
+     "length_cm": 8.15,
+     "radius_cm": 25.36,
+     "rotation_xyzw": [
+      0.499702,
+      -0.500298,
+      0.500298,
+      -0.499702
+     ],
+     "translation": [
+      4.0722,
+      -0.0047,
+      0.0
+     ]
+    },
+    "name": "torso_spine_01",
+    "owner": "spine_01",
+    "radius_cm": 25.36,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     9.848,
+     84.204
+    ],
+    "b_cs": [
+     0.0,
+     17.783,
+     85.439
+    ],
+    "local": {
+     "length_cm": 8.03,
+     "radius_cm": 37.93,
+     "rotation_xyzw": [
+      0.5,
+      -0.5,
+      0.5,
+      -0.5
+     ],
+     "translation": [
+      4.0154,
+      0.0,
+      0.0
+     ]
+    },
+    "name": "torso_spine_03",
+    "owner": "spine_03",
+    "radius_cm": 37.93,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     21.353,
+     31.788,
+     65.682
+    ],
+    "b_cs": [
+     23.252,
+     36.817,
+     51.271
+    ],
+    "local": {
+     "length_cm": 15.38,
+     "radius_cm": 5.79,
+     "rotation_xyzw": [
+      -0.533274,
+      -0.464338,
+      -0.533265,
+      -0.464367
+     ],
+     "translation": [
+      7.691,
+      -0.0,
+      -0.0001
+     ]
+    },
+    "name": "upperarm_l",
+    "owner": "upperarm_l",
+    "radius_cm": 5.79,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     23.252,
+     36.817,
+     51.271
+    ],
+    "b_cs": [
+     23.326,
+     46.056,
+     45.441
+    ],
+    "local": {
+     "length_cm": 10.92,
+     "radius_cm": 4.03,
+     "rotation_xyzw": [
+      0.545634,
+      0.451647,
+      0.54236,
+      0.451822
+     ],
+     "translation": [
+      5.4622,
+      -0.0175,
+      -0.0187
+     ]
+    },
+    "name": "lowerarm_l",
+    "owner": "lowerarm_l",
+    "radius_cm": 4.03,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     19.397,
+     -12.435,
+     92.318
+    ],
+    "b_cs": [
+     30.729,
+     14.141,
+     44.99
+    ],
+    "local": {
+     "length_cm": 55.45,
+     "radius_cm": 17.5,
+     "rotation_xyzw": [
+      -0.422215,
+      -0.567215,
+      0.408164,
+      0.577412
+     ],
+     "translation": [
+      -27.716,
+      0.681,
+      0.0003
+     ]
+    },
+    "name": "thigh_l",
+    "owner": "thigh_l",
+    "radius_cm": 17.5,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     30.729,
+     14.141,
+     44.99
+    ],
+    "b_cs": [
+     25.024,
+     -2.029,
+     10.289
+    ],
+    "local": {
+     "length_cm": 38.71,
+     "radius_cm": 17.89,
+     "rotation_xyzw": [
+      0.522539,
+      0.476397,
+      -0.271128,
+      -0.65306
+     ],
+     "translation": [
+      -17.5261,
+      8.2095,
+      0.0003
+     ]
+    },
+    "name": "calf_l",
+    "owner": "calf_l",
+    "radius_cm": 17.89,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -21.353,
+     31.788,
+     65.682
+    ],
+    "b_cs": [
+     -23.252,
+     36.817,
+     51.271
+    ],
+    "local": {
+     "length_cm": 15.38,
+     "radius_cm": 5.79,
+     "rotation_xyzw": [
+      0.533265,
+      -0.464367,
+      -0.533274,
+      0.464338
+     ],
+     "translation": [
+      -7.691,
+      0.0,
+      0.0002
+     ]
+    },
+    "name": "upperarm_r",
+    "owner": "upperarm_r",
+    "radius_cm": 5.79,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -23.252,
+     36.817,
+     51.271
+    ],
+    "b_cs": [
+     -23.326,
+     46.056,
+     45.441
+    ],
+    "local": {
+     "length_cm": 10.92,
+     "radius_cm": 4.03,
+     "rotation_xyzw": [
+      -0.54236,
+      0.451822,
+      0.545634,
+      -0.451647
+     ],
+     "translation": [
+      -5.4622,
+      0.0175,
+      0.0187
+     ]
+    },
+    "name": "lowerarm_r",
+    "owner": "lowerarm_r",
+    "radius_cm": 4.03,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -19.397,
+     -12.435,
+     92.318
+    ],
+    "b_cs": [
+     -30.729,
+     14.141,
+     44.99
+    ],
+    "local": {
+     "length_cm": 55.45,
+     "radius_cm": 17.5,
+     "rotation_xyzw": [
+      -0.408164,
+      0.577412,
+      -0.422215,
+      0.567215
+     ],
+     "translation": [
+      27.7162,
+      -0.6809,
+      -0.0003
+     ]
+    },
+    "name": "thigh_r",
+    "owner": "thigh_r",
+    "radius_cm": 17.5,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -30.729,
+     14.141,
+     44.99
+    ],
+    "b_cs": [
+     -25.024,
+     -2.029,
+     10.289
+    ],
+    "local": {
+     "length_cm": 38.71,
+     "radius_cm": 17.89,
+     "rotation_xyzw": [
+      0.271128,
+      -0.65306,
+      0.522539,
+      -0.476397
+     ],
+     "translation": [
+      17.526,
+      -8.2094,
+      -0.0003
+     ]
+    },
+    "name": "calf_r",
+    "owner": "calf_r",
+    "radius_cm": 17.89,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     -0.369,
+     65.037,
+     82.45
+    ],
+    "b_cs": [
+     -0.369,
+     65.037,
+     82.45
+    ],
+    "local": {
+     "length_cm": 0.0,
+     "radius_cm": 44.27,
+     "rotation_xyzw": [
+      0.021396,
+      -0.706783,
+      -0.021396,
+      -0.706783
+     ],
+     "translation": [
+      -6.46,
+      40.4227,
+      0.369
+     ]
+    },
+    "name": "head",
+    "owner": "head",
+    "radius_cm": 44.27,
+    "role": "body",
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     1.1,
+     83.129
+    ],
+    "b_cs": [
+     0.0,
+     9.848,
+     84.204
+    ],
+    "for_chain": "tail_01",
+    "local": {
+     "length_cm": 8.81,
+     "radius_cm": 38.37,
+     "rotation_xyzw": [
+      -0.494829,
+      0.505119,
+      -0.505119,
+      0.494829
+     ],
+     "translation": [
+      4.4058,
+      -0.0907,
+      0.0
+     ]
+    },
+    "name": "rest_tail_01_torso_spine_02",
+    "owner": "spine_02",
+    "radius_cm": 38.37,
+    "role": "rest",
+    "shrunk_from_cm": 40.59,
+    "type": "capsule"
+   },
+   {
+    "a_cs": [
+     0.0,
+     1.1,
+     83.129
+    ],
+    "b_cs": [
+     0.0,
+     9.848,
+     84.204
+    ],
+    "for_chain": "tail_armor_01",
+    "local": {
+     "length_cm": 8.81,
+     "radius_cm": 36.64,
+     "rotation_xyzw": [
+      -0.494829,
+      0.505119,
+      -0.505119,
+      0.494829
+     ],
+     "translation": [
+      4.4058,
+      -0.0907,
+      0.0
+     ]
+    },
+    "name": "rest_tail_armor_01_torso_spine_02",
+    "owner": "spine_02",
+    "radius_cm": 36.64,
+    "role": "rest",
+    "shrunk_from_cm": 40.59,
+    "type": "capsule"
+   }
+  ]
+ },
+ "other_bodies": [
+  "Goblin_pelvis"
+ ],
+ "override_count": 0,
+ "overrides": {},
+ "primary": {
+  "mesh": "/Game/ParagonIggyScorch/Characters/Heroes/IggyScorch/Meshes/IggyScorch",
+  "meshes_under_root": 6,
+  "rule": "skeleton targeted by 1 AnimBP(s), 196 sequence(s); shallowest of 6 mesh(es) on it",
+  "skeleton": "/Game/ParagonIggyScorch/Characters/Heroes/IggyScorch/Meshes/IggyScorch_Skeleton"
+ },
+ "reasons": [
+  "other bodies in the rig (reported, not classified): Goblin_pelvis",
+  "rest shape skipped for tail_01 on hips (kept the original): it rests 33.2 cm from the axis (fitted 89.5)",
+  "rest shape skipped for tail_armor_01 on hips (kept the original): it rests 28.0 cm from the axis (fitted 89.5)"
+ ],
+ "rig": "ParagonIggyScorch",
+ "roles": {
+  "ball_l": "ball_l",
+  "ball_r": "ball_r",
+  "calf_l": "calf_l",
+  "calf_r": "calf_r",
+  "clavicle_l": "clavicle_l",
+  "clavicle_r": "clavicle_r",
+  "foot_l": "foot_l",
+  "foot_r": "foot_r",
+  "hand_l": "hand_l",
+  "hand_r": "hand_r",
+  "head": "head",
+  "lowerarm_l": "lowerarm_l",
+  "lowerarm_r": "lowerarm_r",
+  "neck": "neck_01",
+  "pelvis": "pelvis",
+  "spine": [
+   "spine_01",
+   "spine_02",
+   "spine_03"
+  ],
+  "thigh_l": "thigh_l",
+  "thigh_r": "thigh_r",
+  "upperarm_l": "upperarm_l",
+  "upperarm_r": "upperarm_r"
+ },
+ "roles_unresolved": [],
+ "root": "/Game/ParagonIggyScorch",
+ "scale": {
+  "height_cm": 212.5,
+  "ok": true
+ },
+ "schema": 1,
+ "single_bone_flaps": [
+  {
+   "bone": "back_pack",
+   "preset": null,
+   "verts": 546
+  },
+  {
+   "bone": "muscle_belly",
+   "preset": null,
+   "verts": 307
+  },
+  {
+   "bone": "muscle_thigh_l",
+   "preset": null,
+   "verts": 158
+  },
+  {
+   "bone": "muscle_thigh_r",
+   "preset": null,
+   "verts": 158
+  }
+ ],
+ "skeleton": {
+  "bones": 198,
+  "weighted_bones": 169
+ },
+ "status": "ok",
+ "stock": {
+  "anim_blueprints": [
+   "/Game/ParagonIggyScorch/Characters/Heroes/IggyScorch/IggyScorch_AnimBP"
+  ],
+  "animbp_nodes": {
+   "AnimGraphNode_ApplyAdditive": 1,
+   "AnimGraphNode_BlendListByBool": 1,
+   "AnimGraphNode_BlendSpacePlayer": 1,
+   "AnimGraphNode_ComponentToLocalSpace": 1,
+   "AnimGraphNode_LayeredBoneBlend": 1,
+   "AnimGraphNode_LegIK": 1,
+   "AnimGraphNode_LocalToComponentSpace": 1,
+   "AnimGraphNode_Root": 1,
+   "AnimGraphNode_RotationOffsetBlendSpace": 1,
+   "AnimGraphNode_SaveCachedPose": 4,
+   "AnimGraphNode_SequencePlayer": 5,
+   "AnimGraphNode_Slot": 1,
+   "AnimGraphNode_StateMachine": 3,
+   "AnimGraphNode_StateResult": 8,
+   "AnimGraphNode_TransitionResult": 8,
+   "AnimGraphNode_UseCachedPose": 7,
+   "AnimStateEntryNode": 3,
+   "AnimStateNode": 8,
+   "AnimStateTransitionNode": 8,
+   "EdGraphNode_Comment": 4,
+   "K2Node_CallFunction": 4,
+   "K2Node_CommutativeAssociativeBinaryOperator": 2,
+   "K2Node_VariableGet": 10
+  },
+  "audit_failed": [],
+  "clothing_assets": [],
+  "features": {
+   "aim_offset": true,
+   "anim_dynamics": false,
+   "blend_space": true,
+   "control_rig": false,
+   "foot_placement": false,
+   "leg_ik": true,
+   "look_at": false,
+   "rigid_body": false,
+   "spring_bone": false,
+   "state_machine": true,
+   "two_bone_ik": false
+  },
+  "motion_sampled_from": [
+   "/Game/ParagonIggyScorch/Characters/Heroes/IggyScorch/Animations/AimOffset/IggyScorch_Locomotion_AO_CC",
+   "/Game/ParagonIggyScorch/Characters/Heroes/IggyScorch/Animations/AimOffset/IggyScorch_Locomotion_AO_Left_180",
+   "/Game/ParagonIggyScorch/Characters/Heroes/IggyScorch/Animations/AimOffset/IggyScorch_Locomotion_AO_Left_90",
+   "/Game/ParagonIggyScorch/Characters/Heroes/IggyScorch/Animations/AimOffset/IggyScorch_Locomotion_AO_Right_180",
+   "/Game/ParagonIggyScorch/Characters/Heroes/IggyScorch/Animations/AimOffset/IggyScorch_Locomotion_AO_Right_90",
+   "/Game/ParagonIggyScorch/Characters/Heroes/IggyScorch/Animations/IggyScorch_Locomotion_Noise_Additive"
+  ],
+  "physics_asset": "/Game/ParagonIggyScorch/Characters/Heroes/IggyScorch/Meshes/IggyScorch_PhysicsAsset",
+  "physics_constraints": 4,
+  "post_process_abp": null,
+  "sequences": 196
+ }
+}

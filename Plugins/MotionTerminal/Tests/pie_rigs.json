@@ -1,0 +1,8 @@
+{
+	"schemaVersion": 2,
+	"rigs": [
+		{ "rig": "Manny",    "map": "/Game/MT/Lvl_MT_Test",                 "footIKNode": true,  "turnInPlace": true,  "aimOffset": true,  "handIK": true,  "footIKGate": true,  "localOnly": false },
+		{ "rig": "Quinn",    "map": "/Game/MT/Lvl_MT_Test_Quinn",           "footIKNode": true,  "turnInPlace": true,  "aimOffset": true,  "handIK": true,  "footIKGate": true,  "localOnly": false },
+		{ "rig": "Khaimera", "map": "/Game/MT/Khaimera/Lvl_MT_Test_Khaimera", "footIKNode": false, "turnInPlace": true,  "aimOffset": true,  "handIK": false, "footIKGate": false, "localOnly": true }
+	]
+}

@@ -1,0 +1,32 @@
+# Independent readback fixture — MotionTerminal.AnimGraphTools.ReadAnimGraph
+# Source asset: /Game/Spike/ABP_Spike (machine, states, assets, blend chain).
+# Generated over MCP once ABP_Spike existed.
+#
+# Our introspection tool independently confirms the graph: machine + states +
+# correct assets (incl. the BlendSpace) + transition + the
+# LayeredBoneBlend / Slot / ControlRig chain. Verbatim tool output below.
+
+AnimBlueprint: /Game/Spike/ABP_Spike.ABP_Spike
+TargetSkeleton: /Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin
+AnimGraph:
+  - [AnimGraphNode_Root] "Output Pose"
+  - [AnimGraphNode_StateMachine] "Locomotion"
+    graph "Locomotion":
+      - [AnimStateEntryNode] "Locomotion"
+      - [AnimStateNode] "Idle"
+        graph "Idle":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_SequencePlayer] "Sequence Player 'MM_Idle'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/MM_Idle.MM_Idle
+      - [AnimStateNode] "Locomotion"
+        graph "Locomotion":
+          - [AnimGraphNode_StateResult] "Output Animation Pose"
+          - [AnimGraphNode_BlendSpacePlayer] "Blendspace Player 'BS_Idle_Walk_Run'"
+              asset: /Game/Characters/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run.BS_Idle_Walk_Run
+      - [AnimStateTransitionNode] "Idle to Locomotion"
+          Idle -> Locomotion
+        graph "Transition":
+          - [AnimGraphNode_TransitionResult] "Result"
+  - [AnimGraphNode_LayeredBoneBlend] "Layered blend per bone"
+  - [AnimGraphNode_Slot] "Slot 'UpperBody'"
+  - [AnimGraphNode_ControlRig] "Control Rig"

@@ -1,0 +1,89 @@
+{
+ "anim_nodes": {
+  "/Script/AnimGraph.AnimGraphNode_ComponentToLocalSpace": [
+   "ComponentPose"
+  ],
+  "/Script/AnimGraph.AnimGraphNode_CopyBone": [
+   "ComponentPose",
+   "ControlSpace",
+   "SourceBone",
+   "SourceBone.BoneName",
+   "TargetBone",
+   "TargetBone.BoneName",
+   "bCopyRotation",
+   "bCopyTranslation"
+  ],
+  "/Script/AnimGraph.AnimGraphNode_LayeredBoneBlend": [
+   "BasePose",
+   "BlendPoses[]",
+   "CurveBlendOption",
+   "LayerSetup",
+   "LayerSetup[]",
+   "LayerSetup[].BranchFilters",
+   "LayerSetup[].BranchFilters[]",
+   "LayerSetup[].BranchFilters[].BlendDepth",
+   "LayerSetup[].BranchFilters[].BoneName"
+  ],
+  "/Script/AnimGraph.AnimGraphNode_LegIK": [
+   "ComponentPose",
+   "LegsDefinition",
+   "LegsDefinition[]",
+   "LegsDefinition[].FKFootBone",
+   "LegsDefinition[].FKFootBone.BoneName",
+   "LegsDefinition[].IKFootBone",
+   "LegsDefinition[].IKFootBone.BoneName",
+   "LegsDefinition[].NumBonesInLimb",
+   "LegsDefinition[].bEnableKneeTwistCorrection"
+  ],
+  "/Script/AnimGraph.AnimGraphNode_LinkedInputPose": [],
+  "/Script/AnimGraph.AnimGraphNode_LocalToComponentSpace": [
+   "LocalPose"
+  ],
+  "/Script/AnimGraph.AnimGraphNode_SequenceEvaluator": [
+   "Sequence"
+  ],
+  "/Script/ControlRigDeveloper.AnimGraphNode_ControlRig": [
+   "ControlRigAssetReference",
+   "ControlRigAssetReference.BlueprintRigClass",
+   "ControlRigAssetReference.ControlRigAsset",
+   "Source"
+  ],
+  "/Script/PhysicsControlUncookedOnly.AnimGraphNode_RigidBodyWithControl": [
+   "Alpha",
+   "CharacterSetupData.DefaultBodyModifierData",
+   "CharacterSetupData.DefaultBodyModifierData.GravityMultiplier",
+   "CharacterSetupData.DefaultBodyModifierData.MovementType",
+   "CharacterSetupData.DefaultParentSpaceControlData",
+   "CharacterSetupData.DefaultParentSpaceControlData.AngularDampingRatio",
+   "CharacterSetupData.DefaultParentSpaceControlData.AngularStrength",
+   "CharacterSetupData.DefaultParentSpaceControlData.LinearStrength",
+   "CharacterSetupData.DefaultParentSpaceControlData.bDisableCollision",
+   "CharacterSetupData.DefaultParentSpaceControlData.bEnabled",
+   "CharacterSetupData.DefaultWorldSpaceControlData",
+   "CharacterSetupData.DefaultWorldSpaceControlData.AngularDampingRatio",
+   "CharacterSetupData.DefaultWorldSpaceControlData.AngularStrength",
+   "CharacterSetupData.DefaultWorldSpaceControlData.LinearDampingRatio",
+   "CharacterSetupData.DefaultWorldSpaceControlData.LinearStrength",
+   "CharacterSetupData.DefaultWorldSpaceControlData.bDisableCollision",
+   "CharacterSetupData.DefaultWorldSpaceControlData.bEnabled",
+   "CharacterSetupData.LimbSetupData",
+   "CharacterSetupData.LimbSetupData[]",
+   "CharacterSetupData.LimbSetupData[].LimbName",
+   "CharacterSetupData.LimbSetupData[].StartBone",
+   "CharacterSetupData.LimbSetupData[].bCreateBodyModifiers",
+   "CharacterSetupData.LimbSetupData[].bCreateParentSpaceControls",
+   "CharacterSetupData.LimbSetupData[].bCreateWorldSpaceControls",
+   "CharacterSetupData.LimbSetupData[].bIncludeParentBone",
+   "ComponentPose",
+   "InitialControlAndBodyModifierUpdates",
+   "InitialControlAndBodyModifierUpdates.ControlMultiplierParameters",
+   "InitialControlAndBodyModifierUpdates.ControlMultiplierParameters[]",
+   "InitialControlAndBodyModifierUpdates.ControlMultiplierParameters[].Data",
+   "InitialControlAndBodyModifierUpdates.ControlMultiplierParameters[].Data.AngularStrengthMultiplier",
+   "InitialControlAndBodyModifierUpdates.ControlMultiplierParameters[].Name",
+   "OverridePhysicsAsset",
+   "bEnableControls",
+   "bEnableWorldGeometry"
+  ]
+ }
+}

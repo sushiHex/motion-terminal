@@ -1,0 +1,26 @@
+# Live PIE introspection evidence — MotionTerminal.AnimDebugTools
+# PIE actor: BP_ThirdPersonCharacter_C_0 (ABP_Unarmed), standing idle. Captured over MCP.
+# Proves Mechanisms B (machine/state weights), C (montage/slot), and A (per-node AbsoluteWeight
+# tree via the GatherDebugData trampoline) all work live.
+=== GetAnimDebugState (Mechanism B + C) ===
+AnimInstance: /Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed.ABP_Unarmed_C
+machines: 2
+machine 'Main States' (index 2, weight 1.000):
+  state 'Locomotion' weight 1.000
+machine 'Locomotion' (index 21, weight 1.000):
+  state 'Idle' weight 1.000
+montages: none
+
+=== GetNodeWeights (Mechanism A — per-node AbsoluteWeight tree, trampoline-unlocked) ===
+AnimInstance: /Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed.ABP_Unarmed_C
+nodes: 10
+AnimNode_Root<W:100.0%>  (weight 1.000)
+AnimNode_ControlRig<W:100.0%> (CR_Mannequin_FootIK_C) (weight 1.000)
+AnimNode_Slot<W:100.0%> (Slot Name: 'DefaultSlot' Weight:0.0%) (weight 1.000)
+AnimNode_StateMachine<W:100.0%> (Main States->Locomotion) (weight 1.000)
+  AnimNode_Root<W:100.0%> (State: Locomotion) (weight 1.000)
+  AnimNode_UseCachedPose<W:100.0%> Locomotion: (weight 1.000)
+AnimNode_SaveCachedPose<W:100.0%> Locomotion: (weight 1.000)
+AnimNode_StateMachine<W:100.0%> (Locomotion->Idle) (weight 1.000)
+  AnimNode_Root<W:100.0%> (State: Idle) (weight 1.000)
+  AnimNode_SequencePlayerBase<W:100.0%> ('MM_Idle' Play Time: 5.052) (weight 1.000)

@@ -1,0 +1,12 @@
+{
+	"schemaVersion": 1,
+	"clips": [
+		{ "clip": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd", "bone": "foot_r",   "minRotVarianceDeg": 5.0, "localOnly": false },
+		{ "clip": "/Game/MT/Khaimera/Retargeted/Khai_MM_Idle",                          "bone": "hand_r",   "minRotVarianceDeg": 0.7, "localOnly": true },
+		{ "clip": "/Game/MT/Khaimera/Retargeted/Khai_MF_Unarmed_Walk_Fwd",              "bone": "foot_r",   "minRotVarianceDeg": 5.0, "localOnly": true },
+		{ "clip": "/Game/MT/Khaimera/Retargeted/Khai_MF_Unarmed_Jog_Fwd",               "bone": "foot_r",   "minRotVarianceDeg": 5.0, "localOnly": true },
+		{ "clip": "/Game/MT/Khaimera/Retargeted/Khai_MM_Jump",                          "bone": "foot_r",   "minRotVarianceDeg": 1.0, "localOnly": true },
+		{ "clip": "/Game/MT/Khaimera/Retargeted/Khai_MM_Fall_Loop",                     "bone": "foot_r",   "minRotVarianceDeg": 0.5, "localOnly": true },
+		{ "clip": "/Game/MT/Khaimera/Retargeted/Khai_MM_Land",                          "bone": "foot_r",   "minRotVarianceDeg": 1.0, "localOnly": true }
+	]
+}

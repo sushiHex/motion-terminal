@@ -1,0 +1,259 @@
+{
+ "chains": [],
+ "chains_unclassified": [],
+ "colliders": {
+  "chain_half_width_cm": {},
+  "chains": {},
+  "fitted": {
+   "calf_l": {
+    "radius_cm": 7.01,
+    "radius_p50_cm": 3.77,
+    "samples": 514
+   },
+   "calf_r": {
+    "radius_cm": 7.01,
+    "radius_p50_cm": 3.77,
+    "samples": 514
+   },
+   "hips": {
+    "radius_cm": 17.97,
+    "radius_p50_cm": 12.24,
+    "samples": 723
+   },
+   "lowerarm_l": {
+    "radius_cm": 4.2,
+    "radius_p50_cm": 3.22,
+    "samples": 342
+   },
+   "lowerarm_r": {
+    "radius_cm": 4.2,
+    "radius_p50_cm": 3.22,
+    "samples": 342
+   },
+   "neck": {
+    "radius_cm": 8.48,
+    "radius_p50_cm": 6.8,
+    "samples": 2513
+   },
+   "thigh_l": {
+    "radius_cm": 9.81,
+    "radius_p50_cm": 7.89,
+    "samples": 524
+   },
+   "thigh_r": {
+    "radius_cm": 9.81,
+    "radius_p50_cm": 7.89,
+    "samples": 524
+   },
+   "torso_spine_01": {
+    "radius_cm": 7.9,
+    "radius_p50_cm": 7.83,
+    "samples": 17
+   },
+   "torso_spine_02": {
+    "radius_cm": null,
+    "radius_p50_cm": null,
+    "samples": 0
+   },
+   "torso_spine_03": {
+    "radius_cm": 16.17,
+    "radius_p50_cm": 12.48,
+    "samples": 4972
+   },
+   "upperarm_l": {
+    "radius_cm": 4.66,
+    "radius_p50_cm": 4.23,
+    "samples": 1146
+   },
+   "upperarm_r": {
+    "radius_cm": 4.66,
+    "radius_p50_cm": 4.23,
+    "samples": 1146
+   }
+  },
+  "margin_cm": 1.0,
+  "shapes": []
+ },
+ "other_bodies": [],
+ "override_count": 0,
+ "overrides": {},
+ "primary": {
+  "mesh": "/Game/ParagonCountess/Characters/Heroes/Countess/Meshes/SM_Countess",
+  "meshes_under_root": 5,
+  "rule": "skeleton targeted by 1 AnimBP(s), 234 sequence(s); shallowest of 5 mesh(es) on it",
+  "skeleton": "/Game/ParagonCountess/Characters/Heroes/Countess/Meshes/S_Countess_Skeleton"
+ },
+ "reasons": [],
+ "rig": "ParagonCountess",
+ "roles": {
+  "ball_l": "ball_l",
+  "ball_r": "ball_r",
+  "calf_l": "calf_l",
+  "calf_r": "calf_r",
+  "clavicle_l": "clavicle_l",
+  "clavicle_r": "clavicle_r",
+  "foot_l": "foot_l",
+  "foot_r": "foot_r",
+  "hand_l": "hand_l",
+  "hand_r": "hand_r",
+  "head": "head",
+  "lowerarm_l": "lowerarm_l",
+  "lowerarm_r": "lowerarm_r",
+  "neck": "neck_01",
+  "pelvis": "pelvis",
+  "spine": [
+   "spine_01",
+   "spine_02",
+   "spine_03"
+  ],
+  "thigh_l": "thigh_l",
+  "thigh_r": "thigh_r",
+  "upperarm_l": "upperarm_l",
+  "upperarm_r": "upperarm_r"
+ },
+ "roles_unresolved": [],
+ "root": "/Game/ParagonCountess",
+ "scale": {
+  "height_cm": 180.8,
+  "ok": true
+ },
+ "schema": 1,
+ "single_bone_flaps": [
+  {
+   "bone": "butt_tail_l",
+   "preset": "tail",
+   "verts": 56
+  },
+  {
+   "bone": "butt_tail_r",
+   "preset": "tail",
+   "verts": 54
+  },
+  {
+   "bone": "hip_flap_bk_l",
+   "preset": null,
+   "verts": 340
+  },
+  {
+   "bone": "hip_flap_bk_r",
+   "preset": null,
+   "verts": 340
+  },
+  {
+   "bone": "hip_flap_fr_l",
+   "preset": null,
+   "verts": 316
+  },
+  {
+   "bone": "hip_flap_fr_r",
+   "preset": null,
+   "verts": 316
+  },
+  {
+   "bone": "breast_l",
+   "preset": null,
+   "verts": 158
+  },
+  {
+   "bone": "breast_r",
+   "preset": null,
+   "verts": 158
+  },
+  {
+   "bone": "holster_tail_l",
+   "preset": "tail",
+   "verts": 48
+  },
+  {
+   "bone": "holster_tail_r",
+   "preset": "tail",
+   "verts": 48
+  },
+  {
+   "bone": "sheath_l",
+   "preset": null,
+   "verts": 820
+  },
+  {
+   "bone": "sheath_r",
+   "preset": null,
+   "verts": 820
+  },
+  {
+   "bone": "foot_tail_l",
+   "preset": "tail",
+   "verts": 143
+  },
+  {
+   "bone": "foot_tail_r",
+   "preset": "tail",
+   "verts": 143
+  }
+ ],
+ "skeleton": {
+  "bones": 126,
+  "weighted_bones": 113
+ },
+ "status": "ok",
+ "stock": {
+  "anim_blueprints": [
+   "/Game/ParagonCountess/Characters/Heroes/Countess/Countess_AnimBlueprint"
+  ],
+  "animbp_nodes": {
+   "AnimGraphNode_ApplyAdditive": 1,
+   "AnimGraphNode_BlendListByBool": 1,
+   "AnimGraphNode_BlendSpacePlayer": 1,
+   "AnimGraphNode_ComponentToLocalSpace": 1,
+   "AnimGraphNode_LayeredBoneBlend": 1,
+   "AnimGraphNode_LegIK": 1,
+   "AnimGraphNode_LocalToComponentSpace": 1,
+   "AnimGraphNode_Root": 1,
+   "AnimGraphNode_RotationOffsetBlendSpace": 1,
+   "AnimGraphNode_SaveCachedPose": 4,
+   "AnimGraphNode_SequencePlayer": 7,
+   "AnimGraphNode_Slot": 1,
+   "AnimGraphNode_StateMachine": 3,
+   "AnimGraphNode_StateResult": 10,
+   "AnimGraphNode_TransitionResult": 11,
+   "AnimGraphNode_UseCachedPose": 7,
+   "AnimStateEntryNode": 3,
+   "AnimStateNode": 10,
+   "AnimStateTransitionNode": 11,
+   "EdGraphNode_Comment": 4,
+   "K2Node_CallFunction": 5,
+   "K2Node_CommutativeAssociativeBinaryOperator": 3,
+   "K2Node_VariableGet": 13
+  },
+  "audit_failed": [],
+  "clothing_assets": [
+   "/Game/ParagonCountess/Characters/Heroes/Countess/Meshes/SM_Countess",
+   "/Game/ParagonCountess/Characters/Heroes/Countess/Meshes/SM_Countess",
+   "/Game/ParagonCountess/Characters/Heroes/Countess/Meshes/SM_Countess"
+  ],
+  "features": {
+   "aim_offset": true,
+   "anim_dynamics": false,
+   "blend_space": true,
+   "control_rig": false,
+   "foot_placement": false,
+   "leg_ik": true,
+   "look_at": false,
+   "rigid_body": false,
+   "spring_bone": false,
+   "state_machine": true,
+   "two_bone_ik": false
+  },
+  "motion_sampled_from": [
+   "/Game/ParagonCountess/Characters/Heroes/Countess/Animations/Ability_E_Jog_Fwd",
+   "/Game/ParagonCountess/Characters/Heroes/Countess/Animations/Ability_E_Jog_Fwd_MSA",
+   "/Game/ParagonCountess/Characters/Heroes/Countess/Animations/Ability_Q_Jog_Fwd",
+   "/Game/ParagonCountess/Characters/Heroes/Countess/Animations/Ability_Q_Jog_Fwd_MSA",
+   "/Game/ParagonCountess/Characters/Heroes/Countess/Animations/Ability_R_Jog_Fwd",
+   "/Game/ParagonCountess/Characters/Heroes/Countess/Animations/Ability_R_Jog_Fwd_MSA"
+  ],
+  "physics_asset": "/Game/ParagonCountess/Characters/Heroes/Countess/Meshes/PA_Countess_Phat_Extents",
+  "physics_constraints": 7,
+  "post_process_abp": null,
+  "sequences": 234
+ }
+}
