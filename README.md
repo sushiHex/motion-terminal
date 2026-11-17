@@ -19,6 +19,10 @@
 > tools the engine lacks. No builder vouches for its own work: a separate read, sharing no code with the builder,
 > must match the spec before an asset is saved.
 
+[![Khaimera running with Control Rig dynamics: the render on the left, and the same take with its body colliders and simulated feather and strap chains drawn over it on the right](docs/media/khaimera-dynamics-controls.jpg)](docs/media/khaimera-dynamics-controls.mp4)
+
+<sub>Khaimera's secondary motion, with its colliders and simulated chains drawn over the second take. Click for the clip.</sub>
+
 ## The problem
 
 A studio has one locomotion system and a roster of characters with different skeletons and proportions. Each
