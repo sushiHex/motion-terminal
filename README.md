@@ -19,8 +19,6 @@
 > tools the engine lacks. No builder vouches for its own work: a separate read, sharing no code with the builder,
 > must match the spec before an asset is saved.
 
-![One AnimBP Template driving 46 characters across three bodies, with live budget gates](research/fixtures/army-contact/00_contact_sheet.jpg)
-
 ## The problem
 
 A studio has one locomotion system and a roster of characters with different skeletons and proportions. Each
@@ -38,11 +36,11 @@ a check that passes on a broken rig is worse than none.
 
 | Part | What it does |
 |:--|:--|
-| **One AnimBP Template** | Locomotion state machine, upper-body layered montages, aim offset, off-hand IK and ground-adaptive foot IK. Characters override clips and data, never structure. Ten named variables are the whole gameplay contract. |
+| **One AnimBP Template** | Locomotion state machine, upper-body layered montages, aim offset and off-hand IK. Characters override clips and data, never structure. Ten named variables are the whole gameplay contract. |
 | **Hero onboarding** | `mt.py onboard <Hero>`: IK rig, retargeter, bake, locomotion, in-place clips, pawn, physics, verify. Each stage leaves a record, so a failed run names the stage and `--resume` continues from it. |
 | **Secondary motion** | Control Rig dynamics for hair, cloth and straps, with colliders auto-fitted to the mesh. A per-hero ON/OFF drive is gated on trail, swing, clearance and stability against a stored baseline. |
 | **Verification layer** | A golden-diff of every rig's graph, PIE runtime assertions, live per-node blend weights over MCP, import-scale integrity, and a check that every baked clip actually moves. |
-| **Mocap intake** *(in progress)* | CMU ASF/AMC is read into a canonical skeleton. Each vendor delivery is frozen under a licence gate, and each take is evaluated on labelled foot contacts. When one is rejected, a brief goes back to the vendor, naming the source frames and who owns each fault. The host side is done; Blender export and the editor import and retarget are next. |
+| **Mocap intake** | CMU ASF/AMC is read into a canonical skeleton. Each vendor delivery is frozen under a licence gate, and each take is evaluated on labelled foot contacts. When one is rejected, a brief goes back to the vendor, naming the source frames and who owns each fault. |
 
 The plugin adds six toolsets: AnimGraph read, diff, build and describe; skeleton and blend-space tools; live
 AnimInstance introspection; stat sampling; and FBX import-scale tools. See the [technical guide](docs/guide.md#plugin-tools).
@@ -54,12 +52,7 @@ AnimInstance introspection; stat sampling; and FBX import-scale tools. See the [
 | **Roster** | One Template drives a MetaHuman body (158 cm), Manny and Quinn (180 cm) and Paragon Khaimera (210 cm, 198 bones, via the IK Retargeter). Aurora and Grux pass all onboarding stages on UE 5.9. |
 | **Crowd budget** | 46 instances on one Template across three LOD/URO tiers. Game-thread anim time is 3.6 ms average against a 4.0 ms gate; memory is 4.64 MB per instance against a 6.0 MB gate. |
 | **Off-hand IK** | Hand to rifle foregrip: 10.43 cm with IK off, 1.34 cm with it on, measured in the render (`Plugins/MotionTerminal/Tests/render_evidence.json`). |
-| **Foot IK on a 20° ramp** | Sole clearance L/R: 6.84 / 17.75 cm with the node off, 10.26 / 10.61 cm with it on. |
 | **UE 5.8 to 5.9 upgrade** | Aurora's hair trail dropped by up to 42% on 5.9. After the fix, the gate passes 67 of 67 checks, and every value equals the 5.8 baseline. |
-
-![Aurora on UE 5.9: dynamics off (left) and on (right), from the gated ON/OFF drive](docs/assets/aurora-dynamics-59.jpg)
-
-![Roster lineup, jog pair and the foot-IK A/B on a 20 degree ramp](research/fixtures/roster-contact/00_contact_sheet.jpg)
 
 ## Three lessons
 

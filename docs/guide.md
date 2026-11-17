@@ -212,7 +212,7 @@ The MIT grant does **not** cover the following, because none of it is this proje
   - An IK Rig asset stores a copy of its skeleton's bone names, hierarchy and reference pose. In `IK_Manny` that copy
     is Manny's 89-bone skeleton from Epic's template content, and it remains Epic's under the Unreal Engine EULA.
   - The rig setup authored on top of it (chains, goals, solvers) is this project's.
-- **Images and renders** under `research/fixtures/` and `docs/assets/` that depict Epic content (the UE mannequins,
+- **Images and renders** under `research/fixtures/` that depict Epic content (the UE mannequins,
   Paragon characters, a MetaHuman body). They are shown under Epic's terms for that content.
 - **Rig-derived measurement data:** `HeroProfiles/`, `Plugins/MotionTerminal/Tests/ScaleBaselines/` and
   `Plugins/MotionTerminal/Tests/DynamicsBaselines/`. These are measurements of separately licensed rigs, kept so
